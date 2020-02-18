@@ -1,0 +1,1448 @@
+{
+  "encounteredConstructors": [
+    "SourceFileObject",
+    "Array",
+    "Map",
+    "Object",
+    "NodeObject",
+    "PrivateIdentifierObject",
+    "IdentifierObject"
+  ],
+  "descriptors": [
+    {
+      "ctorId": 0,
+      "ctorName": "SourceFileObject",
+      "kind": 288,
+      "kindName": "SourceFile",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "text: string",
+        "bindDiagnostics: Array<>",
+        "bindSuggestionDiagnostics: undefined",
+        "languageVersion: number",
+        "fileName: string",
+        "languageVariant: number",
+        "isDeclarationFile: boolean",
+        "scriptKind: number",
+        "pragmas: Map<string, ObjectShape<'arguments' | 'range'>> | Map<string, ObjectShape<'arguments' | 'range'>>",
+        "checkJsDirective: ObjectShape<'enabled' | 'end' | 'pos'> | undefined",
+        "referencedFiles: Array<>",
+        "typeReferenceDirectives: Array<>",
+        "libReferenceDirectives: Array<>",
+        "amdDependencies: Array<>",
+        "hasNoDefaultLib: boolean",
+        "statements: Array<CtorAndKindType<NodeObject, ImportDeclaration> | CtorAndKindType<NodeObject, ImportEqualsDeclaration> | CtorAndKindType<NodeObject, ExportDeclaration> | CtorAndKindType<NodeObject, FirstStatement> | CtorAndKindType<NodeObject, FunctionDeclaration> | CtorAndKindType<NodeObject, ForStatement> | CtorAndKindType<NodeObject, LabeledStatement> | CtorAndKindType<NodeObject, ForOfStatement> | CtorAndKindType<NodeObject, WhileStatement> | CtorAndKindType<NodeObject, DoStatement> | CtorAndKindType<NodeObject, ExpressionStatement> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, ClassDeclaration> | CtorAndKindType<NodeObject, TypeAliasDeclaration> | CtorAndKindType<NodeObject, ModuleDeclaration>>",
+        "endOfFileToken: CtorAndKindType<PrivateIdentifierObject, EndOfFileToken>",
+        "externalModuleIndicator: CtorAndKindType<NodeObject, ImportDeclaration> | undefined",
+        "nodeCount: number",
+        "identifierCount: number",
+        "identifiers: Map<string, string> | Map<string, string>",
+        "parseDiagnostics: Array<>"
+      ]
+    },
+    {
+      "key": "arguments,range",
+      "fields": [
+        "arguments: ObjectShape<> | ObjectShape<'no-default-lib'>",
+        "range: ObjectShape<'kind' | 'pos' | 'end' | 'hasTrailingNewLine'>"
+      ]
+    },
+    {
+      "key": "",
+      "fields": []
+    },
+    {
+      "key": "end,hasTrailingNewLine,kind,pos",
+      "fields": [
+        "kind: number",
+        "pos: number",
+        "end: number",
+        "hasTrailingNewLine: boolean"
+      ]
+    },
+    {
+      "key": "enabled,end,pos",
+      "fields": [
+        "enabled: boolean",
+        "end: number",
+        "pos: number"
+      ]
+    },
+    {
+      "ctorId": 1,
+      "ctorName": "NodeObject",
+      "kind": 253,
+      "kindName": "ImportDeclaration",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "decorators: undefined",
+        "modifiers: undefined",
+        "moduleSpecifier: CtorAndKindType<PrivateIdentifierObject, StringLiteral>",
+        "importClause?: CtorAndKindType<NodeObject, ImportClause>"
+      ]
+    },
+    {
+      "ctorId": 3,
+      "ctorName": "PrivateIdentifierObject",
+      "kind": 10,
+      "kindName": "StringLiteral",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "text: string"
+      ]
+    },
+    {
+      "ctorId": 1,
+      "ctorName": "NodeObject",
+      "kind": 254,
+      "kindName": "ImportClause",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "namedBindings?: CtorAndKindType<NodeObject, NamedImports> | CtorAndKindType<NodeObject, NamespaceImport>",
+        "name?: CtorAndKindType<IdentifierObject, Identifier>"
+      ]
+    },
+    {
+      "ctorId": 1,
+      "ctorName": "NodeObject",
+      "kind": 256,
+      "kindName": "NamedImports",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "elements: Array<CtorAndKindType<NodeObject, ImportSpecifier>>"
+      ]
+    },
+    {
+      "ctorId": 1,
+      "ctorName": "NodeObject",
+      "kind": 257,
+      "kindName": "ImportSpecifier",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "name: CtorAndKindType<IdentifierObject, Identifier>"
+      ]
+    },
+    {
+      "ctorId": 2,
+      "ctorName": "IdentifierObject",
+      "kind": 75,
+      "kindName": "Identifier",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "escapedText: string",
+        "originalKeywordKind?: number"
+      ]
+    },
+    {
+      "ctorId": 1,
+      "ctorName": "NodeObject",
+      "kind": 252,
+      "kindName": "ImportEqualsDeclaration",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "decorators: undefined",
+        "modifiers: undefined",
+        "name: CtorAndKindType<IdentifierObject, Identifier>",
+        "moduleReference: CtorAndKindType<NodeObject, ExternalModuleReference>"
+      ]
+    },
+    {
+      "ctorId": 1,
+      "ctorName": "NodeObject",
+      "kind": 263,
+      "kindName": "ExternalModuleReference",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "expression: CtorAndKindType<PrivateIdentifierObject, StringLiteral>"
+      ]
+    },
+    {
+      "ctorId": 1,
+      "ctorName": "NodeObject",
+      "kind": 255,
+      "kindName": "NamespaceImport",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "name: CtorAndKindType<IdentifierObject, Identifier>"
+      ]
+    },
+    {
+      "ctorId": 1,
+      "ctorName": "NodeObject",
+      "kind": 259,
+      "kindName": "ExportDeclaration",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "decorators: undefined",
+        "modifiers: undefined",
+        "exportClause: CtorAndKindType<NodeObject, NamedExports>"
+      ]
+    },
+    {
+      "ctorId": 1,
+      "ctorName": "NodeObject",
+      "kind": 260,
+      "kindName": "NamedExports",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "elements: Array<CtorAndKindType<NodeObject, ExportSpecifier>>"
+      ]
+    },
+    {
+      "ctorId": 1,
+      "ctorName": "NodeObject",
+      "kind": 261,
+      "kindName": "ExportSpecifier",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "name: CtorAndKindType<IdentifierObject, Identifier>"
+      ]
+    },
+    {
+      "ctorId": 1,
+      "ctorName": "NodeObject",
+      "kind": 224,
+      "kindName": "FirstStatement",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "decorators?: undefined",
+        "modifiers?: Array<CtorAndKindType<PrivateIdentifierObject, ExportKeyword> | CtorAndKindType<PrivateIdentifierObject, DeclareKeyword>>",
+        "declarationList: CtorAndKindType<NodeObject, VariableDeclarationList>",
+        "jsDoc?: Array<CtorAndKindType<NodeObject, JSDocComment>>"
+      ]
+    },
+    {
+      "ctorId": 3,
+      "ctorName": "PrivateIdentifierObject",
+      "kind": 88,
+      "kindName": "ExportKeyword",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number"
+      ]
+    },
+    {
+      "ctorId": 1,
+      "ctorName": "NodeObject",
+      "kind": 242,
+      "kindName": "VariableDeclarationList",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "declarations: Array<CtorAndKindType<NodeObject, VariableDeclaration>>"
+      ]
+    },
+    {
+      "ctorId": 1,
+      "ctorName": "NodeObject",
+      "kind": 241,
+      "kindName": "VariableDeclaration",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "name: CtorAndKindType<IdentifierObject, Identifier>",
+        "type: undefined | CtorAndKindType<NodeObject, TypeLiteral> | CtorAndKindType<NodeObject, TypeReference> | CtorAndKindType<NodeObject, TypeQuery> | CtorAndKindType<PrivateIdentifierObject, BooleanKeyword> | CtorAndKindType<PrivateIdentifierObject, StringKeyword> | CtorAndKindType<PrivateIdentifierObject, NumberKeyword> | CtorAndKindType<NodeObject, UnionType> | CtorAndKindType<PrivateIdentifierObject, NeverKeyword> | CtorAndKindType<PrivateIdentifierObject, AnyKeyword> | CtorAndKindType<NodeObject, IntersectionType>",
+        "initializer?: CtorAndKindType<IdentifierObject, Identifier> | CtorAndKindType<PrivateIdentifierObject, FirstLiteralToken> | undefined"
+      ]
+    },
+    {
+      "ctorId": 1,
+      "ctorName": "NodeObject",
+      "kind": 243,
+      "kindName": "FunctionDeclaration",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "decorators?: undefined",
+        "modifiers?: Array<CtorAndKindType<PrivateIdentifierObject, ExportKeyword> | CtorAndKindType<PrivateIdentifierObject, DeclareKeyword>>",
+        "asteriskToken: undefined",
+        "name: CtorAndKindType<IdentifierObject, Identifier>",
+        "typeParameters: undefined | Array<CtorAndKindType<NodeObject, TypeParameter>>",
+        "parameters: Array<CtorAndKindType<NodeObject, Parameter>>",
+        "body: CtorAndKindType<NodeObject, Block> | undefined",
+        "type?: CtorAndKindType<PrivateIdentifierObject, StringKeyword> | CtorAndKindType<NodeObject, TypeReference> | CtorAndKindType<PrivateIdentifierObject, BooleanKeyword> | CtorAndKindType<PrivateIdentifierObject, VoidKeyword> | CtorAndKindType<NodeObject, UnionType> | CtorAndKindType<PrivateIdentifierObject, NumberKeyword>",
+        "jsDoc?: Array<CtorAndKindType<NodeObject, JSDocComment>>"
+      ]
+    },
+    {
+      "ctorId": 1,
+      "ctorName": "NodeObject",
+      "kind": 222,
+      "kindName": "Block",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "statements: Array<CtorAndKindType<NodeObject, BreakStatement> | CtorAndKindType<NodeObject, ExpressionStatement> | CtorAndKindType<NodeObject, IfStatement>>",
+        "multiLine?: boolean"
+      ]
+    },
+    {
+      "ctorId": 1,
+      "ctorName": "NodeObject",
+      "kind": 229,
+      "kindName": "ForStatement",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "initializer: CtorAndKindType<NodeObject, VariableDeclarationList>",
+        "condition: CtorAndKindType<NodeObject, BinaryExpression>",
+        "incrementor: CtorAndKindType<NodeObject, PostfixUnaryExpression>",
+        "statement: CtorAndKindType<NodeObject, ExpressionStatement> | CtorAndKindType<NodeObject, Block>"
+      ]
+    },
+    {
+      "ctorId": 3,
+      "ctorName": "PrivateIdentifierObject",
+      "kind": 8,
+      "kindName": "FirstLiteralToken",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "text: string",
+        "numericLiteralFlags: number"
+      ]
+    },
+    {
+      "ctorId": 1,
+      "ctorName": "NodeObject",
+      "kind": 208,
+      "kindName": "BinaryExpression",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "left: CtorAndKindType<IdentifierObject, Identifier> | CtorAndKindType<NodeObject, FunctionExpression> | CtorAndKindType<NodeObject, BinaryExpression>",
+        "operatorToken: CtorAndKindType<PrivateIdentifierObject, FirstBinaryOperator> | CtorAndKindType<PrivateIdentifierObject, CommaToken> | CtorAndKindType<PrivateIdentifierObject, EqualsEqualsEqualsToken> | CtorAndKindType<PrivateIdentifierObject, FirstAssignment>",
+        "right: CtorAndKindType<PrivateIdentifierObject, FirstLiteralToken> | CtorAndKindType<NodeObject, FunctionExpression>"
+      ]
+    },
+    {
+      "ctorId": 3,
+      "ctorName": "PrivateIdentifierObject",
+      "kind": 29,
+      "kindName": "FirstBinaryOperator",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number"
+      ]
+    },
+    {
+      "ctorId": 1,
+      "ctorName": "NodeObject",
+      "kind": 207,
+      "kindName": "PostfixUnaryExpression",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "operand: CtorAndKindType<IdentifierObject, Identifier>",
+        "operator: number"
+      ]
+    },
+    {
+      "ctorId": 1,
+      "ctorName": "NodeObject",
+      "kind": 225,
+      "kindName": "ExpressionStatement",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "expression: CtorAndKindType<IdentifierObject, Identifier> | CtorAndKindType<NodeObject, ParenthesizedExpression> | CtorAndKindType<NodeObject, BinaryExpression>"
+      ]
+    },
+    {
+      "ctorId": 1,
+      "ctorName": "NodeObject",
+      "kind": 237,
+      "kindName": "LabeledStatement",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "label: CtorAndKindType<IdentifierObject, Identifier>",
+        "statement: CtorAndKindType<NodeObject, ForStatement>"
+      ]
+    },
+    {
+      "ctorId": 1,
+      "ctorName": "NodeObject",
+      "kind": 233,
+      "kindName": "BreakStatement",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "label?: CtorAndKindType<IdentifierObject, Identifier>"
+      ]
+    },
+    {
+      "ctorId": 1,
+      "ctorName": "NodeObject",
+      "kind": 231,
+      "kindName": "ForOfStatement",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "awaitModifier: undefined",
+        "initializer: CtorAndKindType<NodeObject, VariableDeclarationList>",
+        "expression: CtorAndKindType<IdentifierObject, Identifier>",
+        "statement: CtorAndKindType<NodeObject, ExpressionStatement> | CtorAndKindType<NodeObject, Block>"
+      ]
+    },
+    {
+      "ctorId": 1,
+      "ctorName": "NodeObject",
+      "kind": 228,
+      "kindName": "WhileStatement",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "expression: CtorAndKindType<IdentifierObject, Identifier>",
+        "statement: CtorAndKindType<NodeObject, ExpressionStatement> | CtorAndKindType<NodeObject, Block>"
+      ]
+    },
+    {
+      "ctorId": 1,
+      "ctorName": "NodeObject",
+      "kind": 227,
+      "kindName": "DoStatement",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "statement: CtorAndKindType<NodeObject, Block> | CtorAndKindType<NodeObject, ExpressionStatement>",
+        "expression: CtorAndKindType<IdentifierObject, Identifier>"
+      ]
+    },
+    {
+      "ctorId": 3,
+      "ctorName": "PrivateIdentifierObject",
+      "kind": 142,
+      "kindName": "StringKeyword",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number"
+      ]
+    },
+    {
+      "ctorId": 1,
+      "ctorName": "NodeObject",
+      "kind": 155,
+      "kindName": "Parameter",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "decorators?: undefined",
+        "modifiers?: undefined",
+        "dotDotDotToken?: undefined | CtorAndKindType<PrivateIdentifierObject, DotDotDotToken>",
+        "name: CtorAndKindType<IdentifierObject, Identifier> | CtorAndKindType<NodeObject, ObjectBindingPattern>",
+        "questionToken?: undefined | CtorAndKindType<PrivateIdentifierObject, QuestionToken>",
+        "type: undefined | CtorAndKindType<PrivateIdentifierObject, StringKeyword> | CtorAndKindType<NodeObject, TypeReference> | CtorAndKindType<NodeObject, UnionType> | CtorAndKindType<NodeObject, IndexedAccessType> | CtorAndKindType<NodeObject, FunctionType> | CtorAndKindType<PrivateIdentifierObject, NumberKeyword> | CtorAndKindType<PrivateIdentifierObject, AnyKeyword> | CtorAndKindType<NodeObject, ArrayType> | CtorAndKindType<PrivateIdentifierObject, BooleanKeyword> | CtorAndKindType<NodeObject, TypeLiteral> | CtorAndKindType<NodeObject, LiteralType>",
+        "initializer?: undefined"
+      ]
+    },
+    {
+      "ctorId": 1,
+      "ctorName": "NodeObject",
+      "kind": 188,
+      "kindName": "ObjectBindingPattern",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "elements: Array<CtorAndKindType<NodeObject, BindingElement>>"
+      ]
+    },
+    {
+      "ctorId": 1,
+      "ctorName": "NodeObject",
+      "kind": 190,
+      "kindName": "BindingElement",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "dotDotDotToken: undefined",
+        "propertyName?: CtorAndKindType<IdentifierObject, Identifier>",
+        "name: CtorAndKindType<IdentifierObject, Identifier>",
+        "initializer: undefined"
+      ]
+    },
+    {
+      "ctorId": 3,
+      "ctorName": "PrivateIdentifierObject",
+      "kind": 25,
+      "kindName": "DotDotDotToken",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number"
+      ]
+    },
+    {
+      "ctorId": 1,
+      "ctorName": "NodeObject",
+      "kind": 168,
+      "kindName": "TypeReference",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "typeName: CtorAndKindType<IdentifierObject, Identifier>",
+        "typeArguments?: Array<CtorAndKindType<PrivateIdentifierObject, StringKeyword> | CtorAndKindType<PrivateIdentifierObject, NumberKeyword> | CtorAndKindType<PrivateIdentifierObject, AnyKeyword> | CtorAndKindType<NodeObject, TypeReference> | CtorAndKindType<PrivateIdentifierObject, VoidKeyword> | CtorAndKindType<PrivateIdentifierObject, BooleanKeyword> | CtorAndKindType<NodeObject, UnionType> | CtorAndKindType<NodeObject, ArrayType> | CtorAndKindType<NodeObject, IndexedAccessType> | CtorAndKindType<PrivateIdentifierObject, UndefinedKeyword> | CtorAndKindType<NodeObject, TypeOperator>>"
+      ]
+    },
+    {
+      "ctorId": 1,
+      "ctorName": "NodeObject",
+      "kind": 154,
+      "kindName": "TypeParameter",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "name: CtorAndKindType<IdentifierObject, Identifier>",
+        "constraint?: CtorAndKindType<NodeObject, TypeReference> | CtorAndKindType<NodeObject, TypeOperator> | CtorAndKindType<NodeObject, UnionType>",
+        "default?: CtorAndKindType<PrivateIdentifierObject, AnyKeyword> | CtorAndKindType<NodeObject, TypeReference>"
+      ]
+    },
+    {
+      "ctorId": 1,
+      "ctorName": "NodeObject",
+      "kind": 199,
+      "kindName": "ParenthesizedExpression",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "expression: CtorAndKindType<NodeObject, BinaryExpression>"
+      ]
+    },
+    {
+      "ctorId": 1,
+      "ctorName": "NodeObject",
+      "kind": 200,
+      "kindName": "FunctionExpression",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "modifiers: undefined",
+        "asteriskToken: undefined",
+        "name: undefined",
+        "typeParameters: undefined | Array<CtorAndKindType<NodeObject, TypeParameter>>",
+        "parameters: Array<CtorAndKindType<NodeObject, Parameter>>",
+        "body: CtorAndKindType<NodeObject, Block>",
+        "type?: CtorAndKindType<PrivateIdentifierObject, StringKeyword> | CtorAndKindType<NodeObject, TypeReference>"
+      ]
+    },
+    {
+      "ctorId": 3,
+      "ctorName": "PrivateIdentifierObject",
+      "kind": 27,
+      "kindName": "CommaToken",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number"
+      ]
+    },
+    {
+      "ctorId": 1,
+      "ctorName": "NodeObject",
+      "kind": 245,
+      "kindName": "InterfaceDeclaration",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "decorators: undefined",
+        "modifiers: undefined",
+        "name: CtorAndKindType<IdentifierObject, Identifier>",
+        "typeParameters: undefined | Array<CtorAndKindType<NodeObject, TypeParameter>>",
+        "heritageClauses: undefined | Array<CtorAndKindType<NodeObject, HeritageClause>>",
+        "members: Array<CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, IndexSignature> | CtorAndKindType<NodeObject, CallSignature> | CtorAndKindType<NodeObject, MethodSignature>>",
+        "jsDoc?: Array<CtorAndKindType<NodeObject, JSDocComment>>"
+      ]
+    },
+    {
+      "ctorId": 1,
+      "ctorName": "NodeObject",
+      "kind": 277,
+      "kindName": "HeritageClause",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "token: number",
+        "types: Array<CtorAndKindType<NodeObject, ExpressionWithTypeArguments>>"
+      ]
+    },
+    {
+      "ctorId": 1,
+      "ctorName": "NodeObject",
+      "kind": 215,
+      "kindName": "ExpressionWithTypeArguments",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "expression: CtorAndKindType<IdentifierObject, Identifier>",
+        "typeArguments: undefined | Array<CtorAndKindType<NodeObject, TypeReference>>"
+      ]
+    },
+    {
+      "ctorId": 1,
+      "ctorName": "NodeObject",
+      "kind": 244,
+      "kindName": "ClassDeclaration",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "name: CtorAndKindType<IdentifierObject, Identifier>",
+        "typeParameters: undefined",
+        "heritageClauses: Array<CtorAndKindType<NodeObject, HeritageClause>>",
+        "members: Array<>"
+      ]
+    },
+    {
+      "ctorId": 1,
+      "ctorName": "NodeObject",
+      "kind": 226,
+      "kindName": "IfStatement",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "expression: CtorAndKindType<NodeObject, BinaryExpression>",
+        "thenStatement: CtorAndKindType<NodeObject, Block>",
+        "elseStatement: undefined"
+      ]
+    },
+    {
+      "ctorId": 3,
+      "ctorName": "PrivateIdentifierObject",
+      "kind": 36,
+      "kindName": "EqualsEqualsEqualsToken",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number"
+      ]
+    },
+    {
+      "ctorId": 3,
+      "ctorName": "PrivateIdentifierObject",
+      "kind": 62,
+      "kindName": "FirstAssignment",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number"
+      ]
+    },
+    {
+      "ctorId": 3,
+      "ctorName": "PrivateIdentifierObject",
+      "kind": 1,
+      "kindName": "EndOfFileToken",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number"
+      ]
+    },
+    {
+      "key": "no-default-lib",
+      "fields": [
+        "no-default-lib: string"
+      ]
+    },
+    {
+      "ctorId": 1,
+      "ctorName": "NodeObject",
+      "kind": 157,
+      "kindName": "PropertySignature",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "modifiers: undefined | Array<CtorAndKindType<PrivateIdentifierObject, ReadonlyKeyword>>",
+        "name: CtorAndKindType<IdentifierObject, Identifier> | CtorAndKindType<PrivateIdentifierObject, StringLiteral>",
+        "questionToken: undefined | CtorAndKindType<PrivateIdentifierObject, QuestionToken>",
+        "type: CtorAndKindType<PrivateIdentifierObject, StringKeyword> | CtorAndKindType<PrivateIdentifierObject, BooleanKeyword> | CtorAndKindType<NodeObject, UnionType> | CtorAndKindType<PrivateIdentifierObject, NumberKeyword> | CtorAndKindType<NodeObject, ArrayType> | CtorAndKindType<NodeObject, TypeReference> | CtorAndKindType<PrivateIdentifierObject, AnyKeyword> | CtorAndKindType<NodeObject, LiteralType> | CtorAndKindType<PrivateIdentifierObject, UndefinedKeyword> | CtorAndKindType<NodeObject, IntersectionType>",
+        "jsDoc?: Array<CtorAndKindType<NodeObject, JSDocComment>>"
+      ]
+    },
+    {
+      "ctorId": 3,
+      "ctorName": "PrivateIdentifierObject",
+      "kind": 57,
+      "kindName": "QuestionToken",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number"
+      ]
+    },
+    {
+      "ctorId": 3,
+      "ctorName": "PrivateIdentifierObject",
+      "kind": 127,
+      "kindName": "BooleanKeyword",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number"
+      ]
+    },
+    {
+      "ctorId": 1,
+      "ctorName": "NodeObject",
+      "kind": 177,
+      "kindName": "UnionType",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "types: Array<CtorAndKindType<NodeObject, TypeReference> | CtorAndKindType<PrivateIdentifierObject, NumberKeyword> | CtorAndKindType<PrivateIdentifierObject, NullKeyword> | CtorAndKindType<PrivateIdentifierObject, StringKeyword> | CtorAndKindType<PrivateIdentifierObject, UndefinedKeyword> | CtorAndKindType<NodeObject, ArrayType> | CtorAndKindType<NodeObject, LiteralType> | CtorAndKindType<PrivateIdentifierObject, BooleanKeyword> | CtorAndKindType<NodeObject, ParenthesizedType> | CtorAndKindType<NodeObject, TypeLiteral> | CtorAndKindType<NodeObject, IndexedAccessType> | CtorAndKindType<PrivateIdentifierObject, AnyKeyword> | CtorAndKindType<NodeObject, IntersectionType> | CtorAndKindType<PrivateIdentifierObject, VoidKeyword>>"
+      ]
+    },
+    {
+      "ctorId": 3,
+      "ctorName": "PrivateIdentifierObject",
+      "kind": 139,
+      "kindName": "NumberKeyword",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number"
+      ]
+    },
+    {
+      "ctorId": 3,
+      "ctorName": "PrivateIdentifierObject",
+      "kind": 99,
+      "kindName": "NullKeyword",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number"
+      ]
+    },
+    {
+      "ctorId": 1,
+      "ctorName": "NodeObject",
+      "kind": 173,
+      "kindName": "ArrayType",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "elementType: CtorAndKindType<NodeObject, TypeReference> | CtorAndKindType<PrivateIdentifierObject, NumberKeyword> | CtorAndKindType<PrivateIdentifierObject, StringKeyword> | CtorAndKindType<PrivateIdentifierObject, BooleanKeyword> | CtorAndKindType<PrivateIdentifierObject, AnyKeyword> | CtorAndKindType<NodeObject, ParenthesizedType> | CtorAndKindType<NodeObject, ArrayType>"
+      ]
+    },
+    {
+      "ctorId": 3,
+      "ctorName": "PrivateIdentifierObject",
+      "kind": 124,
+      "kindName": "AnyKeyword",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number"
+      ]
+    },
+    {
+      "ctorId": 1,
+      "ctorName": "NodeObject",
+      "kind": 166,
+      "kindName": "IndexSignature",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "modifiers: undefined",
+        "parameters: Array<CtorAndKindType<NodeObject, Parameter>>",
+        "type: CtorAndKindType<NodeObject, UnionType> | CtorAndKindType<NodeObject, TypeReference> | CtorAndKindType<PrivateIdentifierObject, StringKeyword> | CtorAndKindType<PrivateIdentifierObject, AnyKeyword>"
+      ]
+    },
+    {
+      "ctorId": 3,
+      "ctorName": "PrivateIdentifierObject",
+      "kind": 145,
+      "kindName": "UndefinedKeyword",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number"
+      ]
+    },
+    {
+      "ctorId": 1,
+      "ctorName": "NodeObject",
+      "kind": 186,
+      "kindName": "LiteralType",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "literal: CtorAndKindType<PrivateIdentifierObject, StringLiteral> | CtorAndKindType<PrivateIdentifierObject, FirstLiteralToken> | CtorAndKindType<PrivateIdentifierObject, TrueKeyword>"
+      ]
+    },
+    {
+      "ctorId": 1,
+      "ctorName": "NodeObject",
+      "kind": 301,
+      "kindName": "JSDocComment",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, TypeAliasDeclaration> | CtorAndKindType<NodeObject, FirstStatement> | CtorAndKindType<NodeObject, FirstStatement> | CtorAndKindType<NodeObject, FirstStatement> | CtorAndKindType<NodeObject, FirstStatement> | CtorAndKindType<NodeObject, FunctionDeclaration> | CtorAndKindType<NodeObject, FunctionDeclaration> | CtorAndKindType<NodeObject, FunctionDeclaration> | CtorAndKindType<NodeObject, FirstStatement> | CtorAndKindType<NodeObject, FirstStatement> | CtorAndKindType<NodeObject, FirstStatement> | CtorAndKindType<NodeObject, FirstStatement> | CtorAndKindType<NodeObject, FirstStatement> | CtorAndKindType<NodeObject, FirstStatement> | CtorAndKindType<NodeObject, FirstStatement> | CtorAndKindType<NodeObject, FirstStatement> | CtorAndKindType<NodeObject, FirstStatement> | CtorAndKindType<NodeObject, FirstStatement> | CtorAndKindType<NodeObject, FirstStatement> | CtorAndKindType<NodeObject, FirstStatement> | CtorAndKindType<NodeObject, FirstStatement> | CtorAndKindType<NodeObject, FirstStatement> | CtorAndKindType<NodeObject, FirstStatement> | CtorAndKindType<NodeObject, FirstStatement> | CtorAndKindType<NodeObject, FirstStatement> | CtorAndKindType<NodeObject, FirstStatement> | CtorAndKindType<NodeObject, FirstStatement> | CtorAndKindType<NodeObject, FirstStatement> | CtorAndKindType<NodeObject, FirstStatement> | CtorAndKindType<NodeObject, FirstStatement> | CtorAndKindType<NodeObject, FirstStatement> | CtorAndKindType<NodeObject, FirstStatement> | CtorAndKindType<NodeObject, FirstStatement> | CtorAndKindType<NodeObject, FirstStatement> | CtorAndKindType<NodeObject, FirstStatement> | CtorAndKindType<NodeObject, FirstStatement> | CtorAndKindType<NodeObject, FirstStatement> | CtorAndKindType<NodeObject, FirstStatement> | CtorAndKindType<NodeObject, FirstStatement> | CtorAndKindType<NodeObject, FirstStatement> | CtorAndKindType<NodeObject, FirstStatement> | CtorAndKindType<NodeObject, FirstStatement> | CtorAndKindType<NodeObject, FirstStatement> | CtorAndKindType<NodeObject, FirstStatement> | CtorAndKindType<NodeObject, FirstStatement> | CtorAndKindType<NodeObject, FirstStatement> | CtorAndKindType<NodeObject, FirstStatement> | CtorAndKindType<NodeObject, FirstStatement> | CtorAndKindType<NodeObject, FirstStatement> | CtorAndKindType<NodeObject, FirstStatement> | CtorAndKindType<NodeObject, FirstStatement> | CtorAndKindType<NodeObject, FirstStatement> | CtorAndKindType<NodeObject, FirstStatement> | CtorAndKindType<NodeObject, TypeAliasDeclaration>",
+        "kind: number",
+        "tags: undefined | Array<CtorAndKindType<NodeObject, FirstJSDocTagNode> | CtorAndKindType<NodeObject, JSDocParameterTag>>",
+        "comment: string | undefined"
+      ]
+    },
+    {
+      "ctorId": 1,
+      "ctorName": "NodeObject",
+      "kind": 181,
+      "kindName": "ParenthesizedType",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "type: CtorAndKindType<NodeObject, UnionType> | CtorAndKindType<NodeObject, FunctionType>"
+      ]
+    },
+    {
+      "ctorId": 1,
+      "ctorName": "NodeObject",
+      "kind": 164,
+      "kindName": "CallSignature",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "typeParameters: undefined",
+        "parameters: Array<CtorAndKindType<NodeObject, Parameter>>",
+        "type: CtorAndKindType<PrivateIdentifierObject, VoidKeyword> | CtorAndKindType<PrivateIdentifierObject, AnyKeyword> | CtorAndKindType<NodeObject, UnionType> | CtorAndKindType<PrivateIdentifierObject, NumberKeyword>"
+      ]
+    },
+    {
+      "ctorId": 3,
+      "ctorName": "PrivateIdentifierObject",
+      "kind": 109,
+      "kindName": "VoidKeyword",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number"
+      ]
+    },
+    {
+      "ctorId": 1,
+      "ctorName": "NodeObject",
+      "kind": 246,
+      "kindName": "TypeAliasDeclaration",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "decorators: undefined",
+        "modifiers: undefined | Array<CtorAndKindType<PrivateIdentifierObject, DeclareKeyword>>",
+        "name: CtorAndKindType<IdentifierObject, Identifier>",
+        "typeParameters: undefined",
+        "type: CtorAndKindType<NodeObject, UnionType> | CtorAndKindType<NodeObject, TypeReference> | CtorAndKindType<NodeObject, LiteralType> | CtorAndKindType<NodeObject, IntersectionType> | CtorAndKindType<PrivateIdentifierObject, NumberKeyword> | CtorAndKindType<NodeObject, ArrayType> | CtorAndKindType<PrivateIdentifierObject, StringKeyword> | CtorAndKindType<PrivateIdentifierObject, BooleanKeyword>",
+        "jsDoc?: Array<CtorAndKindType<NodeObject, JSDocComment>>"
+      ]
+    },
+    {
+      "ctorId": 1,
+      "ctorName": "NodeObject",
+      "kind": 169,
+      "kindName": "FunctionType",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "typeParameters: undefined",
+        "parameters: Array<CtorAndKindType<NodeObject, Parameter>>",
+        "type: CtorAndKindType<NodeObject, UnionType> | CtorAndKindType<PrivateIdentifierObject, AnyKeyword> | CtorAndKindType<PrivateIdentifierObject, VoidKeyword>"
+      ]
+    },
+    {
+      "ctorId": 1,
+      "ctorName": "NodeObject",
+      "kind": 172,
+      "kindName": "TypeLiteral",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "members: Array<CtorAndKindType<NodeObject, MethodSignature> | CtorAndKindType<NodeObject, PropertySignature> | CtorAndKindType<NodeObject, ConstructSignature>>"
+      ]
+    },
+    {
+      "ctorId": 1,
+      "ctorName": "NodeObject",
+      "kind": 159,
+      "kindName": "MethodSignature",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "modifiers: undefined",
+        "name: CtorAndKindType<IdentifierObject, Identifier>",
+        "questionToken: undefined",
+        "typeParameters: undefined | Array<CtorAndKindType<NodeObject, TypeParameter>>",
+        "parameters: Array<CtorAndKindType<NodeObject, Parameter>>",
+        "type: CtorAndKindType<NodeObject, UnionType> | CtorAndKindType<PrivateIdentifierObject, VoidKeyword> | CtorAndKindType<NodeObject, TypeReference> | CtorAndKindType<NodeObject, ArrayType> | CtorAndKindType<PrivateIdentifierObject, NumberKeyword> | CtorAndKindType<PrivateIdentifierObject, BooleanKeyword> | CtorAndKindType<PrivateIdentifierObject, StringKeyword> | CtorAndKindType<PrivateIdentifierObject, AnyKeyword> | CtorAndKindType<NodeObject, LiteralType> | CtorAndKindType<NodeObject, IndexedAccessType> | CtorAndKindType<NodeObject, TupleType>",
+        "jsDoc?: Array<CtorAndKindType<NodeObject, JSDocComment>>"
+      ]
+    },
+    {
+      "ctorId": 3,
+      "ctorName": "PrivateIdentifierObject",
+      "kind": 137,
+      "kindName": "ReadonlyKeyword",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number"
+      ]
+    },
+    {
+      "ctorId": 3,
+      "ctorName": "PrivateIdentifierObject",
+      "kind": 129,
+      "kindName": "DeclareKeyword",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number"
+      ]
+    },
+    {
+      "ctorId": 1,
+      "ctorName": "NodeObject",
+      "kind": 165,
+      "kindName": "ConstructSignature",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "typeParameters: undefined | Array<CtorAndKindType<NodeObject, TypeParameter>>",
+        "parameters: Array<CtorAndKindType<NodeObject, Parameter>>",
+        "type: CtorAndKindType<NodeObject, TypeReference>"
+      ]
+    },
+    {
+      "ctorId": 1,
+      "ctorName": "NodeObject",
+      "kind": 183,
+      "kindName": "TypeOperator",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "operator: number",
+        "type: CtorAndKindType<NodeObject, TypeReference>"
+      ]
+    },
+    {
+      "ctorId": 1,
+      "ctorName": "NodeObject",
+      "kind": 184,
+      "kindName": "IndexedAccessType",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "objectType: CtorAndKindType<NodeObject, TypeReference>",
+        "indexType: CtorAndKindType<NodeObject, TypeReference>"
+      ]
+    },
+    {
+      "ctorId": 1,
+      "ctorName": "NodeObject",
+      "kind": 304,
+      "kindName": "FirstJSDocTagNode",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "tagName: CtorAndKindType<IdentifierObject, Identifier>",
+        "comment: undefined | string"
+      ]
+    },
+    {
+      "ctorId": 3,
+      "ctorName": "PrivateIdentifierObject",
+      "kind": 105,
+      "kindName": "TrueKeyword",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number"
+      ]
+    },
+    {
+      "ctorId": 1,
+      "ctorName": "NodeObject",
+      "kind": 171,
+      "kindName": "TypeQuery",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "exprName: CtorAndKindType<IdentifierObject, Identifier>"
+      ]
+    },
+    {
+      "ctorId": 1,
+      "ctorName": "NodeObject",
+      "kind": 310,
+      "kindName": "JSDocParameterTag",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "tagName: CtorAndKindType<IdentifierObject, Identifier>",
+        "typeExpression: undefined",
+        "name: CtorAndKindType<IdentifierObject, Identifier>",
+        "isNameFirst: boolean",
+        "isBracketed: boolean",
+        "comment: string"
+      ]
+    },
+    {
+      "ctorId": 1,
+      "ctorName": "NodeObject",
+      "kind": 178,
+      "kindName": "IntersectionType",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "types: Array<CtorAndKindType<NodeObject, TypeReference> | CtorAndKindType<NodeObject, TypeQuery>>"
+      ]
+    },
+    {
+      "ctorId": 1,
+      "ctorName": "NodeObject",
+      "kind": 174,
+      "kindName": "TupleType",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "elementTypes: Array<CtorAndKindType<NodeObject, TypeReference>>"
+      ]
+    },
+    {
+      "ctorId": 1,
+      "ctorName": "NodeObject",
+      "kind": 248,
+      "kindName": "ModuleDeclaration",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "decorators: undefined",
+        "modifiers: Array<CtorAndKindType<PrivateIdentifierObject, DeclareKeyword>>",
+        "name: CtorAndKindType<IdentifierObject, Identifier>",
+        "body: CtorAndKindType<NodeObject, ModuleBlock>"
+      ]
+    },
+    {
+      "ctorId": 1,
+      "ctorName": "NodeObject",
+      "kind": 249,
+      "kindName": "ModuleBlock",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number",
+        "statements: Array<CtorAndKindType<NodeObject, InterfaceDeclaration> | CtorAndKindType<NodeObject, FirstStatement> | CtorAndKindType<NodeObject, TypeAliasDeclaration> | CtorAndKindType<NodeObject, FunctionDeclaration>>"
+      ]
+    },
+    {
+      "ctorId": 3,
+      "ctorName": "PrivateIdentifierObject",
+      "kind": 136,
+      "kindName": "NeverKeyword",
+      "fields": [
+        "pos: number",
+        "end: number",
+        "flags: number",
+        "modifierFlagsCache: number",
+        "transformFlags: number",
+        "parent: undefined",
+        "kind: number"
+      ]
+    }
+  ]
+}
