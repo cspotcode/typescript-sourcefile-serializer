@@ -35,8 +35,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {
           "packageLocation": "./",
           "packageDependencies": [
+            ["@types/lodash", "npm:4.14.149"],
             ["@types/node", "npm:13.7.4"],
             ["@yarnpkg/pnpify", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:2.0.0-rc.18"],
+            ["lodash", "npm:4.17.15"],
             ["ts-node", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:8.6.2"],
             ["typescript", "patch:typescript@npm%3A3.8.2#builtin<compat/typescript>::version=3.8.2&hash=273569"],
             ["typescript-json-schema", "npm:0.42.0"]
@@ -67,6 +69,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-json-schema-npm-7.0.4-e9c65098ca-2.zip/node_modules/@types/json-schema/",
           "packageDependencies": [
             ["@types/json-schema", "npm:7.0.4"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@types/lodash", [
+        ["npm:4.14.149", {
+          "packageLocation": "./.yarn/cache/@types-lodash-npm-4.14.149-d92d0adff6-2.zip/node_modules/@types/lodash/",
+          "packageDependencies": [
+            ["@types/lodash", "npm:4.14.149"]
           ],
           "linkType": "HARD",
         }]
@@ -462,6 +473,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["lodash", [
+        ["npm:4.17.15", {
+          "packageLocation": "./.yarn/cache/lodash-npm-4.17.15-566d9324f7-2.zip/node_modules/lodash/",
+          "packageDependencies": [
+            ["lodash", "npm:4.17.15"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["make-error", [
         ["npm:1.3.6", {
           "packageLocation": "./.yarn/cache/make-error-npm-1.3.6-ccb85d9458-2.zip/node_modules/make-error/",
@@ -598,8 +618,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",
           "packageDependencies": [
             ["root-workspace-0b6124", "workspace:."],
+            ["@types/lodash", "npm:4.14.149"],
             ["@types/node", "npm:13.7.4"],
             ["@yarnpkg/pnpify", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:2.0.0-rc.18"],
+            ["lodash", "npm:4.17.15"],
             ["ts-node", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:8.6.2"],
             ["typescript", "patch:typescript@npm%3A3.8.2#builtin<compat/typescript>::version=3.8.2&hash=273569"],
             ["typescript-json-schema", "npm:0.42.0"]

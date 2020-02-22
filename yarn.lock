@@ -25,6 +25,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/lodash@npm:^4.14.149":
+  version: 4.14.149
+  resolution: "@types/lodash@npm:4.14.149"
+  checksum: 2/f5b8837c776d471755f8d48536933031e5753da4277d1e5a0ebd46caf392adc2a298eeb2812f2da8d1801fa1c666c9112207204e73e06c11bdcf1bf179f304fa
+  languageName: node
+  linkType: hard
+
 "@types/node@npm:^13.7.1":
   version: 13.7.4
   resolution: "@types/node@npm:13.7.4"
@@ -368,6 +375,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lodash@npm:^4.17.15":
+  version: 4.17.15
+  resolution: "lodash@npm:4.17.15"
+  checksum: 2/aec3fbb7570aa67bda500b8299b1b1821d60646bede87f76a74dfcc7666ab3445267d734ec71424d70809d52ad67a1356fab5ab694a3faa1908d68e9d48f00f5
+  languageName: node
+  linkType: hard
+
 "make-error@npm:^1.1.1":
   version: 1.3.6
   resolution: "make-error@npm:1.3.6"
@@ -482,8 +496,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
+    "@types/lodash": ^4.14.149
     "@types/node": ^13.7.1
     "@yarnpkg/pnpify": ^2.0.0-rc.18
+    lodash: ^4.17.15
     ts-node: ^8.6.2
     typescript: ^3.7.5
     typescript-json-schema: ^0.42.0
