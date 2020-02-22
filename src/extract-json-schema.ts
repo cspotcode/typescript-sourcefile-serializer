@@ -1,12 +1,16 @@
 #!/usr/bin/env ts-script
 import {resolve} from "path";
 import * as fs from "fs";
+import {readdirSync, writeFileSync, writeFile} from "fs";
 
 import * as TJS from "typescript-json-schema";
 
 // optionally pass argument to schema generator
 const settings: TJS.PartialArgs = {
-    required: true
+    required: true,
+    aliasRef: true,
+    ref: true,
+    topRef: true
 };
 
 // optionally pass ts compiler options
@@ -15,29 +19,23 @@ const compilerOptions: TJS.CompilerOptions = {
 }
 
 // optionally pass a base path
-const basePath = resolve(__dirname, 'extracted-from-typescript');
+const basePath = resolve(__dirname, 'copied-from-typescript');
 
-const program = TJS.getProgramFromFiles([
-    resolve(basePath, 'types.ts'),
-    resolve(basePath, 'misc.ts')
-], compilerOptions, basePath);
+const program = TJS.getProgramFromFiles(
+    readdirSync(basePath).map(file => resolve(basePath, file)),
+    compilerOptions, basePath
+);
 
-// ... or a generator that lets us incrementally get more schemas
 const generator = TJS.buildGenerator(program, settings);
 
 // all symbols
 const symbols = generator.getUserSymbols();
-const relevantSymbols = symbols.filter(v => v.startsWith('ts.'));
+const relevantSymbols = symbols.filter(v => v.match(/^ts\./));
+console.log(relevantSymbols.join('\n'));
 
-const ret = [...symbols] as any[];
-for(const symbol of relevantSymbols) {
-    try {
-        ret.push(generator.getSchemaForSymbol(symbol));
-    } catch(e) {}
-}
-
-fs.writeFileSync(resolve(__dirname, 'output.json'), JSON.stringify(ret, null, 2));
+// writeFileSync('src/symbols.ts', JSON.stringify(relevantSymbols, null, '  '));
+// writeFileSync('foo.txt', relevantSymbols.map(s => `${ s.replace('ts.', '') }: ${s.replace('ts.', '')};`).join('\n'));
 
 // Get symbols for different types from generator.
-// generator.getSchemaForSymbol("MyType");
+console.dir(generator.getSchemaForSymbol('ts.AggregateInterfaceForJsonSchemaExtraction'));
 // generator.getSchemaForSymbol("AnotherType");
