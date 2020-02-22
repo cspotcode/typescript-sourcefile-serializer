@@ -1,11 +1,14 @@
 {
-    "include": ["src"],
+    "include": [
+        "src"
+    ],
     "ts-node": {
         "transpileOnly": true
     },
     "compilerOptions": {
         "target": "ES6",
         "moduleResolution": "node",
-        "rootDir": "src"
+        "rootDir": "src",
+        "esModuleInterop": true
     }
 }
