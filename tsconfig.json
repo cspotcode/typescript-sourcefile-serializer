@@ -1,9 +1,11 @@
 {
+    "include": ["src"],
     "ts-node": {
         "transpileOnly": true
     },
     "compilerOptions": {
         "target": "ES6",
-        "moduleResolution": "node"
+        "moduleResolution": "node",
+        "rootDir": "src"
     }
 }
