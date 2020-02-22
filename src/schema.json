@@ -152,7 +152,7 @@
           "$ref": "#/definitions/ts.BinaryExpression"
         },
         "AssignmentOperatorToken": {
-          "$ref": "#/definitions/ts.Token_4"
+          "$ref": "#/definitions/ts.AssignmentOperatorToken"
         },
         "ObjectDestructuringAssignment": {
           "$ref": "#/definitions/ts.ObjectDestructuringAssignment"
@@ -11508,11 +11508,11 @@
         209
       ]
     },
-    "ts.Token_4": {
+    "ts.AssignmentOperatorToken": {
       "type": "object",
       "properties": {
         "kind": {
-          "$ref": "#/definitions/ts.Token.TKind_21"
+          "$ref": "#/definitions/ts.AssignmentOperator"
         },
         "flags": {
           "$ref": "#/definitions/ts.NodeFlags"
@@ -11555,7 +11555,7 @@
         "transformFlags"
       ]
     },
-    "ts.Token.TKind_21": {
+    "ts.AssignmentOperator": {
       "enum": [
         62,
         63,
@@ -11580,7 +11580,7 @@
           "$ref": "#/definitions/ts.ObjectLiteralExpression"
         },
         "operatorToken": {
-          "$ref": "#/definitions/ts.Token_5"
+          "$ref": "#/definitions/ts.EqualsToken"
         },
         "kind": {
           "$ref": "#/definitions/ts.SyntaxKind.BinaryExpression"
@@ -11636,7 +11636,7 @@
         "transformFlags"
       ]
     },
-    "ts.Token_5": {
+    "ts.EqualsToken": {
       "type": "object",
       "properties": {
         "kind": {
@@ -11690,7 +11690,7 @@
           "$ref": "#/definitions/ts.ArrayLiteralExpression"
         },
         "operatorToken": {
-          "$ref": "#/definitions/ts.Token_5"
+          "$ref": "#/definitions/ts.EqualsToken"
         },
         "kind": {
           "$ref": "#/definitions/ts.SyntaxKind.BinaryExpression"
@@ -12181,7 +12181,7 @@
           "$ref": "#/definitions/ts.LeftHandSideExpression"
         },
         "operatorToken": {
-          "$ref": "#/definitions/ts.Token_5"
+          "$ref": "#/definitions/ts.EqualsToken"
         },
         "kind": {
           "$ref": "#/definitions/ts.SyntaxKind.BinaryExpression"
