@@ -1,9 +1,12 @@
 import { JSONSchema7 } from 'json-schema';
 import { readFileSync } from 'fs';
 import { resolve } from 'path';
-import assert from 'assert';
 import * as util from 'util';
-import {get} from 'lodash';
+import {get, uniqueId} from 'lodash';
+import { createProxy } from './forward-reference-proxy';
+import assert from 'assert';
+import {outdent} from 'outdent';
+import { ArrayType, AbstractType, IntersectionType, LiteralType, ObjectProperty, ObjectType, PrimitiveType, Type, UnionType , allTypes, booleanType, numberType, stringType, unknownType} from './types';
 
 type TODO = any;
 
@@ -56,49 +59,24 @@ async function main() {
         }
     }
 
-    type Type = UnionType | ObjectType | IntersectionType | ArrayType | LiteralType;
-    class IntersectionType {
-        types: Type[] = [];
-    }
-    class UnionType {
-        types: Type[] = [];
-    }
-    class ObjectType {
-        properties: ObjectProperty[] = [];
-    }
-    class ArrayType extends ObjectType {
-        items: Type;
-    }
-    class ObjectProperty {
-        constructor(name: string, required: boolean, type: Type) {
-            this.name = name;
-            this.type = type;
-            this.required = required;
-        }
-        name: string;
-        type: Type;
-        required: boolean;
-    }
-    class LiteralType {
-        constructor(public value: any) {}
-    }
-    class PrimitiveType {}
-    const booleanType = new PrimitiveType();
-    const stringType = new PrimitiveType();
-    const numberType = new PrimitiveType();
-    const unknownType = new PrimitiveType();
-
     const schemaObjToTypeMap = new Map<any, { type: Type }>();
     const types = {};
     for (const [name, defn] of Object.entries(definitions)) {
-        types[name] = getOrMakeTypeFor(defn);
+        const type = getOrMakeTypeFor(defn);
+        type.preferredIdentifier = name.replace(/[\.-<>]/g, '_');
+        types[name] = type;
     }
-    console.dir(types, {depth: 10});
+    // console.log(util.inspect(types, {
+    //     depth: 10
+    // }));
+    console.log(serializeTypesToCode());
 
     function getOrMakeTypeFor(defn: JSONSchema7) {
         const already = schemaObjToTypeMap.get(defn);
         if (already) return already.type;
-        const makeIt = { type: undefined };
+        
+        // Use a proxy in case anyone gets a reference to the type before it's ready.
+        const makeIt = { type: createProxy(() => {assert(type); return type}, {[util.inspect.custom]() {return type}}) };
         schemaObjToTypeMap.set(defn, makeIt);
         const type = makeTypeFor(defn);
         makeIt.type = type;
@@ -131,7 +109,10 @@ async function main() {
         function addProperties(defn: JSONSchema7, type: ObjectType) {
             const {properties = {}, required = []} = defn;
             for(const [name, schema] of Object.entries(properties)) {
-                type.properties.push(new ObjectProperty(name, required.includes(name), getOrMakeTypeFor(schema as TODO)))
+                type.properties.push(new ObjectProperty(name, required.includes(name), getOrMakeTypeFor(schema as TODO)));
+                if(type.properties[type.properties.length - 1].type === undefined) {
+                    console.dir({name, schema});
+                }
             }
         }
         if(defn.enum && defn.enum.length === 1) {
@@ -148,6 +129,19 @@ async function main() {
         }
         if(defn.TODO) return unknownType;
         throw new Error('unexpected type on: ' + util.inspect(defn));
+    }
+
+
+    function serializeTypesToCode() {
+        let acc = ``;
+        for(const type of allTypes.values()) {
+            const constructorName = type.constructor.name;
+            acc += outdent `
+                const ${ type.getIdentifier() } = ${ type.getCreateExpression() };
+
+            `;
+        }
+        return acc;
     }
 }
 
