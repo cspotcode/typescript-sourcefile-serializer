@@ -1,9 +1,12 @@
 import {get, uniqueId} from 'lodash';
 import { outdent } from 'outdent';
+import assert from 'assert';
+import { createProxy } from './forward-reference-proxy';
+import * as util from 'util';
 
 export const allTypes = new Map<string, Type>();
 
-export type Type = UnionType | ObjectType | IntersectionType | ArrayType | LiteralType | PrimitiveType;
+export type Type = UnionType | ObjectType | IntersectionType | ArrayType | LiteralType<any> | PrimitiveType;
 export abstract class AbstractType {
     constructor() {
         allTypes.set(this.id, this as unknown as Type);
@@ -14,12 +17,17 @@ export abstract class AbstractType {
         if(this.preferredIdentifier != null) return this.preferredIdentifier;
         return this.generateIdentifier();
     };
-    generateIdentifier(): string {
+    protected generateIdentifier(): string {
         return `type${ this.id }`;
     };
     abstract getCreateExpression(): string;
 }
 export class IntersectionType extends AbstractType {
+    constructor(types: Type[] = []) {
+        super();
+        this.types.push(...types);
+    }
+
     types: Type[] = [];
 
     generateIdentifier() {
@@ -27,19 +35,27 @@ export class IntersectionType extends AbstractType {
     }
     getCreateExpression() {
         return outdent `
-            new IntersectionType([${this.types.map(v => v.generateIdentifier()).join(', ')}])
+            new IntersectionType([${this.types.map(v => proxyGetExpression(v)).join(',\n')}])
         `;
     }
 }
 export class UnionType extends AbstractType {
+    constructor(types: Type[] = []) {
+        super();
+        this.types.push(...types);
+    }
     types: Type[] = [];
     getCreateExpression() {
         return outdent `
-            new UnionType([${this.types.map(v => v.generateIdentifier()).join(', ')}])
+            new UnionType([${this.types.map(v => proxyGetExpression(v)).join(', \n')}])
         `;
     }
 }
 export class ObjectType extends AbstractType {
+    constructor(properties: ObjectProperty[] = []) {
+        super();
+        this.properties.push(...properties);
+    }
     properties: ObjectProperty[] = [];
     getPropertiesCreateExpression() {
         return outdent `
@@ -58,6 +74,10 @@ export class ObjectType extends AbstractType {
     }
 }
 export class ArrayType extends ObjectType {
+    constructor(items: Type = [], properties: ObjectProperty[] = []) {
+        super(properties);
+        this.items = items;
+    }
     items: Type;
     getCreateExpression() {
         return outdent `
@@ -106,4 +126,18 @@ export const unknownType = new PrimitiveType('unknown');
 
 function proxyGetExpression(type: AbstractType) {
     return `proxy(() => ${type.getIdentifier()})`;
+}
+export function proxy(getter: () => Type): Type {
+    return createProxy(
+        () => {
+            const t = getter();
+            assert(t);
+            return t;
+        },
+        {
+            [util.inspect.custom]() {
+                return getter();
+            }
+        }
+    );
 }

@@ -44,6 +44,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["json-schema-ref-parser", "npm:7.1.3"],
             ["lodash", "npm:4.17.15"],
             ["outdent", "npm:0.7.0"],
+            ["prettier", "npm:1.19.1"],
             ["ts-node", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:8.6.2"],
             ["typescript", "patch:typescript@npm%3A3.8.2#builtin<compat/typescript>::version=3.8.2&hash=273569"],
             ["typescript-json-schema", "npm:0.42.0"]
@@ -803,6 +804,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["prettier", [
+        ["npm:1.19.1", {
+          "packageLocation": "./.yarn/cache/prettier-npm-1.19.1-e56d246fd2-2.zip/node_modules/prettier/",
+          "packageDependencies": [
+            ["prettier", "npm:1.19.1"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["punycode", [
         ["npm:2.1.1", {
           "packageLocation": "./.yarn/cache/punycode-npm-2.1.1-26eb3e15cf-2.zip/node_modules/punycode/",
@@ -863,6 +873,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["json-schema-ref-parser", "npm:7.1.3"],
             ["lodash", "npm:4.17.15"],
             ["outdent", "npm:0.7.0"],
+            ["prettier", "npm:1.19.1"],
             ["ts-node", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:8.6.2"],
             ["typescript", "patch:typescript@npm%3A3.8.2#builtin<compat/typescript>::version=3.8.2&hash=273569"],
             ["typescript-json-schema", "npm:0.42.0"]

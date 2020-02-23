@@ -1,5 +1,5 @@
 import { JSONSchema7 } from 'json-schema';
-import { readFileSync } from 'fs';
+import { readFileSync , writeFileSync } from 'fs';
 import { resolve } from 'path';
 import * as util from 'util';
 import {get, uniqueId} from 'lodash';
@@ -69,7 +69,7 @@ async function main() {
     // console.log(util.inspect(types, {
     //     depth: 10
     // }));
-    console.log(serializeTypesToCode());
+    writeFileSync(resolve(__dirname, 'types.gen.ts'), serializeTypesToCode());
 
     function getOrMakeTypeFor(defn: JSONSchema7) {
         const already = schemaObjToTypeMap.get(defn);
@@ -133,7 +133,12 @@ async function main() {
 
 
     function serializeTypesToCode() {
-        let acc = ``;
+        let acc = outdent `
+            import { proxy, ArrayType, AbstractType, IntersectionType, LiteralType, ObjectProperty, ObjectType, PrimitiveType, Type, UnionType , allTypes, numberType, stringType, unknownType} from './types';
+            // import { booleanType } from './types';
+
+
+        `;
         for(const type of allTypes.values()) {
             const constructorName = type.constructor.name;
             acc += outdent `
