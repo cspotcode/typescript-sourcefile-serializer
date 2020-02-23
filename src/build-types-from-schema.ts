@@ -96,9 +96,8 @@ async function main() {
             return intersection;
         }
         if(defn.type === 'array') {
-            const type = new ArrayType();
+            const type = new ArrayType(getOrMakeTypeFor(defn.items as TODO));
             addProperties(defn, type);
-            type.items = getOrMakeTypeFor(defn.items as TODO);
             return type;
         }
         if(defn.type === 'object') {

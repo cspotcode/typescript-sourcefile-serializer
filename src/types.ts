@@ -74,7 +74,7 @@ export class ObjectType extends AbstractType {
     }
 }
 export class ArrayType extends ObjectType {
-    constructor(items: Type = [], properties: ObjectProperty[] = []) {
+    constructor(items: Type, properties: ObjectProperty[] = []) {
         super(properties);
         this.items = items;
     }
