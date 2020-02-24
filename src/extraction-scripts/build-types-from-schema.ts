@@ -3,10 +3,10 @@ import { readFileSync , writeFileSync } from 'fs';
 import { resolve } from 'path';
 import * as util from 'util';
 import {get, uniqueId} from 'lodash';
-import { createProxy } from './forward-reference-proxy';
+import { createProxy } from '../forward-reference-proxy';
 import assert from 'assert';
 import {outdent} from 'outdent';
-import { ArrayType, AbstractType, IntersectionType, LiteralType, ObjectProperty, ObjectType, PrimitiveType, Type, UnionType , allTypes, booleanType, numberType, stringType, unknownType} from './types';
+import { ArrayType, AbstractType, IntersectionType, LiteralType, ObjectProperty, ObjectType, PrimitiveType, Type, UnionType , allTypes, booleanType, numberType, stringType, unknownType} from '../types';
 
 type TODO = any;
 

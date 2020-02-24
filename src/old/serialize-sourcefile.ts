@@ -1,10 +1,16 @@
 import * as fs from 'fs';
 import * as Path from 'path';
 import * as ts from 'typescript';
-import * as assert from 'assert';
+import assert from 'assert';
 
 const tsAny = ts as any;
 
+/**
+ * TS AST uses more than plain Arrays and objects
+ * We need to encode the __proto__ of AST nodes, so
+ * we know which factory function to use when
+ * rehydrating them.
+ */
 enum Constructor {
     SourceFileObject,
     NodeObject,

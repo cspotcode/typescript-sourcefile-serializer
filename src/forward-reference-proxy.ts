@@ -4,6 +4,13 @@ export const TARGET = createProxy.TARGET = Symbol('forward-reference-proxy-targe
 
 // TODO implement a default `util.inspect.custom` fn that returns `realTarget`
 
+/**
+ * Return a proxy instance that will delegate all traps to a target instance which
+ * can be bound to the proxy at a later date, either through explicit assignment or
+ * a lazily-called getter callback.
+ * 
+ * This can be used to avoid circular reference issues in our AST declarations.
+ */
 export function createProxy<T extends object>(
     targetGetter: () => T = () => {throw 'not bound'},
     initialTarget = {}
@@ -11,7 +18,10 @@ export function createProxy<T extends object>(
 {
     let realTarget: T = undefined;
     let realTargetBound = false;
-    /** Called by every proxy trap to double-check that the target is bound */
+    /**
+     * Called by every proxy trap to double-check that the target is bound before trying to perform
+     * Reflect operations against it.
+     */
     function checkIsBound() {
         if(!realTargetBound) {
             realTarget = targetGetter();
@@ -20,6 +30,9 @@ export function createProxy<T extends object>(
         assert(realTargetBound);
     }
 
+    // All proxy traps delegate to realTarget
+    // Additionally, get and set special-case our TARGET symbol, allowing
+    // consumers to get/set the target whenever they want
     const handlers: ProxyHandler<T> = {
         getPrototypeOf (target: T): object | null {
             checkIsBound();

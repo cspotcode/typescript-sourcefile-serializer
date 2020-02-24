@@ -1,0 +1,1 @@
+Everything here was copy-pasted from TypeScript's source code.
