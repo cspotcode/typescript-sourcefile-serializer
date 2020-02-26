@@ -1,5 +1,5 @@
-import { Prototype, proxy, ArrayType, LiteralType, ObjectProperty, ObjectType, UnionType, overrideProperties } from './type-system';
-import { booleanType, numberType, stringType } from './type-system';
+import { Prototype, proxy, ArrayType, LiteralType, ObjectProperty, ObjectType, UnionType, overrideProperties, MapType, PrimitiveType } from './type-system';
+import { booleanType, numberType, stringType, jsonType } from './type-system';
 
 const LiteralZero = new LiteralType(0);
 
@@ -961,44 +961,38 @@ export const DiagnosticWithLocation = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("relatedInformation", false, proxy(() => Array_DiagnosticRelatedInformation)),
     new ObjectProperty("category", true, proxy(() => numberType)),
     new ObjectProperty("code", true, proxy(() => numberType)),
-    new ObjectProperty("messageText", true, proxy(() => type233)),
+    new ObjectProperty("messageText", true, proxy(() => Diagnostic_MessageText)),
 ]);
 export const type227 = new ObjectType(Prototype.NodeObject, [
 ]);
 export const Array_DiagnosticRelatedInformation = new ArrayType(proxy(() => DiagnosticRelatedInformation), []);
-export const DiagnosticRelatedInformation = new ObjectType(Prototype.NodeObject, [
+export const DiagnosticRelatedInformation = new ObjectType(Prototype.Object, [
     new ObjectProperty("category", true, proxy(() => numberType)),
     new ObjectProperty("code", true, proxy(() => numberType)),
     new ObjectProperty("file", false, proxy(() => SourceFile)),
     new ObjectProperty("start", false, proxy(() => numberType)),
     new ObjectProperty("length", false, proxy(() => numberType)),
-    new ObjectProperty("messageText", true, proxy(() => type232)),
+    new ObjectProperty("messageText", true, proxy(() => Diagnostic_MessageText)),
 ]);
-export const DiagnosticMessageChain = new ObjectType(Prototype.NodeObject, [
+export const DiagnosticMessageChain = new ObjectType(Prototype.Object, [
     new ObjectProperty("messageText", true, proxy(() => stringType)),
     new ObjectProperty("category", true, proxy(() => numberType)),
     new ObjectProperty("code", true, proxy(() => numberType)),
     new ObjectProperty("next", false, proxy(() => Array_DiagnosticMessageChain)),
 ]);
 export const Array_DiagnosticMessageChain = new ArrayType(proxy(() => DiagnosticMessageChain), []);
-export const type232 = new UnionType([
-    proxy(() => DiagnosticMessageChain),
-    proxy(() => stringType)
-]);
-export const type233 = new UnionType([
+export const Diagnostic_MessageText = new UnionType([
     proxy(() => DiagnosticMessageChain),
     proxy(() => stringType)
 ]);
 export const Array_DiagnosticWithLocation = new ArrayType(proxy(() => DiagnosticWithLocation), []);
 export const Array_Number = new ArrayType(proxy(() => numberType), []);
-export const CheckJsDirective = new ObjectType(Prototype.NodeObject, [
+export const CheckJsDirective = new ObjectType(Prototype.Object, [
     new ObjectProperty("enabled", true, proxy(() => booleanType)),
-    new ObjectProperty("pos", true, proxy(() => numberType)),
     new ObjectProperty("end", true, proxy(() => numberType)),
+    new ObjectProperty("pos", true, proxy(() => numberType)),
 ]);
-export const ReadonlyPragmaMap = new ObjectType(Prototype.NodeObject, [
-    new ObjectProperty("size", true, proxy(() => numberType)),
-]);
+export const ReadonlyPragmaMap = new MapType(Prototype.Map, jsonType);
 export const ModuleBlock = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_ModuleBlock)),
     // new ObjectProperty("parent", true, proxy(() => ModuleDeclaration)),

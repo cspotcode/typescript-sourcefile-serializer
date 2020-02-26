@@ -248,6 +248,21 @@ export class ObjectProperty {
     type: Type;
     required: boolean;
 }
+/**
+ * TS compiler only uses string keys, so this is a bit simpler
+ */
+export class MapType extends AbstractType {
+    constructor(items: Type) {
+        super();
+        this.items = items;
+    }
+    items: Type;
+    getCreateExpression() {
+        return outdent`
+            new MapType(${ proxyGetExpression(this.items) })
+        `;
+    }
+}
 export class LiteralType<T = any> extends AbstractType {
     constructor(public value: T) {
         super();
@@ -276,6 +291,8 @@ export const booleanType = new PrimitiveType('boolean');
 export const stringType = new PrimitiveType('string');
 export const numberType = new PrimitiveType('number');
 export const unknownType = new PrimitiveType('unknown');
+// Bit of a hack.  When we encounter a primitive of type `json`, (un)marshall the JSON.stringify-ed form of the value.
+export const jsonType = new PrimitiveType('json');
 
 function proxyGetExpression(type: AbstractType) {
     return `proxy(() => ${type.getIdentifier()})`;
