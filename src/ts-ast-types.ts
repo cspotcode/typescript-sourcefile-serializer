@@ -1,4 +1,4 @@
-import { Prototype, proxy, ArrayType, AbstractType, IntersectionType, LiteralType, ObjectProperty, ObjectType, PrimitiveType, Type, UnionType, allTypes, unknownType } from './type-system';
+import { Prototype, proxy, ArrayType, LiteralType, ObjectProperty, ObjectType, UnionType, overrideProperties } from './type-system';
 import { booleanType, numberType, stringType } from './type-system';
 
 /*
@@ -351,7 +351,7 @@ export const NamedDeclaration = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => numberType)),
     ...commonNodeProperties,
 ]);
-export const Identifier = new ObjectType(Prototype.NodeObject, [
+const identifierProperties = [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_Identifier)),
     new ObjectProperty("escapedText", true, proxy(() => stringType)),
     new ObjectProperty("originalKeywordKind", false, proxy(() => numberType)),
@@ -361,7 +361,8 @@ export const Identifier = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("typeArguments", false, proxy(() => NodeArray)),
     new ObjectProperty("jsdocDotPos", false, proxy(() => numberType)),
     ...commonNodeProperties,
-]);
+];
+export const Identifier = new ObjectType(Prototype.NodeObject, identifierProperties);
 export const StringLiteral = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_StringLiteral)),
     new ObjectProperty("textSourceNode", false, proxy(() => StringLiteral_TextSourceNode)),
@@ -400,10 +401,12 @@ export const ComputedPropertyName = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("expression", true, proxy(() => Expression)),
     ...commonNodePropertiesSansParent,
 ]);
-export const Declaration = new ObjectType(Prototype.NodeObject, [
+const declarationProperties = [
     new ObjectProperty("kind", true, proxy(() => numberType)),
     ...commonNodeProperties,
-]);
+];
+export const Declaration = new ObjectType(Prototype.NodeObject, declarationProperties);
+// TODO turn into a Union of all possible `expression` kinds
 export const Expression = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => numberType)),
     ...commonNodeProperties,
@@ -413,13 +416,14 @@ export const PrivateIdentifier = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("escapedText", true, proxy(() => stringType)),
     ...commonNodeProperties,
 ]);
-export const ElementAccessExpression = new ObjectType(Prototype.NodeObject, [
+const elementAccessExpressionProperties = [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_ElementAccessExpression)),
     new ObjectProperty("expression", true, proxy(() => LeftHandSideExpression)),
     new ObjectProperty("questionDotToken", false, proxy(() => Token_QuestionDotToken)),
     new ObjectProperty("argumentExpression", true, proxy(() => Expression)),
     ...commonNodeProperties,
-]);
+];
+export const ElementAccessExpression = new ObjectType(Prototype.NodeObject, elementAccessExpressionProperties);
 export const LeftHandSideExpression = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => numberType)),
     ...commonNodeProperties,
@@ -711,10 +715,8 @@ export const ForStatement = new ObjectType(Prototype.NodeObject, [
     ...commonNodeProperties,
 ]);
 export const ForInitializer = new UnionType([
-
     proxy(() => Expression),
     proxy(() => VariableDeclarationList)
-
 ]);
 export const ForInStatement = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_ForInStatement)),
@@ -732,12 +734,10 @@ export const ForOfStatement = new ObjectType(Prototype.NodeObject, [
     ...commonNodeProperties,
 ]);
 export const type164 = new UnionType([
-
     proxy(() => VariableStatement),
     proxy(() => ForStatement),
     proxy(() => ForInStatement),
     proxy(() => ForOfStatement)
-
 ]);
 export const FunctionDeclaration = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_FunctionDeclaration)),
@@ -878,9 +878,9 @@ export const EnumDeclaration = new ObjectType(Prototype.NodeObject, [
 ]);
 export const ModuleDeclaration = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_ModuleDeclaration)),
-    new ObjectProperty("parent", true, proxy(() => type253)),
+    new ObjectProperty("parent", true, proxy(() => ModuleOrNamespaceDeclarationParent)),
     new ObjectProperty("name", true, proxy(() => ModuleName)),
-    new ObjectProperty("body", false, proxy(() => type255)),
+    new ObjectProperty("body", false, proxy(() => ModuleDeclaration_Body)),
     ...commonNodePropertiesSansParent,
     ...jsDocContainerProperties,
 ]);
@@ -1002,60 +1002,64 @@ export const ModuleBlock = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("statements", true, proxy(() => NodeArray)),
     ...commonNodePropertiesSansParent,
 ]);
+export const NamespaceBody = new UnionType([
+    proxy(() => ModuleBlock),
+    proxy(() => NamespaceDeclaration),
+    proxy(() => Identifier),
+    // proxy(() => JSDocNamespaceDeclaration)
+]);
+const JSDocNamespaceBody = NamespaceBody;
+// export const NamespaceBody = new UnionType([
+//     proxy(() => ModuleBlock),
+//     proxy(() => NamespaceDeclaration)
+// ]);
+// export const JSDocNamespaceBody = new UnionType([
+//     proxy(() => Identifier),
+//     proxy(() => JSDocNamespaceDeclaration)
+// ]);
 export const NamespaceDeclaration = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("name", true, proxy(() => Identifier)),
     new ObjectProperty("body", true, proxy(() => NamespaceBody)),
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_ModuleDeclaration)),
-    new ObjectProperty("parent", true, proxy(() => type250)),
+    new ObjectProperty("parent", true, proxy(() => ModuleOrNamespaceDeclarationParent)),
     ...commonNodePropertiesSansParent,
     ...jsDocContainerProperties,
 ]);
-export const NamespaceBody = new UnionType([
-    proxy(() => ModuleBlock),
-    proxy(() => NamespaceDeclaration)
-]);
-export const JSDocNamespaceDeclaration = new ObjectType(Prototype.NodeObject, [
-    new ObjectProperty("name", true, proxy(() => Identifier)),
-    new ObjectProperty("body", false, proxy(() => JSDocNamespaceBody)),
-    new ObjectProperty("kind", true, proxy(() => SyntaxKind_ModuleDeclaration)),
-    new ObjectProperty("parent", true, proxy(() => type247)),
-    ...commonNodePropertiesSansParent,
-    ...jsDocContainerProperties,
-]);
-export const JSDocNamespaceBody = new UnionType([
-    proxy(() => Identifier),
-    proxy(() => JSDocNamespaceDeclaration)
-]);
-export const type247 = new UnionType([
-    proxy(() => Identifier),
-    proxy(() => SourceFile),
-    proxy(() => ModuleBlock),
-    proxy(() => NamespaceDeclaration),
-    proxy(() => JSDocNamespaceDeclaration)
-]);
-export const type250 = new UnionType([
+const JSDocNamespaceDeclaration = NamespaceDeclaration;
+// export const NamespaceDeclaration = new ObjectType(Prototype.NodeObject, [
+//     new ObjectProperty("name", true, proxy(() => Identifier)),
+//     new ObjectProperty("body", true, proxy(() => NamespaceBody)),
+//     new ObjectProperty("kind", true, proxy(() => SyntaxKind_ModuleDeclaration)),
+//     new ObjectProperty("parent", true, proxy(() => ModuleOrNamespaceDeclarationParent)),
+//     ...commonNodePropertiesSansParent,
+//     ...jsDocContainerProperties,
+// ]);
+// export const JSDocNamespaceDeclaration = new ObjectType(Prototype.NodeObject, [
+//     new ObjectProperty("name", true, proxy(() => Identifier)),
+//     new ObjectProperty("body", false, proxy(() => JSDocNamespaceBody)),
+//     new ObjectProperty("kind", true, proxy(() => SyntaxKind_ModuleDeclaration)),
+//     new ObjectProperty("parent", true, proxy(() => ModuleOrNamespaceDeclarationParent)),
+//     ...commonNodePropertiesSansParent,
+//     ...jsDocContainerProperties,
+// ]);
+const ModuleOrNamespaceDeclarationParent = stringType;
+/*HACK commented out because this type is only used for a `parent` field, which won't be marshalled anyway.
+new UnionType([
     proxy(() => Identifier),
     proxy(() => SourceFile),
     proxy(() => ModuleBlock),
     proxy(() => NamespaceDeclaration),
     proxy(() => JSDocNamespaceDeclaration)
-]);
-export const type253 = new UnionType([
-    proxy(() => Identifier),
-    proxy(() => SourceFile),
-    proxy(() => ModuleBlock),
-    proxy(() => NamespaceDeclaration),
-    proxy(() => JSDocNamespaceDeclaration)
-]);
+]);*/
 export const ModuleName = new UnionType([
     proxy(() => Identifier),
     proxy(() => StringLiteral)
 ]);
-export const type255 = new UnionType([
+export const ModuleDeclaration_Body = new UnionType([
     proxy(() => Identifier),
     proxy(() => ModuleBlock),
     proxy(() => NamespaceDeclaration),
-    proxy(() => JSDocNamespaceDeclaration)
+    // proxy(() => JSDocNamespaceDeclaration)
 ]);
 export const ImportEqualsDeclaration = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_ImportEqualsDeclaration)),
@@ -1515,20 +1519,22 @@ export const AssignmentOperatorToken = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => numberType)),
     ...commonNodeProperties,
 ]);
-export const ObjectDestructuringAssignment = new ObjectType(Prototype.NodeObject, [
-    new ObjectProperty("left", true, proxy(() => ObjectLiteralExpression)),
-    new ObjectProperty("operatorToken", true, proxy(() => Token_EqualsToken)),
-    new ObjectProperty("kind", true, proxy(() => SyntaxKind_BinaryExpression)),
-    new ObjectProperty("right", true, proxy(() => Expression)),
-    ...commonNodeProperties,
-]);
-export const ArrayDestructuringAssignment = new ObjectType(Prototype.NodeObject, [
-    new ObjectProperty("left", true, proxy(() => ArrayLiteralExpression)),
-    new ObjectProperty("operatorToken", true, proxy(() => Token_EqualsToken)),
-    new ObjectProperty("kind", true, proxy(() => SyntaxKind_BinaryExpression)),
-    new ObjectProperty("right", true, proxy(() => Expression)),
-    ...commonNodeProperties,
-]);
+const ObjectDestructuringAssignment = BinaryExpression;
+// export const ObjectDestructuringAssignment = new ObjectType(Prototype.NodeObject, [
+//     new ObjectProperty("left", true, proxy(() => ObjectLiteralExpression)),
+//     new ObjectProperty("operatorToken", true, proxy(() => Token_EqualsToken)),
+//     new ObjectProperty("kind", true, proxy(() => SyntaxKind_BinaryExpression)),
+//     new ObjectProperty("right", true, proxy(() => Expression)),
+//     ...commonNodeProperties,
+// ]);
+const ArrayDestructuringAssignment = BinaryExpression;
+// export const ArrayDestructuringAssignment = new ObjectType(Prototype.NodeObject, [
+//     new ObjectProperty("left", true, proxy(() => ArrayLiteralExpression)),
+//     new ObjectProperty("operatorToken", true, proxy(() => Token_EqualsToken)),
+//     new ObjectProperty("kind", true, proxy(() => SyntaxKind_BinaryExpression)),
+//     new ObjectProperty("right", true, proxy(() => Expression)),
+//     ...commonNodeProperties,
+// ]);
 export const ArrayLiteralExpression = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_ArrayLiteralExpression)),
     new ObjectProperty("elements", true, proxy(() => NodeArray)),
@@ -1576,13 +1582,14 @@ export const type402 = new UnionType([
     proxy(() => NewExpression),
     proxy(() => ArrayLiteralExpression)
 ]);
-export const AssignmentExpression_EqualsToken_ = new ObjectType(Prototype.NodeObject, [
-    new ObjectProperty("left", true, proxy(() => LeftHandSideExpression)),
-    new ObjectProperty("operatorToken", true, proxy(() => Token_EqualsToken)),
-    new ObjectProperty("kind", true, proxy(() => SyntaxKind_BinaryExpression)),
-    new ObjectProperty("right", true, proxy(() => Expression)),
-    ...commonNodeProperties,
-]);
+const AssignmentExpression_EqualsToken_ = BinaryExpression;
+// export const AssignmentExpression_EqualsToken_ = new ObjectType(Prototype.NodeObject, [
+//     new ObjectProperty("left", true, proxy(() => LeftHandSideExpression)),
+//     new ObjectProperty("operatorToken", true, proxy(() => Token_EqualsToken)),
+//     new ObjectProperty("kind", true, proxy(() => SyntaxKind_BinaryExpression)),
+//     new ObjectProperty("right", true, proxy(() => Expression)),
+//     ...commonNodeProperties,
+// ]);
 export const BindingOrAssignmentElement = new UnionType([
     proxy(() => ParameterDeclaration),
     proxy(() => SpreadAssignment),
@@ -1823,124 +1830,81 @@ export const WellKnownSymbolExpression = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("questionDotToken", false, proxy(() => Token_QuestionDotToken)),
     ...commonNodeProperties,
 ]);
-export const escapedTextIsLiteralTypeSymbol = new ObjectType(Prototype.NodeObject, [
-    new ObjectProperty("escapedText", true, proxy(() => literalTypeSymbol)),
-]);
 export const literalTypeSymbol = new LiteralType("Symbol");
-export const identifierWithEscapedTextIsLiteralTypeSymbol = new IntersectionType([proxy(() => Identifier),
-proxy(() => escapedTextIsLiteralTypeSymbol)]);
-export const type453 = new ObjectType(Prototype.NodeObject, [
-    new ObjectProperty("arguments", true, proxy(() => type454)),
-]);
-export const type454 = new ObjectType(Prototype.NodeObject, [
-    new ObjectProperty("0", true, proxy(() => BindableStaticNameExpression)),
-    new ObjectProperty("1", true, proxy(() => type460)),
-    new ObjectProperty("2", true, proxy(() => ObjectLiteralExpression)),
-]);
-export const type455 = new ObjectType(Prototype.NodeObject, [
-    new ObjectProperty("argumentExpression", true, proxy(() => type456)),
-]);
-export const type456 = new UnionType([
+export const identifierWithEscapedTextIsLiteralTypeSymbol = new ObjectType(Prototype.NodeObject, overrideProperties(
+    ...identifierProperties,
+    new ObjectProperty("escapedText", true, proxy(() => literalTypeSymbol))
+));
+export const LiteralLikeElementAccessExpression_ArgumentExpression = new UnionType([
     proxy(() => StringLiteral),
     proxy(() => NumericLiteral),
     proxy(() => NoSubstitutionTemplateLiteral),
     proxy(() => WellKnownSymbolExpression)
 ]);
-export const type457 = new ObjectType(Prototype.NodeObject, [
+export const BindableStaticElementAccessExpression = new ObjectType(Prototype.NodeObject, overrideProperties(
+    ...elementAccessExpressionProperties,
+    ...declarationProperties,
+    new ObjectProperty("argumentExpression", true, proxy(() => LiteralLikeElementAccessExpression_ArgumentExpression)),
     new ObjectProperty("expression", true, proxy(() => BindableStaticNameExpression)),
-]);
-export const intersection458 = new IntersectionType([proxy(() => ElementAccessExpression),
-proxy(() => Declaration),
-proxy(() => type455),
-proxy(() => type457)]);
+));
 export const BindableStaticNameExpression = new UnionType([
     proxy(() => Identifier),
     proxy(() => PropertyAccessEntityNameExpression),
-    proxy(() => intersection458)
+    proxy(() => BindableStaticElementAccessExpression)
 ]);
 export const type460 = new UnionType([
     proxy(() => StringLiteral),
     proxy(() => NumericLiteral),
     proxy(() => NoSubstitutionTemplateLiteral)
 ]);
-export const BindableObjectDefinePropertyCall = new IntersectionType([proxy(() => CallExpression),
-proxy(() => type453)]);
-export const type462 = new ObjectType(Prototype.NodeObject, [
-    new ObjectProperty("argumentExpression", true, proxy(() => type463)),
+export const BindableObjectDefinePropertyCall_Arguments = new ObjectType(Prototype.Array, [
+    new ObjectProperty("0", true, proxy(() => BindableStaticNameExpression)),
+    new ObjectProperty("1", true, proxy(() => type460)),
+    new ObjectProperty("2", true, proxy(() => ObjectLiteralExpression)),
 ]);
-export const type463 = new UnionType([
-    proxy(() => StringLiteral),
-    proxy(() => NumericLiteral),
-    proxy(() => NoSubstitutionTemplateLiteral),
-    proxy(() => WellKnownSymbolExpression)
-]);
-export const LiteralLikeElementAccessExpression = new IntersectionType([proxy(() => ElementAccessExpression),
-proxy(() => Declaration),
-proxy(() => type462)]);
-export const type465 = new ObjectType(Prototype.NodeObject, [
-    new ObjectProperty("argumentExpression", true, proxy(() => type466)),
-]);
-export const type466 = new UnionType([
-    proxy(() => StringLiteral),
-    proxy(() => NumericLiteral),
-    proxy(() => NoSubstitutionTemplateLiteral),
-    proxy(() => WellKnownSymbolExpression)
-]);
-export const type467 = new ObjectType(Prototype.NodeObject, [
+export const BindableObjectDefinePropertyCall = new ObjectType(Prototype.NodeObject, overrideProperties(
+    ...CallExpression.properties,
+    new ObjectProperty("arguments", true, proxy(() => BindableObjectDefinePropertyCall_Arguments)),
+));
+export const LiteralLikeElementAccessExpression = new ObjectType(Prototype.NodeObject, overrideProperties(
+    ...elementAccessExpressionProperties,
+    ...declarationProperties,
+    new ObjectProperty("argumentExpression", true, proxy(() => LiteralLikeElementAccessExpression_ArgumentExpression)),
+));
+export const BindableElementAccessExpression = new ObjectType(Prototype.NodeObject, overrideProperties(
+    ...elementAccessExpressionProperties,
     new ObjectProperty("expression", true, proxy(() => BindableStaticNameExpression)),
-]);
-export const BindableStaticElementAccessExpression = new IntersectionType([proxy(() => ElementAccessExpression),
-proxy(() => Declaration),
-proxy(() => type465),
-proxy(() => type467)]);
-export const type469 = new ObjectType(Prototype.NodeObject, [
-    new ObjectProperty("expression", true, proxy(() => BindableStaticNameExpression)),
-]);
-export const BindableElementAccessExpression = new IntersectionType([proxy(() => ElementAccessExpression),
-proxy(() => type469)]);
+));
 export const type471 = new ObjectType(Prototype.NodeObject, [
-    new ObjectProperty("argumentExpression", true, proxy(() => type472)),
-]);
-export const type472 = new UnionType([
-    proxy(() => StringLiteral),
-    proxy(() => NumericLiteral),
-    proxy(() => NoSubstitutionTemplateLiteral),
-    proxy(() => WellKnownSymbolExpression)
+    new ObjectProperty("argumentExpression", true, proxy(() => LiteralLikeElementAccessExpression_ArgumentExpression)),
 ]);
 export const type473 = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("expression", true, proxy(() => BindableStaticNameExpression)),
 ]);
-export const intersection474 = new IntersectionType([proxy(() => ElementAccessExpression),
-proxy(() => Declaration),
-proxy(() => type471),
-proxy(() => type473)]);
 export const BindableStaticAccessExpression = new UnionType([
     proxy(() => PropertyAccessEntityNameExpression),
-    proxy(() => intersection474)
+    proxy(() => BindableStaticElementAccessExpression)
 ]);
-export const type476 = new ObjectType(Prototype.NodeObject, [
-    new ObjectProperty("expression", true, proxy(() => BindableStaticNameExpression)),
-]);
-export const intersection477 = new IntersectionType([proxy(() => ElementAccessExpression),
-proxy(() => type476)]);
 export const BindableAccessExpression = new UnionType([
     proxy(() => PropertyAccessEntityNameExpression),
-    proxy(() => intersection477)
+    proxy(() => BindableElementAccessExpression)
 ]);
-export const BindableStaticPropertyAssignmentExpression = new ObjectType(Prototype.NodeObject, [
-    new ObjectProperty("left", true, proxy(() => BindableStaticAccessExpression)),
-    new ObjectProperty("kind", true, proxy(() => SyntaxKind_BinaryExpression)),
-    new ObjectProperty("operatorToken", true, proxy(() => OperatorToken)),
-    new ObjectProperty("right", true, proxy(() => Expression)),
-    ...commonNodeProperties,
-]);
-export const BindablePropertyAssignmentExpression = new ObjectType(Prototype.NodeObject, [
-    new ObjectProperty("left", true, proxy(() => BindableAccessExpression)),
-    new ObjectProperty("kind", true, proxy(() => SyntaxKind_BinaryExpression)),
-    new ObjectProperty("operatorToken", true, proxy(() => OperatorToken)),
-    new ObjectProperty("right", true, proxy(() => Expression)),
-    ...commonNodeProperties,
-]);
+const BindableStaticPropertyAssignmentExpression = BinaryExpression;
+// export const BindableStaticPropertyAssignmentExpression = new ObjectType(Prototype.NodeObject, [
+//     new ObjectProperty("left", true, proxy(() => BindableStaticAccessExpression)),
+//     new ObjectProperty("kind", true, proxy(() => SyntaxKind_BinaryExpression)),
+//     new ObjectProperty("operatorToken", true, proxy(() => OperatorToken)),
+//     new ObjectProperty("right", true, proxy(() => Expression)),
+//     ...commonNodeProperties,
+// ]);
+const BindablePropertyAssignmentExpression = BinaryExpression;
+// export const BindablePropertyAssignmentExpression = new ObjectType(Prototype.NodeObject, [
+//     new ObjectProperty("left", true, proxy(() => BindableAccessExpression)),
+//     new ObjectProperty("kind", true, proxy(() => SyntaxKind_BinaryExpression)),
+//     new ObjectProperty("operatorToken", true, proxy(() => OperatorToken)),
+//     new ObjectProperty("right", true, proxy(() => Expression)),
+//     ...commonNodeProperties,
+// ]);
 export const SuperCall = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("expression", true, proxy(() => SuperExpression)),
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_CallExpression)),
@@ -2112,12 +2076,11 @@ export const ImportMetaProperty = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_MetaProperty)),
     ...commonNodeProperties,
 ]);
-export const escapedTextIsLiteralTypemeta = new ObjectType(Prototype.NodeObject, [
-    new ObjectProperty("escapedText", true, proxy(() => literalTypemeta)),
-]);
 export const literalTypemeta = new LiteralType("meta");
-export const identifierWithEscapedTextIsLiteralTypemeta = new IntersectionType([proxy(() => Identifier),
-proxy(() => escapedTextIsLiteralTypemeta)]);
+export const identifierWithEscapedTextIsLiteralTypemeta = new ObjectType(Prototype.NodeObject, overrideProperties(
+    ...identifierProperties,
+    new ObjectProperty("escapedText", true, proxy(() => literalTypemeta)),
+));
 export const JsxAttributeLike = new UnionType([
     proxy(() => JsxAttribute),
     proxy(() => JsxSpreadAttribute)

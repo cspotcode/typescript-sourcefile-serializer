@@ -62,10 +62,10 @@ export function createProxy<T extends object>(
         // get and set support our special Symbol property to get and set the proxy's target
 
         get (target: T, p: PropertyKey, receiver: any): any {
+            checkIsBound();
             if(p === createProxy.TARGET) {
                 return realTarget;
             } else {
-                checkIsBound();
                 return Reflect.get(realTarget, p, receiver);
             }
         },
@@ -114,4 +114,11 @@ export function createProxy<T extends object>(
     }
     // type asserting because initialTarget is expected not to be a full-fledged `T` instance
     return new Proxy(initialTarget as any, handlers);
+}
+
+export function unwrapProxy<T>(p: T): T {
+    while(p[TARGET]) {
+        p = p[TARGET];
+    }
+    return p;
 }

@@ -1,7 +1,7 @@
-import {get, uniqueId} from 'lodash';
+import { get, uniqueId, uniq } from 'lodash';
 import { outdent } from 'outdent';
 import assert from 'assert';
-import { createProxy } from './forward-reference-proxy';
+import { createProxy, unwrapProxy } from './forward-reference-proxy';
 import * as util from 'util';
 
 /**
@@ -36,11 +36,11 @@ export abstract class AbstractType {
     preferredIdentifier: string | undefined = undefined;
     id = uniqueId();
     getIdentifier(): string {
-        if(this.preferredIdentifier != null) return this.preferredIdentifier;
+        if (this.preferredIdentifier != null) return this.preferredIdentifier;
         return this.generateIdentifier();
     };
     protected generateIdentifier(): string {
-        return `type${ this.id }`;
+        return `type${this.id}`;
     };
     abstract getCreateExpression(): string;
 }
@@ -56,7 +56,7 @@ export class IntersectionType extends AbstractType {
         return `intersection${this.id}`;
     }
     getCreateExpression() {
-        return outdent `
+        return outdent`
             new IntersectionType([${this.types.map(v => proxyGetExpression(v)).join(',\n')}])
         `;
     }
@@ -64,11 +64,19 @@ export class IntersectionType extends AbstractType {
 export class UnionType extends AbstractType {
     constructor(types: Type[] = []) {
         super();
-        this.types.push(...types);
+        this._types.push(...types);
     }
-    types: Type[] = [];
+    private _types: Type[] = [];
+    private _cleanedTypes = false;
+    get types() {
+        if(!this._cleanedTypes) {
+            this._types = uniq(this._types.map(v => unwrapProxy(v)));
+            this._cleanedTypes = true;
+        }
+        return this._types;
+    }
     getCreateExpression() {
-        return outdent `
+        return outdent`
             new UnionType([${this.types.map(v => proxyGetExpression(v)).join(', \n')}])
         `;
     }
@@ -90,21 +98,21 @@ export class UnionType extends AbstractType {
         }
         const instructions: ClassificationInstructions = {
             prototypeMap: new Map(),
-            primitives: {boolean: false, number: false, string: false},
+            primitives: { boolean: false, number: false, string: false },
             literals: [],
             arrayTypes: []
         };
         // iterate all types in union, grouping into buckets by prototype, further classifying by kind
         this.forEachType(t => {
-            if(t instanceof PrimitiveType) instructions.primitives[t.name] = true;
-            else if(t instanceof LiteralType) instructions.literals.push(t);
-            else if(t instanceof ArrayType) instructions.arrayTypes.push(t);
+            if (t instanceof PrimitiveType) instructions.primitives[t.name] = true;
+            else if (t instanceof LiteralType) instructions.literals.push(t);
+            else if (t instanceof ArrayType) instructions.arrayTypes.push(t);
             else {
-                if(!(t instanceof ObjectType)) {
+                if (!(t instanceof ObjectType)) {
                     throw new Error('unexpected type');
                 }
                 let instructionsForPrototype = instructions.prototypeMap.get(t.prototype);
-                if(!instructionsForPrototype) {
+                if (!instructionsForPrototype) {
                     instructionsForPrototype = {
                         kindToTypeMap: new Map(),
                         types: []
@@ -112,21 +120,30 @@ export class UnionType extends AbstractType {
                     instructions.prototypeMap.set(t.prototype, instructionsForPrototype);
                 }
                 instructionsForPrototype.types.push(t);
-                for(const kindValue of t.getKindLiterals()) {
-                    assert(!instructionsForPrototype.kindToTypeMap.has(kindValue));
+                const gkl = t.getKindLiterals();
+                // TODO hdnle gkl.propWhenUnknown
+                // assert(!gkl.propWhenUnknown);
+                for (const kindValue of gkl.literals) {
+                    assert(!instructionsForPrototype.kindToTypeMap.has(kindValue), `${ t.getIdentifier() } ${ this.getIdentifier() }`);
                     instructionsForPrototype.kindToTypeMap.set(kindValue, t);
                 }
             }
         });
         return instructions;
     }
-    /** Rercursively iterate types in the union, calling callback once for each non-union type */
-    forEachType(cb: (t: Type) => void) {
-        for(const t of this.types) {
-            if(t instanceof UnionType) {
-                t.forEachType(cb);
+    /**
+     * Rercursively iterate types in the union, calling callback once for each non-union type.
+     * Skips duplicates.
+     */
+    forEachType(cb: (t: Type) => void, seen: Set<Type> = new Set()) {
+        for (const t of this.types) {
+            if (t instanceof UnionType) {
+                t.forEachType(cb, seen);
             } else {
-                cb(t);
+                if(!seen.has(t)) {
+                    seen.add(t);
+                    cb(t);
+                }
             }
         }
     }
@@ -164,34 +181,43 @@ export class ObjectType extends AbstractType {
     prototype: Prototype;
     properties: ObjectProperty[] = [];
     getPropertiesCreateExpression() {
-        return outdent `
+        return outdent`
             [
-                ${this.properties.map(v => outdent `
+                ${this.properties.map(v => outdent`
                     ${outdent}
-                        new ObjectProperty(${JSON.stringify(v.name)}, ${v.required}, ${ proxyGetExpression(v.type) }),
+                        new ObjectProperty(${JSON.stringify(v.name)}, ${v.required}, ${proxyGetExpression(v.type)}),
 
                 `).join('')}]
         `;
     }
     getCreateExpression() {
-        return outdent `
-            new ObjectType(${ this.getPropertiesCreateExpression() })
+        return outdent`
+            new ObjectType(${ this.getPropertiesCreateExpression()})
         `;
     }
     /** Get all possible literal values that the `kind` field might have */
     getKindLiterals() {
-        const ret = [];
+        const literals = [];
+        const ret = {
+            numberTypeFound: false,
+            propWhenUnknown: undefined as ObjectProperty | undefined,
+            literals
+        };
         this.properties.filter(v => v.name === 'kind').forEach(v => {
             getLiteralValues(v.type);
-            function getLiteralValues(v: Type) {
-                if(v instanceof LiteralType) {
-                    ret.push(v.value);
-                } else if(v instanceof UnionType) {
-                    v.forEachType((t) => {
+            function getLiteralValues(vType: Type) {
+                if (vType instanceof LiteralType) {
+                    literals.push(vType.value);
+                } else if (vType instanceof UnionType) {
+                    vType.forEachType((t) => {
                         getLiteralValues(t);
                     });
+                } else if(vType.id === numberType.id) {
+                    assert(ret.numberTypeFound === false);
+                    ret.numberTypeFound = true;
+                    ret.propWhenUnknown = v;
                 } else {
-                    throw new Error('unexpected type');
+                    throw new Error(`unexpected type: ${ vType.constructor.name } ${ util.inspect(vType) }`);
                 }
             }
         });
@@ -205,8 +231,8 @@ export class ArrayType extends ObjectType {
     }
     items: Type;
     getCreateExpression() {
-        return outdent `
-            new ArrayType(${ proxyGetExpression(this.items) }, ${ this.getPropertiesCreateExpression() })
+        return outdent`
+            new ArrayType(${ proxyGetExpression(this.items)}, ${this.getPropertiesCreateExpression()})
         `;
     }
 }
@@ -225,11 +251,11 @@ export class LiteralType<T = any> extends AbstractType {
         super();
     }
     generateIdentifier() {
-        return `literalType${ `${ this.value }`.replace(/[-\.\<\>]/g, '_') }`;
+        return `literalType${`${this.value}`.replace(/[-\.\<\>]/g, '_')}`;
     }
     getCreateExpression() {
-        return outdent `
-            new LiteralType(${ JSON.stringify(this.value) })
+        return outdent`
+            new LiteralType(${ JSON.stringify(this.value)})
         `;
     }
 }
@@ -238,10 +264,10 @@ export class PrimitiveType extends AbstractType {
         super();
     }
     generateIdentifier() {
-        return `${ this.name }Type`;
+        return `${this.name}Type`;
     }
     getCreateExpression() {
-        return `new PrimitiveType(${ JSON.stringify(this.name) })`;
+        return `new PrimitiveType(${JSON.stringify(this.name)})`;
     }
 }
 export const booleanType = new PrimitiveType('boolean');
@@ -265,4 +291,22 @@ export function proxy(getter: () => Type): Type {
             }
         }
     );
+}
+
+/**
+ * Build an array of properties, using the latter in case of duplicate names, but inserting in at the same location as the earlier one.
+ * E.g. passing [a, g, b, y, h, b, d] would only keep the *second* occurrence of `b` but put it at index 2
+ * Yielding     [a, g, b, y, h, d]
+ */
+export function overrideProperties(...properties: ObjectProperty[]) {
+    const result: ObjectProperty[] = [];
+    for (const prop of properties) {
+        const i = result.findIndex(v => v.name === prop.name);
+        if (i > -1) {
+            result[i] = prop;
+        } else {
+            result.push(prop);
+        }
+    }
+    return result;
 }
