@@ -1,6 +1,12 @@
-function marshallBooleanType(v) {}
-function marshallNumberType(v) {}
-function marshallStringType(v) {}
+function marshallBooleanType(v) {
+  assert(typeof v === "boolean");
+}
+function marshallNumberType(v) {
+  assert(typeof v === "number");
+}
+function marshallStringType(v) {
+  assert(typeof v === "string");
+}
 const NodeObject = function() {};
 //import assert from 'assert';
 function assert(mustBeTruthy) {}
@@ -10,194 +16,583 @@ function hop(value, key) {
 export { marshallSourceFile };
 window.marshallSourceFile = marshallSourceFile;
 // exports.marshallSourceFile = marshallSourceFile;
-function marshallSyntaxKind_AbstractKeyword(value) {}
-function marshallSyntaxKind_AsyncKeyword(value) {}
-function marshallSyntaxKind_ConstKeyword(value) {}
-function marshallSyntaxKind_DeclareKeyword(value) {}
-function marshallSyntaxKind_DefaultKeyword(value) {}
-function marshallSyntaxKind_ExportKeyword(value) {}
-function marshallSyntaxKind_PublicKeyword(value) {}
-function marshallSyntaxKind_PrivateKeyword(value) {}
-function marshallSyntaxKind_ProtectedKeyword(value) {}
-function marshallSyntaxKind_ReadonlyKeyword(value) {}
-function marshallSyntaxKind_StaticKeyword(value) {}
-function marshallSyntaxKind_Decorator(value) {}
-function marshallSyntaxKind_Identifier(value) {}
-function marshallSyntaxKind_StringLiteral(value) {}
-function marshallSyntaxKind_NumericLiteral(value) {}
-function marshallSyntaxKind_NoSubstitutionTemplateLiteral(value) {}
-function marshallSyntaxKind_ComputedPropertyName(value) {}
-function marshallSyntaxKind_PrivateIdentifier(value) {}
-function marshallSyntaxKind_ElementAccessExpression(value) {}
-function marshallSyntaxKind_QuestionDotToken(value) {}
-function marshallSyntaxKind_ObjectBindingPattern(value) {}
-function marshallSyntaxKind_Parameter(value) {}
-function marshallSyntaxKind_CallSignature(value) {}
-function marshallSyntaxKind_JSDocComment(value) {}
-function marshallSyntaxKind_ConstructSignature(value) {}
-function marshallSyntaxKind_JSDocTypeLiteral(value) {}
-function marshallSyntaxKind_QualifiedName(value) {}
-function marshallSyntaxKind_JSDocTypeExpression(value) {}
-function marshallSyntaxKind_QuestionToken(value) {}
-function marshallSyntaxKind_MethodSignature(value) {}
-function marshallSyntaxKind_ClassDeclaration(value) {}
-function marshallSyntaxKind_ClassExpression(value) {}
-function marshallSyntaxKind_InterfaceDeclaration(value) {}
-function marshallSyntaxKind_TypeLiteral(value) {}
-function marshallSyntaxKind_PropertySignature(value) {}
-function marshallSyntaxKind_ArrowFunction(value) {}
-function marshallSyntaxKind_EqualsGreaterThanToken(value) {}
-function marshallSyntaxKind_Block(value) {}
-function marshallSyntaxKind_AsteriskToken(value) {}
-function marshallSyntaxKind_ExclamationToken(value) {}
-function marshallSyntaxKind_ParenthesizedExpression(value) {}
-function marshallSyntaxKind_ObjectLiteralExpression(value) {}
-function marshallSyntaxKind_SpreadAssignment(value) {}
-function marshallSyntaxKind_ShorthandPropertyAssignment(value) {}
-function marshallSyntaxKind_EqualsToken(value) {}
-function marshallSyntaxKind_PropertyAssignment(value) {}
-function marshallSyntaxKind_FunctionExpression(value) {}
-function marshallSyntaxKind_LabeledStatement(value) {}
-function marshallSyntaxKind_ExpressionStatement(value) {}
-function marshallSyntaxKind_VariableStatement(value) {}
-function marshallSyntaxKind_VariableDeclarationList(value) {}
-function marshallSyntaxKind_ForStatement(value) {}
-function marshallSyntaxKind_ForInStatement(value) {}
-function marshallSyntaxKind_ForOfStatement(value) {}
-function marshallSyntaxKind_AwaitKeyword(value) {}
-function marshallSyntaxKind_FunctionDeclaration(value) {}
-function marshallSyntaxKind_Constructor(value) {}
-function marshallSyntaxKind_MethodDeclaration(value) {}
-function marshallSyntaxKind_PropertyDeclaration(value) {}
-function marshallSyntaxKind_GetAccessor(value) {}
-function marshallSyntaxKind_SetAccessor(value) {}
-function marshallSyntaxKind_TypeAliasDeclaration(value) {}
-function marshallSyntaxKind_EnumMember(value) {}
-function marshallSyntaxKind_EnumDeclaration(value) {}
-function marshallSyntaxKind_ModuleDeclaration(value) {}
-function marshallSyntaxKind_SourceFile(value) {}
-function marshallSyntaxKind_EndOfFileToken(value) {}
-function marshallSyntaxKind_ModuleBlock(value) {}
-function marshallSyntaxKind_ImportEqualsDeclaration(value) {}
-function marshallSyntaxKind_ExternalModuleReference(value) {}
-function marshallSyntaxKind_IndexSignature(value) {}
-function marshallSyntaxKind_FunctionType(value) {}
-function marshallSyntaxKind_ConstructorType(value) {}
-function marshallSyntaxKind_JSDocFunctionType(value) {}
-function marshallSyntaxKind_ExportDeclaration(value) {}
-function marshallSyntaxKind_NamespaceExport(value) {}
-function marshallSyntaxKind_NamedExports(value) {}
-function marshallSyntaxKind_DotDotDotToken(value) {}
-function marshallSyntaxKind_ArrayBindingPattern(value) {}
-function marshallSyntaxKind_VariableDeclaration(value) {}
-function marshallSyntaxKind_CatchClause(value) {}
-function marshallSyntaxKind_TryStatement(value) {}
-function marshallSyntaxKind_BindingElement(value) {}
-function marshallSyntaxKind_PropertyAccessExpression(value) {}
-function marshallSyntaxKind_TypeParameter(value) {}
-function marshallSyntaxKind_InferType(value) {}
-function marshallSyntaxKind_JSDocTemplateTag(value) {}
-function marshallSyntaxKind_HeritageClause(value) {}
-function marshallSyntaxKind_ExpressionWithTypeArguments(value) {}
-function marshallSyntaxKind_JSDocAugmentsTag(value) {}
-function marshallSyntaxKind_OmittedExpression(value) {}
-function marshallSyntaxKind_ExportSpecifier(value) {}
-function marshallSyntaxKind_PartiallyEmittedExpression(value) {}
-function marshallSyntaxKind_PrefixUnaryExpression(value) {}
-function marshallSyntaxKind_PostfixUnaryExpression(value) {}
-function marshallSyntaxKind_NullKeyword(value) {}
-function marshallSyntaxKind_ThisKeyword(value) {}
-function marshallSyntaxKind_SuperKeyword(value) {}
-function marshallSyntaxKind_ImportKeyword(value) {}
-function marshallSyntaxKind_DeleteExpression(value) {}
-function marshallSyntaxKind_TypeOfExpression(value) {}
-function marshallSyntaxKind_VoidExpression(value) {}
-function marshallSyntaxKind_AwaitExpression(value) {}
-function marshallSyntaxKind_YieldExpression(value) {}
-function marshallSyntaxKind_SyntheticExpression(value) {}
-function marshallSyntaxKind_AsteriskAsteriskToken(value) {}
-function marshallSyntaxKind_BinaryExpression(value) {}
-function marshallSyntaxKind_ArrayLiteralExpression(value) {}
-function marshallSyntaxKind_SpreadElement(value) {}
-function marshallSyntaxKind_CallExpression(value) {}
-function marshallSyntaxKind_NewExpression(value) {}
-function marshallSyntaxKind_ConditionalExpression(value) {}
-function marshallSyntaxKind_ColonToken(value) {}
-function marshallSyntaxKind_RegularExpressionLiteral(value) {}
-function marshallSyntaxKind_BigIntLiteral(value) {}
-function marshallSyntaxKind_TemplateHead(value) {}
-function marshallSyntaxKind_TemplateExpression(value) {}
-function marshallSyntaxKind_TemplateSpan(value) {}
-function marshallSyntaxKind_TemplateMiddle(value) {}
-function marshallSyntaxKind_TemplateTail(value) {}
-function marshallSyntaxKind_TaggedTemplateExpression(value) {}
-function marshallSyntaxKind_JsxOpeningElement(value) {}
-function marshallSyntaxKind_JsxElement(value) {}
-function marshallSyntaxKind_JsxClosingElement(value) {}
-function marshallSyntaxKind_JsxAttributes(value) {}
-function marshallSyntaxKind_JsxSelfClosingElement(value) {}
-function marshallSyntaxKind_JsxAttribute(value) {}
-function marshallSyntaxKind_JsxExpression(value) {}
-function marshallSyntaxKind_JsxSpreadAttribute(value) {}
-function marshallSyntaxKind_JsxFragment(value) {}
-function marshallSyntaxKind_JsxOpeningFragment(value) {}
-function marshallSyntaxKind_JsxClosingFragment(value) {}
-function marshallSyntaxKind_JsxText(value) {}
-function marshallSyntaxKind_AsExpression(value) {}
-function marshallSyntaxKind_TypeAssertionExpression(value) {}
-function marshallSyntaxKind_NonNullExpression(value) {}
-function marshallSyntaxKind_MetaProperty(value) {}
-function marshallSyntaxKind_NotEmittedStatement(value) {}
-function marshallSyntaxKind_EndOfDeclarationMarker(value) {}
-function marshallSyntaxKind_CommaListExpression(value) {}
-function marshallSyntaxKind_MergeDeclarationMarker(value) {}
-function marshallSyntaxKind_SyntheticReferenceExpression(value) {}
-function marshallSyntaxKind_EmptyStatement(value) {}
-function marshallSyntaxKind_DebuggerStatement(value) {}
-function marshallSyntaxKind_MissingDeclaration(value) {}
-function marshallSyntaxKind_CaseClause(value) {}
-function marshallSyntaxKind_CaseBlock(value) {}
-function marshallSyntaxKind_SwitchStatement(value) {}
-function marshallSyntaxKind_DefaultClause(value) {}
-function marshallSyntaxKind_IfStatement(value) {}
-function marshallSyntaxKind_DoStatement(value) {}
-function marshallSyntaxKind_WhileStatement(value) {}
-function marshallSyntaxKind_BreakStatement(value) {}
-function marshallSyntaxKind_ContinueStatement(value) {}
-function marshallSyntaxKind_ReturnStatement(value) {}
-function marshallSyntaxKind_WithStatement(value) {}
-function marshallSyntaxKind_ThrowStatement(value) {}
-function marshallSyntaxKind_JSDocTypedefTag(value) {}
-function marshallSyntaxKind_JSDocCallbackTag(value) {}
-function marshallSyntaxKind_JSDocSignature(value) {}
-function marshallSyntaxKind_JSDocParameterTag(value) {}
-function marshallSyntaxKind_JSDocReturnTag(value) {}
-function marshallSyntaxKind_ImportDeclaration(value) {}
-function marshallSyntaxKind_ImportClause(value) {}
-function marshallSyntaxKind_NamespaceImport(value) {}
-function marshallSyntaxKind_NamedImports(value) {}
-function marshallSyntaxKind_ImportSpecifier(value) {}
-function marshallSyntaxKind_NamespaceExportDeclaration(value) {}
-function marshallSyntaxKind_ExportAssignment(value) {}
-function marshallSyntaxKind_JSDocAllType(value) {}
-function marshallSyntaxKind_JSDocUnknownType(value) {}
-function marshallSyntaxKind_JSDocNonNullableType(value) {}
-function marshallSyntaxKind_JSDocNullableType(value) {}
-function marshallSyntaxKind_JSDocOptionalType(value) {}
-function marshallSyntaxKind_JSDocVariadicType(value) {}
-function marshallSyntaxKind_JSDocNamepathType(value) {}
-function marshallSyntaxKind_JSDocTag(value) {}
-function marshallSyntaxKind_JSDocAuthorTag(value) {}
-function marshallSyntaxKind_JSDocClassTag(value) {}
-function marshallSyntaxKind_JSDocPublicTag(value) {}
-function marshallSyntaxKind_JSDocPrivateTag(value) {}
-function marshallSyntaxKind_JSDocProtectedTag(value) {}
-function marshallSyntaxKind_JSDocReadonlyTag(value) {}
-function marshallSyntaxKind_JSDocEnumTag(value) {}
-function marshallSyntaxKind_JSDocThisTag(value) {}
-function marshallSyntaxKind_JSDocTypeTag(value) {}
-function marshallSyntaxKind_JSDocPropertyTag(value) {}
-function marshallNodeArray(value) {}
+function marshallSyntaxKind_AbstractKeyword(value) {
+  assert(value === 122);
+}
+function marshallSyntaxKind_AsyncKeyword(value) {
+  assert(value === 126);
+}
+function marshallSyntaxKind_ConstKeyword(value) {
+  assert(value === 81);
+}
+function marshallSyntaxKind_DeclareKeyword(value) {
+  assert(value === 130);
+}
+function marshallSyntaxKind_DefaultKeyword(value) {
+  assert(value === 84);
+}
+function marshallSyntaxKind_ExportKeyword(value) {
+  assert(value === 89);
+}
+function marshallSyntaxKind_PublicKeyword(value) {
+  assert(value === 119);
+}
+function marshallSyntaxKind_PrivateKeyword(value) {
+  assert(value === 117);
+}
+function marshallSyntaxKind_ProtectedKeyword(value) {
+  assert(value === 118);
+}
+function marshallSyntaxKind_ReadonlyKeyword(value) {
+  assert(value === 138);
+}
+function marshallSyntaxKind_StaticKeyword(value) {
+  assert(value === 120);
+}
+function marshallSyntaxKind_Decorator(value) {
+  assert(value === 157);
+}
+function marshallSyntaxKind_Identifier(value) {
+  assert(value === 75);
+}
+function marshallSyntaxKind_StringLiteral(value) {
+  assert(value === 10);
+}
+function marshallSyntaxKind_NumericLiteral(value) {
+  assert(value === 8);
+}
+function marshallSyntaxKind_NoSubstitutionTemplateLiteral(value) {
+  assert(value === 14);
+}
+function marshallSyntaxKind_ComputedPropertyName(value) {
+  assert(value === 154);
+}
+function marshallSyntaxKind_PrivateIdentifier(value) {
+  assert(value === 76);
+}
+function marshallSyntaxKind_ElementAccessExpression(value) {
+  assert(value === 195);
+}
+function marshallSyntaxKind_QuestionDotToken(value) {
+  assert(value === 28);
+}
+function marshallSyntaxKind_ObjectBindingPattern(value) {
+  assert(value === 189);
+}
+function marshallSyntaxKind_Parameter(value) {
+  assert(value === 156);
+}
+function marshallSyntaxKind_CallSignature(value) {
+  assert(value === 165);
+}
+function marshallSyntaxKind_JSDocComment(value) {
+  assert(value === 303);
+}
+function marshallSyntaxKind_ConstructSignature(value) {
+  assert(value === 166);
+}
+function marshallSyntaxKind_JSDocTypeLiteral(value) {
+  assert(value === 304);
+}
+function marshallSyntaxKind_QualifiedName(value) {
+  assert(value === 153);
+}
+function marshallSyntaxKind_JSDocTypeExpression(value) {
+  assert(value === 294);
+}
+function marshallSyntaxKind_QuestionToken(value) {
+  assert(value === 57);
+}
+function marshallSyntaxKind_MethodSignature(value) {
+  assert(value === 160);
+}
+function marshallSyntaxKind_ClassDeclaration(value) {
+  assert(value === 245);
+}
+function marshallSyntaxKind_ClassExpression(value) {
+  assert(value === 214);
+}
+function marshallSyntaxKind_InterfaceDeclaration(value) {
+  assert(value === 246);
+}
+function marshallSyntaxKind_TypeLiteral(value) {
+  assert(value === 173);
+}
+function marshallSyntaxKind_PropertySignature(value) {
+  assert(value === 158);
+}
+function marshallSyntaxKind_ArrowFunction(value) {
+  assert(value === 202);
+}
+function marshallSyntaxKind_EqualsGreaterThanToken(value) {
+  assert(value === 38);
+}
+function marshallSyntaxKind_Block(value) {
+  assert(value === 223);
+}
+function marshallSyntaxKind_AsteriskToken(value) {
+  assert(value === 41);
+}
+function marshallSyntaxKind_ExclamationToken(value) {
+  assert(value === 53);
+}
+function marshallSyntaxKind_ParenthesizedExpression(value) {
+  assert(value === 200);
+}
+function marshallSyntaxKind_ObjectLiteralExpression(value) {
+  assert(value === 193);
+}
+function marshallSyntaxKind_SpreadAssignment(value) {
+  assert(value === 283);
+}
+function marshallSyntaxKind_ShorthandPropertyAssignment(value) {
+  assert(value === 282);
+}
+function marshallSyntaxKind_EqualsToken(value) {
+  assert(value === 62);
+}
+function marshallSyntaxKind_PropertyAssignment(value) {
+  assert(value === 281);
+}
+function marshallSyntaxKind_FunctionExpression(value) {
+  assert(value === 201);
+}
+function marshallSyntaxKind_LabeledStatement(value) {
+  assert(value === 238);
+}
+function marshallSyntaxKind_ExpressionStatement(value) {
+  assert(value === 226);
+}
+function marshallSyntaxKind_VariableStatement(value) {
+  assert(value === 225);
+}
+function marshallSyntaxKind_VariableDeclarationList(value) {
+  assert(value === 243);
+}
+function marshallSyntaxKind_ForStatement(value) {
+  assert(value === 230);
+}
+function marshallSyntaxKind_ForInStatement(value) {
+  assert(value === 231);
+}
+function marshallSyntaxKind_ForOfStatement(value) {
+  assert(value === 232);
+}
+function marshallSyntaxKind_AwaitKeyword(value) {
+  assert(value === 127);
+}
+function marshallSyntaxKind_FunctionDeclaration(value) {
+  assert(value === 244);
+}
+function marshallSyntaxKind_Constructor(value) {
+  assert(value === 162);
+}
+function marshallSyntaxKind_MethodDeclaration(value) {
+  assert(value === 161);
+}
+function marshallSyntaxKind_PropertyDeclaration(value) {
+  assert(value === 159);
+}
+function marshallSyntaxKind_GetAccessor(value) {
+  assert(value === 163);
+}
+function marshallSyntaxKind_SetAccessor(value) {
+  assert(value === 164);
+}
+function marshallSyntaxKind_TypeAliasDeclaration(value) {
+  assert(value === 247);
+}
+function marshallSyntaxKind_EnumMember(value) {
+  assert(value === 284);
+}
+function marshallSyntaxKind_EnumDeclaration(value) {
+  assert(value === 248);
+}
+function marshallSyntaxKind_ModuleDeclaration(value) {
+  assert(value === 249);
+}
+function marshallSyntaxKind_SourceFile(value) {
+  assert(value === 290);
+}
+function marshallSyntaxKind_EndOfFileToken(value) {
+  assert(value === 1);
+}
+function marshallSyntaxKind_ModuleBlock(value) {
+  assert(value === 250);
+}
+function marshallSyntaxKind_ImportEqualsDeclaration(value) {
+  assert(value === 253);
+}
+function marshallSyntaxKind_ExternalModuleReference(value) {
+  assert(value === 265);
+}
+function marshallSyntaxKind_IndexSignature(value) {
+  assert(value === 167);
+}
+function marshallSyntaxKind_FunctionType(value) {
+  assert(value === 170);
+}
+function marshallSyntaxKind_ConstructorType(value) {
+  assert(value === 171);
+}
+function marshallSyntaxKind_JSDocFunctionType(value) {
+  assert(value === 300);
+}
+function marshallSyntaxKind_ExportDeclaration(value) {
+  assert(value === 260);
+}
+function marshallSyntaxKind_NamespaceExport(value) {
+  assert(value === 262);
+}
+function marshallSyntaxKind_NamedExports(value) {
+  assert(value === 261);
+}
+function marshallSyntaxKind_DotDotDotToken(value) {
+  assert(value === 25);
+}
+function marshallSyntaxKind_ArrayBindingPattern(value) {
+  assert(value === 190);
+}
+function marshallSyntaxKind_VariableDeclaration(value) {
+  assert(value === 242);
+}
+function marshallSyntaxKind_CatchClause(value) {
+  assert(value === 280);
+}
+function marshallSyntaxKind_TryStatement(value) {
+  assert(value === 240);
+}
+function marshallSyntaxKind_BindingElement(value) {
+  assert(value === 191);
+}
+function marshallSyntaxKind_PropertyAccessExpression(value) {
+  assert(value === 194);
+}
+function marshallSyntaxKind_TypeParameter(value) {
+  assert(value === 155);
+}
+function marshallSyntaxKind_InferType(value) {
+  assert(value === 181);
+}
+function marshallSyntaxKind_JSDocTemplateTag(value) {
+  assert(value === 320);
+}
+function marshallSyntaxKind_HeritageClause(value) {
+  assert(value === 279);
+}
+function marshallSyntaxKind_ExpressionWithTypeArguments(value) {
+  assert(value === 216);
+}
+function marshallSyntaxKind_JSDocAugmentsTag(value) {
+  assert(value === 307);
+}
+function marshallSyntaxKind_OmittedExpression(value) {
+  assert(value === 215);
+}
+function marshallSyntaxKind_ExportSpecifier(value) {
+  assert(value === 263);
+}
+function marshallSyntaxKind_PartiallyEmittedExpression(value) {
+  assert(value === 325);
+}
+function marshallSyntaxKind_PrefixUnaryExpression(value) {
+  assert(value === 207);
+}
+function marshallSyntaxKind_PostfixUnaryExpression(value) {
+  assert(value === 208);
+}
+function marshallSyntaxKind_NullKeyword(value) {
+  assert(value === 100);
+}
+function marshallSyntaxKind_ThisKeyword(value) {
+  assert(value === 104);
+}
+function marshallSyntaxKind_SuperKeyword(value) {
+  assert(value === 102);
+}
+function marshallSyntaxKind_ImportKeyword(value) {
+  assert(value === 96);
+}
+function marshallSyntaxKind_DeleteExpression(value) {
+  assert(value === 203);
+}
+function marshallSyntaxKind_TypeOfExpression(value) {
+  assert(value === 204);
+}
+function marshallSyntaxKind_VoidExpression(value) {
+  assert(value === 205);
+}
+function marshallSyntaxKind_AwaitExpression(value) {
+  assert(value === 206);
+}
+function marshallSyntaxKind_YieldExpression(value) {
+  assert(value === 212);
+}
+function marshallSyntaxKind_SyntheticExpression(value) {
+  assert(value === 220);
+}
+function marshallSyntaxKind_AsteriskAsteriskToken(value) {
+  assert(value === 42);
+}
+function marshallSyntaxKind_BinaryExpression(value) {
+  assert(value === 209);
+}
+function marshallSyntaxKind_ArrayLiteralExpression(value) {
+  assert(value === 192);
+}
+function marshallSyntaxKind_SpreadElement(value) {
+  assert(value === 213);
+}
+function marshallSyntaxKind_CallExpression(value) {
+  assert(value === 196);
+}
+function marshallSyntaxKind_NewExpression(value) {
+  assert(value === 197);
+}
+function marshallSyntaxKind_ConditionalExpression(value) {
+  assert(value === 210);
+}
+function marshallSyntaxKind_ColonToken(value) {
+  assert(value === 58);
+}
+function marshallSyntaxKind_RegularExpressionLiteral(value) {
+  assert(value === 13);
+}
+function marshallSyntaxKind_BigIntLiteral(value) {
+  assert(value === 9);
+}
+function marshallSyntaxKind_TemplateHead(value) {
+  assert(value === 15);
+}
+function marshallSyntaxKind_TemplateExpression(value) {
+  assert(value === 211);
+}
+function marshallSyntaxKind_TemplateSpan(value) {
+  assert(value === 221);
+}
+function marshallSyntaxKind_TemplateMiddle(value) {
+  assert(value === 16);
+}
+function marshallSyntaxKind_TemplateTail(value) {
+  assert(value === 17);
+}
+function marshallSyntaxKind_TaggedTemplateExpression(value) {
+  assert(value === 198);
+}
+function marshallSyntaxKind_JsxOpeningElement(value) {
+  assert(value === 268);
+}
+function marshallSyntaxKind_JsxElement(value) {
+  assert(value === 266);
+}
+function marshallSyntaxKind_JsxClosingElement(value) {
+  assert(value === 269);
+}
+function marshallSyntaxKind_JsxAttributes(value) {
+  assert(value === 274);
+}
+function marshallSyntaxKind_JsxSelfClosingElement(value) {
+  assert(value === 267);
+}
+function marshallSyntaxKind_JsxAttribute(value) {
+  assert(value === 273);
+}
+function marshallSyntaxKind_JsxExpression(value) {
+  assert(value === 276);
+}
+function marshallSyntaxKind_JsxSpreadAttribute(value) {
+  assert(value === 275);
+}
+function marshallSyntaxKind_JsxFragment(value) {
+  assert(value === 270);
+}
+function marshallSyntaxKind_JsxOpeningFragment(value) {
+  assert(value === 271);
+}
+function marshallSyntaxKind_JsxClosingFragment(value) {
+  assert(value === 272);
+}
+function marshallSyntaxKind_JsxText(value) {
+  assert(value === 11);
+}
+function marshallSyntaxKind_AsExpression(value) {
+  assert(value === 217);
+}
+function marshallSyntaxKind_TypeAssertionExpression(value) {
+  assert(value === 199);
+}
+function marshallSyntaxKind_NonNullExpression(value) {
+  assert(value === 218);
+}
+function marshallSyntaxKind_MetaProperty(value) {
+  assert(value === 219);
+}
+function marshallSyntaxKind_NotEmittedStatement(value) {
+  assert(value === 324);
+}
+function marshallSyntaxKind_EndOfDeclarationMarker(value) {
+  assert(value === 328);
+}
+function marshallSyntaxKind_CommaListExpression(value) {
+  assert(value === 326);
+}
+function marshallSyntaxKind_MergeDeclarationMarker(value) {
+  assert(value === 327);
+}
+function marshallSyntaxKind_SyntheticReferenceExpression(value) {
+  assert(value === 329);
+}
+function marshallSyntaxKind_EmptyStatement(value) {
+  assert(value === 224);
+}
+function marshallSyntaxKind_DebuggerStatement(value) {
+  assert(value === 241);
+}
+function marshallSyntaxKind_MissingDeclaration(value) {
+  assert(value === 264);
+}
+function marshallSyntaxKind_CaseClause(value) {
+  assert(value === 277);
+}
+function marshallSyntaxKind_CaseBlock(value) {
+  assert(value === 251);
+}
+function marshallSyntaxKind_SwitchStatement(value) {
+  assert(value === 237);
+}
+function marshallSyntaxKind_DefaultClause(value) {
+  assert(value === 278);
+}
+function marshallSyntaxKind_IfStatement(value) {
+  assert(value === 227);
+}
+function marshallSyntaxKind_DoStatement(value) {
+  assert(value === 228);
+}
+function marshallSyntaxKind_WhileStatement(value) {
+  assert(value === 229);
+}
+function marshallSyntaxKind_BreakStatement(value) {
+  assert(value === 234);
+}
+function marshallSyntaxKind_ContinueStatement(value) {
+  assert(value === 233);
+}
+function marshallSyntaxKind_ReturnStatement(value) {
+  assert(value === 235);
+}
+function marshallSyntaxKind_WithStatement(value) {
+  assert(value === 236);
+}
+function marshallSyntaxKind_ThrowStatement(value) {
+  assert(value === 239);
+}
+function marshallSyntaxKind_JSDocTypedefTag(value) {
+  assert(value === 321);
+}
+function marshallSyntaxKind_JSDocCallbackTag(value) {
+  assert(value === 314);
+}
+function marshallSyntaxKind_JSDocSignature(value) {
+  assert(value === 305);
+}
+function marshallSyntaxKind_JSDocParameterTag(value) {
+  assert(value === 316);
+}
+function marshallSyntaxKind_JSDocReturnTag(value) {
+  assert(value === 317);
+}
+function marshallSyntaxKind_ImportDeclaration(value) {
+  assert(value === 254);
+}
+function marshallSyntaxKind_ImportClause(value) {
+  assert(value === 255);
+}
+function marshallSyntaxKind_NamespaceImport(value) {
+  assert(value === 256);
+}
+function marshallSyntaxKind_NamedImports(value) {
+  assert(value === 257);
+}
+function marshallSyntaxKind_ImportSpecifier(value) {
+  assert(value === 258);
+}
+function marshallSyntaxKind_NamespaceExportDeclaration(value) {
+  assert(value === 252);
+}
+function marshallSyntaxKind_ExportAssignment(value) {
+  assert(value === 259);
+}
+function marshallSyntaxKind_JSDocAllType(value) {
+  assert(value === 295);
+}
+function marshallSyntaxKind_JSDocUnknownType(value) {
+  assert(value === 296);
+}
+function marshallSyntaxKind_JSDocNonNullableType(value) {
+  assert(value === 298);
+}
+function marshallSyntaxKind_JSDocNullableType(value) {
+  assert(value === 297);
+}
+function marshallSyntaxKind_JSDocOptionalType(value) {
+  assert(value === 299);
+}
+function marshallSyntaxKind_JSDocVariadicType(value) {
+  assert(value === 301);
+}
+function marshallSyntaxKind_JSDocNamepathType(value) {
+  assert(value === 302);
+}
+function marshallSyntaxKind_JSDocTag(value) {
+  assert(value === 306);
+}
+function marshallSyntaxKind_JSDocAuthorTag(value) {
+  assert(value === 308);
+}
+function marshallSyntaxKind_JSDocClassTag(value) {
+  assert(value === 309);
+}
+function marshallSyntaxKind_JSDocPublicTag(value) {
+  assert(value === 310);
+}
+function marshallSyntaxKind_JSDocPrivateTag(value) {
+  assert(value === 311);
+}
+function marshallSyntaxKind_JSDocProtectedTag(value) {
+  assert(value === 312);
+}
+function marshallSyntaxKind_JSDocReadonlyTag(value) {
+  assert(value === 313);
+}
+function marshallSyntaxKind_JSDocEnumTag(value) {
+  assert(value === 315);
+}
+function marshallSyntaxKind_JSDocThisTag(value) {
+  assert(value === 318);
+}
+function marshallSyntaxKind_JSDocTypeTag(value) {
+  assert(value === 319);
+}
+function marshallSyntaxKind_JSDocPropertyTag(value) {
+  assert(value === 322);
+}
+function marshallNodeArray(value) {
+  marshallNumberType(value.length);
+  for (const item of value) {
+    marshallNode(item);
+  }
+  marshallNumberType(value.pos);
+  marshallNumberType(value.end);
+  const exists_hasTrailingComma = hop(value, "hasTrailingComma");
+  if (exists_hasTrailingComma) {
+    marshallBooleanType(value.hasTrailingComma);
+  }
+  const exists_transformFlags = hop(value, "transformFlags");
+  if (exists_transformFlags) {
+    marshallNumberType(value.transformFlags);
+  }
+}
 function marshallNode(value) {
   assert(value instanceof NodeObject);
   marshallNumberType(value.kind);
@@ -216,7 +611,6 @@ function marshallNode(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -242,7 +636,6 @@ function marshallToken_AbstractKeyword(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -268,7 +661,6 @@ function marshallToken_AsyncKeyword(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -294,7 +686,6 @@ function marshallToken_ConstKeyword(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -320,7 +711,6 @@ function marshallToken_DeclareKeyword(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -346,7 +736,6 @@ function marshallToken_DefaultKeyword(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -372,7 +761,6 @@ function marshallToken_ExportKeyword(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -398,7 +786,6 @@ function marshallToken_PublicKeyword(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -424,7 +811,6 @@ function marshallToken_PrivateKeyword(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -450,7 +836,6 @@ function marshallToken_ProtectedKeyword(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -476,7 +861,6 @@ function marshallToken_ReadonlyKeyword(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -502,7 +886,6 @@ function marshallToken_StaticKeyword(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -528,7 +911,6 @@ function marshallToken_QuestionDotToken(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -554,7 +936,6 @@ function marshallToken_QuestionToken(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -580,7 +961,6 @@ function marshallToken_EqualsGreaterThanToken(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -606,7 +986,6 @@ function marshallToken_AsteriskToken(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -632,7 +1011,6 @@ function marshallToken_ExclamationToken(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -658,7 +1036,6 @@ function marshallToken_AwaitKeyword(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -684,7 +1061,6 @@ function marshallToken_EndOfFileToken_old(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -710,7 +1086,6 @@ function marshallToken_EndOfFileToken(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -744,7 +1119,6 @@ function marshallToken_EqualsToken(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -770,7 +1144,6 @@ function marshallToken_ColonToken(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -796,7 +1169,6 @@ function marshallToken_DotDotDotToken(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -804,11 +1176,23 @@ function marshallToken_DotDotDotToken(value) {
   marshallNumberType(value.pos);
   marshallNumberType(value.end);
 }
-function marshallModifiersArray(value) {}
+function marshallModifiersArray(value) {
+  marshallNumberType(value.length);
+  for (const item of value) {
+    marshallModifierToken(item);
+  }
+}
 function marshallModifierToken(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
@@ -816,7 +1200,6 @@ function marshallModifierToken(value) {
 function marshallDecorator(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_Decorator(value.kind);
-  marshallNamedDeclaration(value.parent);
   marshallLeftHandSideExpression(value.expression);
   marshallNumberType(value.flags);
   marshallNumberType(value.modifierFlagsCache);
@@ -862,7 +1245,6 @@ function marshallNamedDeclaration(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -913,7 +1295,6 @@ function marshallIdentifier(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -959,7 +1340,6 @@ function marshallStringLiteral(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -998,7 +1378,6 @@ function marshallNumericLiteral(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -1040,7 +1419,6 @@ function marshallNoSubstitutionTemplateLiteral(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -1054,15 +1432,21 @@ function marshallNoSubstitutionTemplateLiteral(value) {
 }
 function marshallStringLiteral_TextSourceNode(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
 }
 function marshallComputedPropertyName(value) {
   assert(value instanceof NodeObject);
-  marshallDeclaration(value.parent);
   marshallSyntaxKind_ComputedPropertyName(value.kind);
   marshallExpression(value.expression);
   marshallNumberType(value.flags);
@@ -1105,7 +1489,6 @@ function marshallDeclaration(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -1131,7 +1514,6 @@ function marshallExpression(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -1158,7 +1540,6 @@ function marshallPrivateIdentifier(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -1190,7 +1571,6 @@ function marshallElementAccessExpression(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -1216,7 +1596,6 @@ function marshallLeftHandSideExpression(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -1227,7 +1606,6 @@ function marshallLeftHandSideExpression(value) {
 function marshallObjectBindingPattern(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_ObjectBindingPattern(value.kind);
-  marshallObjectBindingPattern_Parent(value.parent);
   marshallNodeArray(value.elements);
   marshallNumberType(value.flags);
   marshallNumberType(value.modifierFlagsCache);
@@ -1254,7 +1632,6 @@ function marshallObjectBindingPattern(value) {
 function marshallParameterDeclaration(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_Parameter(value.kind);
-  marshallSignatureDeclaration(value.parent);
   const exists_dotDotDotToken = hop(value, "dotDotDotToken");
   if (exists_dotDotDotToken) {
     marshallToken_DotDotDotToken(value.dotDotDotToken);
@@ -1337,7 +1714,6 @@ function marshallCallSignatureDeclaration(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -1359,8 +1735,15 @@ function marshallCallSignatureDeclaration(value) {
 }
 function marshallPropertyName(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
@@ -1383,7 +1766,6 @@ function marshallTypeNode(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -1394,7 +1776,6 @@ function marshallTypeNode(value) {
 function marshallJSDoc(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_JSDocComment(value.kind);
-  marshallHasJSDoc(value.parent);
   const exists_tags = hop(value, "tags");
   if (exists_tags) {
     marshallNodeArray(value.tags);
@@ -1460,7 +1841,6 @@ function marshallConstructSignatureDeclaration(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -1480,11 +1860,20 @@ function marshallConstructSignatureDeclaration(value) {
     marshallToken_QuestionToken(value.questionToken);
   }
 }
-function marshallArray_JSDoc(value) {}
-function marshallArray_JSDocTag(value) {}
+function marshallArray_JSDoc(value) {
+  marshallNumberType(value.length);
+  for (const item of value) {
+    marshallJSDoc(item);
+  }
+}
+function marshallArray_JSDocTag(value) {
+  marshallNumberType(value.length);
+  for (const item of value) {
+    marshallJSDocTag(item);
+  }
+}
 function marshallJSDocTag(value) {
   assert(value instanceof NodeObject);
-  marshallJSDocOrJSDocTypeLiteral(value.parent);
   marshallIdentifier(value.tagName);
   const exists_comment = hop(value, "comment");
   if (exists_comment) {
@@ -1539,7 +1928,6 @@ function marshallJSDocTypeLiteral(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -1547,10 +1935,14 @@ function marshallJSDocTypeLiteral(value) {
   marshallNumberType(value.pos);
   marshallNumberType(value.end);
 }
-function marshallArray_JSDocPropertyLikeTag(value) {}
+function marshallArray_JSDocPropertyLikeTag(value) {
+  marshallNumberType(value.length);
+  for (const item of value) {
+    marshallJSDocPropertyLikeTag(item);
+  }
+}
 function marshallJSDocPropertyLikeTag(value) {
   assert(value instanceof NodeObject);
-  marshallJSDoc(value.parent);
   marshallEntityName(value.name);
   const exists_typeExpression = hop(value, "typeExpression");
   if (exists_typeExpression) {
@@ -1610,7 +2002,6 @@ function marshallQualifiedName(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -1620,8 +2011,15 @@ function marshallQualifiedName(value) {
 }
 function marshallEntityName(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
@@ -1645,7 +2043,6 @@ function marshallJSDocTypeExpression(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -1656,7 +2053,6 @@ function marshallJSDocTypeExpression(value) {
 function marshallMethodSignature(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_MethodSignature(value.kind);
-  marshallObjectTypeDeclaration(value.parent);
   marshallPropertyName(value.name);
   const exists_typeParameters = hop(value, "typeParameters");
   if (exists_typeParameters) {
@@ -1736,7 +2132,6 @@ function marshallClassDeclaration(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -1783,7 +2178,6 @@ function marshallClassExpression(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -1827,7 +2221,6 @@ function marshallInterfaceDeclaration(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -1862,7 +2255,6 @@ function marshallTypeLiteralNode(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -1872,8 +2264,15 @@ function marshallTypeLiteralNode(value) {
 }
 function marshallObjectTypeDeclaration(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
@@ -1909,7 +2308,6 @@ function marshallPropertySignature(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -1945,7 +2343,6 @@ function marshallArrowFunction(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -2013,7 +2410,6 @@ function marshallBlock(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -2023,8 +2419,15 @@ function marshallBlock(value) {
 }
 function marshallConciseBody(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
@@ -2051,7 +2454,6 @@ function marshallParenthesizedExpression(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -2069,7 +2471,6 @@ function marshallParenthesizedExpression(value) {
 }
 function marshallSpreadAssignment(value) {
   assert(value instanceof NodeObject);
-  marshallObjectLiteralExpression(value.parent);
   marshallSyntaxKind_SpreadAssignment(value.kind);
   marshallExpression(value.expression);
   const exists_name = hop(value, "name");
@@ -2129,7 +2530,6 @@ function marshallObjectLiteralExpression(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -2139,7 +2539,6 @@ function marshallObjectLiteralExpression(value) {
 }
 function marshallShorthandPropertyAssignment(value) {
   assert(value instanceof NodeObject);
-  marshallObjectLiteralExpression(value.parent);
   marshallSyntaxKind_ShorthandPropertyAssignment(value.kind);
   marshallIdentifier(value.name);
   const exists_questionToken = hop(value, "questionToken");
@@ -2193,7 +2592,6 @@ function marshallShorthandPropertyAssignment(value) {
 }
 function marshallPropertyAssignment(value) {
   assert(value instanceof NodeObject);
-  marshallObjectLiteralExpression(value.parent);
   marshallSyntaxKind_PropertyAssignment(value.kind);
   marshallPropertyName(value.name);
   const exists_questionToken = hop(value, "questionToken");
@@ -2254,7 +2652,6 @@ function marshallFunctionExpression(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -2319,7 +2716,6 @@ function marshallLabeledStatement(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -2353,7 +2749,6 @@ function marshallStatement(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -2380,7 +2775,6 @@ function marshallExpressionStatement(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -2415,7 +2809,6 @@ function marshallVariableStatement(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -2434,7 +2827,6 @@ function marshallVariableStatement(value) {
 function marshallVariableDeclarationList(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_VariableDeclarationList(value.kind);
-  marshallType164(value.parent);
   marshallNodeArray(value.declarations);
   marshallNumberType(value.flags);
   marshallNumberType(value.modifierFlagsCache);
@@ -2489,7 +2881,6 @@ function marshallForStatement(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -2499,8 +2890,15 @@ function marshallForStatement(value) {
 }
 function marshallForInitializer(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
@@ -2526,7 +2924,6 @@ function marshallForInStatement(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -2559,7 +2956,6 @@ function marshallForOfStatement(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -2569,8 +2965,15 @@ function marshallForOfStatement(value) {
 }
 function marshallType164(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
@@ -2630,7 +3033,6 @@ function marshallFunctionDeclaration(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -2649,7 +3051,6 @@ function marshallFunctionDeclaration(value) {
 function marshallConstructorDeclaration(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_Constructor(value.kind);
-  marshallClassLikeDeclaration(value.parent);
   const exists_body = hop(value, "body");
   if (exists_body) {
     marshallBlock(value.body);
@@ -2723,8 +3124,15 @@ function marshallConstructorDeclaration(value) {
 }
 function marshallClassLikeDeclaration(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
@@ -2732,7 +3140,6 @@ function marshallClassLikeDeclaration(value) {
 function marshallMethodDeclaration(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_MethodDeclaration(value.kind);
-  marshallType178(value.parent);
   marshallPropertyName(value.name);
   const exists_body = hop(value, "body");
   if (exists_body) {
@@ -2799,8 +3206,15 @@ function marshallMethodDeclaration(value) {
 }
 function marshallType178(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
@@ -2808,7 +3222,6 @@ function marshallType178(value) {
 function marshallPropertyDeclaration(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_PropertyDeclaration(value.kind);
-  marshallClassLikeDeclaration(value.parent);
   marshallPropertyName(value.name);
   const exists_questionToken = hop(value, "questionToken");
   if (exists_questionToken) {
@@ -2859,7 +3272,6 @@ function marshallPropertyDeclaration(value) {
 function marshallGetAccessorDeclaration(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_GetAccessor(value.kind);
-  marshallType187(value.parent);
   marshallPropertyName(value.name);
   const exists_body = hop(value, "body");
   if (exists_body) {
@@ -2926,8 +3338,15 @@ function marshallGetAccessorDeclaration(value) {
 }
 function marshallType187(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
@@ -2935,7 +3354,6 @@ function marshallType187(value) {
 function marshallSetAccessorDeclaration(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_SetAccessor(value.kind);
-  marshallType192(value.parent);
   marshallPropertyName(value.name);
   const exists_body = hop(value, "body");
   if (exists_body) {
@@ -3002,8 +3420,15 @@ function marshallSetAccessorDeclaration(value) {
 }
 function marshallType192(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
@@ -3032,7 +3457,6 @@ function marshallTypeAliasDeclaration(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -3051,7 +3475,6 @@ function marshallTypeAliasDeclaration(value) {
 function marshallEnumMember(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_EnumMember(value.kind);
-  marshallEnumDeclaration(value.parent);
   marshallPropertyName(value.name);
   const exists_initializer = hop(value, "initializer");
   if (exists_initializer) {
@@ -3107,7 +3530,6 @@ function marshallEnumDeclaration(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -3126,7 +3548,6 @@ function marshallEnumDeclaration(value) {
 function marshallModuleDeclaration(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_ModuleDeclaration(value.kind);
-  marshallPath(value.parent);
   marshallModuleName(value.name);
   const exists_body = hop(value, "body");
   if (exists_body) {
@@ -3259,7 +3680,6 @@ function marshallSourceFile(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -3267,13 +3687,20 @@ function marshallSourceFile(value) {
   marshallNumberType(value.pos);
   marshallNumberType(value.end);
 }
-function marshallPath(value) {}
+function marshallPath(value) {
+  marshallStringType(value);
+}
 function marshallRedirectInfo(value) {
   assert(value instanceof NodeObject);
   marshallSourceFile(value.redirectTarget);
   marshallSourceFile(value.unredirected);
 }
-function marshallArray_AmdDependency(value) {}
+function marshallArray_AmdDependency(value) {
+  marshallNumberType(value.length);
+  for (const item of value) {
+    marshallAmdDependency(item);
+  }
+}
 function marshallAmdDependency(value) {
   assert(value instanceof NodeObject);
   marshallPath(value.path);
@@ -3282,7 +3709,12 @@ function marshallAmdDependency(value) {
     marshallPath(value.name);
   }
 }
-function marshallArray_FileReference(value) {}
+function marshallArray_FileReference(value) {
+  marshallNumberType(value.length);
+  for (const item of value) {
+    marshallFileReference(item);
+  }
+}
 function marshallFileReference(value) {
   assert(value instanceof NodeObject);
   marshallPath(value.fileName);
@@ -3324,7 +3756,12 @@ function marshallDiagnosticWithLocation(value) {
 function marshallType227(value) {
   assert(value instanceof NodeObject);
 }
-function marshallArray_DiagnosticRelatedInformation(value) {}
+function marshallArray_DiagnosticRelatedInformation(value) {
+  marshallNumberType(value.length);
+  for (const item of value) {
+    marshallDiagnosticRelatedInformation(item);
+  }
+}
 function marshallDiagnosticRelatedInformation(value) {
   assert(value instanceof NodeObject);
   marshallNumberType(value.category);
@@ -3353,25 +3790,66 @@ function marshallDiagnosticMessageChain(value) {
     marshallArray_DiagnosticMessageChain(value.next);
   }
 }
-function marshallArray_DiagnosticMessageChain(value) {}
+function marshallArray_DiagnosticMessageChain(value) {
+  marshallNumberType(value.length);
+  for (const item of value) {
+    marshallDiagnosticMessageChain(item);
+  }
+}
 function marshallType232(value) {
+  const typeOf = typeof value;
+  if (typeOf === "string") {
+    marshallStringType(value);
+    return;
+  }
+
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
 }
 function marshallType233(value) {
+  const typeOf = typeof value;
+  if (typeOf === "string") {
+    marshallStringType(value);
+    return;
+  }
+
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
 }
-function marshallArray_DiagnosticWithLocation(value) {}
-function marshallArray_Number(value) {}
+function marshallArray_DiagnosticWithLocation(value) {
+  marshallNumberType(value.length);
+  for (const item of value) {
+    marshallDiagnosticWithLocation(item);
+  }
+}
+function marshallArray_Number(value) {
+  marshallNumberType(value.length);
+  for (const item of value) {
+    marshallNumberType(item);
+  }
+}
 function marshallCheckJsDirective(value) {
   assert(value instanceof NodeObject);
   marshallBooleanType(value.enabled);
@@ -3385,7 +3863,6 @@ function marshallReadonlyPragmaMap(value) {
 function marshallModuleBlock(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_ModuleBlock(value.kind);
-  marshallModuleDeclaration(value.parent);
   marshallNodeArray(value.statements);
   marshallNumberType(value.flags);
   marshallNumberType(value.modifierFlagsCache);
@@ -3411,8 +3888,15 @@ function marshallModuleBlock(value) {
 }
 function marshallNamespaceBody(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
@@ -3422,7 +3906,6 @@ function marshallNamespaceDeclaration(value) {
   marshallIdentifier(value.name);
   marshallNamespaceBody(value.body);
   marshallSyntaxKind_ModuleDeclaration(value.kind);
-  marshallPath(value.parent);
   marshallNumberType(value.flags);
   marshallNumberType(value.modifierFlagsCache);
   marshallNumberType(value.transformFlags);
@@ -3455,16 +3938,30 @@ function marshallNamespaceDeclaration(value) {
 }
 function marshallModuleName(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
 }
 function marshallModuleDeclaration_Body(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
@@ -3472,7 +3969,6 @@ function marshallModuleDeclaration_Body(value) {
 function marshallImportEqualsDeclaration(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_ImportEqualsDeclaration(value.kind);
-  marshallType260(value.parent);
   marshallIdentifier(value.name);
   marshallModuleReference(value.moduleReference);
   marshallNumberType(value.flags);
@@ -3507,8 +4003,15 @@ function marshallImportEqualsDeclaration(value) {
 }
 function marshallType260(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
@@ -3516,7 +4019,6 @@ function marshallType260(value) {
 function marshallExternalModuleReference(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_ExternalModuleReference(value.kind);
-  marshallImportEqualsDeclaration(value.parent);
   marshallExpression(value.expression);
   marshallNumberType(value.flags);
   marshallNumberType(value.modifierFlagsCache);
@@ -3542,8 +4044,15 @@ function marshallExternalModuleReference(value) {
 }
 function marshallModuleReference(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
@@ -3551,7 +4060,6 @@ function marshallModuleReference(value) {
 function marshallIndexSignatureDeclaration(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_IndexSignature(value.kind);
-  marshallObjectTypeDeclaration(value.parent);
   const exists_name = hop(value, "name");
   if (exists_name) {
     marshallPropertyName(value.name);
@@ -3622,7 +4130,6 @@ function marshallFunctionTypeNode(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -3670,7 +4177,6 @@ function marshallConstructorTypeNode(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -3717,7 +4223,6 @@ function marshallJSDocFunctionType(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -3753,7 +4258,6 @@ function marshallJSDocFunctionType(value) {
 function marshallExportDeclaration(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_ExportDeclaration(value.kind);
-  marshallType284(value.parent);
   marshallBooleanType(value.isTypeOnly);
   const exists_exportClause = hop(value, "exportClause");
   if (exists_exportClause) {
@@ -3799,8 +4303,15 @@ function marshallExportDeclaration(value) {
 }
 function marshallType284(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
@@ -3808,7 +4319,6 @@ function marshallType284(value) {
 function marshallNamespaceExport(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_NamespaceExport(value.kind);
-  marshallExportDeclaration(value.parent);
   marshallIdentifier(value.name);
   marshallNumberType(value.flags);
   marshallNumberType(value.modifierFlagsCache);
@@ -3835,7 +4345,6 @@ function marshallNamespaceExport(value) {
 function marshallNamedExports(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_NamedExports(value.kind);
-  marshallExportDeclaration(value.parent);
   marshallNodeArray(value.elements);
   marshallNumberType(value.flags);
   marshallNumberType(value.modifierFlagsCache);
@@ -3861,16 +4370,30 @@ function marshallNamedExports(value) {
 }
 function marshallNamedExportBindings(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
 }
 function marshallType290(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
@@ -3888,16 +4411,30 @@ function marshallJSDocContainer(value) {
 }
 function marshallHasJSDoc(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
 }
 function marshallSignatureDeclaration(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
@@ -3905,7 +4442,6 @@ function marshallSignatureDeclaration(value) {
 function marshallArrayBindingPattern(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_ArrayBindingPattern(value.kind);
-  marshallType315(value.parent);
   marshallNodeArray(value.elements);
   marshallNumberType(value.flags);
   marshallNumberType(value.modifierFlagsCache);
@@ -3932,7 +4468,6 @@ function marshallArrayBindingPattern(value) {
 function marshallVariableDeclaration(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_VariableDeclaration(value.kind);
-  marshallType311(value.parent);
   marshallBindingName(value.name);
   const exists_exclamationToken = hop(value, "exclamationToken");
   if (exists_exclamationToken) {
@@ -3971,7 +4506,6 @@ function marshallVariableDeclaration(value) {
 function marshallCatchClause(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_CatchClause(value.kind);
-  marshallTryStatement(value.parent);
   const exists_variableDeclaration = hop(value, "variableDeclaration");
   if (exists_variableDeclaration) {
     marshallVariableDeclaration(value.variableDeclaration);
@@ -4026,7 +4560,6 @@ function marshallTryStatement(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -4036,8 +4569,15 @@ function marshallTryStatement(value) {
 }
 function marshallType311(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
@@ -4045,7 +4585,6 @@ function marshallType311(value) {
 function marshallBindingElement(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_BindingElement(value.kind);
-  marshallBindingPattern(value.parent);
   const exists_propertyName = hop(value, "propertyName");
   if (exists_propertyName) {
     marshallPropertyName(value.propertyName);
@@ -4083,32 +4622,60 @@ function marshallBindingElement(value) {
 }
 function marshallBindingPattern(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
 }
 function marshallType315(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
 }
 function marshallBindingName(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
 }
 function marshallObjectBindingPattern_Parent(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
@@ -4137,7 +4704,6 @@ function marshallPropertyAccessEntityNameExpression(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -4147,16 +4713,30 @@ function marshallPropertyAccessEntityNameExpression(value) {
 }
 function marshallEntityNameExpression(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
 }
 function marshallDeclarationName(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
@@ -4164,7 +4744,6 @@ function marshallDeclarationName(value) {
 function marshallTypeParameterDeclaration(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_TypeParameter(value.kind);
-  marshallTypeParameterDeclaration_Parent(value.parent);
   marshallIdentifier(value.name);
   const exists_constraint = hop(value, "constraint");
   if (exists_constraint) {
@@ -4219,7 +4798,6 @@ function marshallInferTypeNode(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -4235,7 +4813,6 @@ function marshallJSDocTemplateTag(value) {
     marshallJSDocTypeExpression(value.constraint);
   }
   marshallNodeArray(value.typeParameters);
-  marshallJSDocOrJSDocTypeLiteral(value.parent);
   marshallIdentifier(value.tagName);
   const exists_comment = hop(value, "comment");
   if (exists_comment) {
@@ -4265,16 +4842,30 @@ function marshallJSDocTemplateTag(value) {
 }
 function marshallJSDocOrJSDocTypeLiteral(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
 }
 function marshallTypeParameterDeclaration_Parent(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
@@ -4282,7 +4873,6 @@ function marshallTypeParameterDeclaration_Parent(value) {
 function marshallHeritageClause(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_HeritageClause(value.kind);
-  marshallHeritageClause_Parent(value.parent);
   marshallNumberType(value.token);
   marshallNodeArray(value.types);
   marshallNumberType(value.flags);
@@ -4309,8 +4899,15 @@ function marshallHeritageClause(value) {
 }
 function marshallHeritageClause_Parent(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
@@ -4337,7 +4934,6 @@ function marshallClassElement(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -4371,7 +4967,6 @@ function marshallTypeElement(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -4382,7 +4977,6 @@ function marshallTypeElement(value) {
 function marshallExpressionWithTypeArguments(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_ExpressionWithTypeArguments(value.kind);
-  marshallExpressionWithTypeArguments_Parent(value.parent);
   marshallLeftHandSideExpression(value.expression);
   const exists_typeArguments = hop(value, "typeArguments");
   if (exists_typeArguments) {
@@ -4414,7 +5008,6 @@ function marshallJSDocAugmentsTag(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_JSDocAugmentsTag(value.kind);
   marshallJSDocAugmentsTag_Class(value.class);
-  marshallJSDocOrJSDocTypeLiteral(value.parent);
   marshallIdentifier(value.tagName);
   const exists_comment = hop(value, "comment");
   if (exists_comment) {
@@ -4444,8 +5037,15 @@ function marshallJSDocAugmentsTag(value) {
 }
 function marshallJSDocAugmentsTag_Class_Expression(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
@@ -4453,7 +5053,6 @@ function marshallJSDocAugmentsTag_Class_Expression(value) {
 function marshallJSDocAugmentsTag_Class(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_ExpressionWithTypeArguments(value.kind);
-  marshallExpressionWithTypeArguments_Parent(value.parent);
   marshallJSDocAugmentsTag_Class_Expression(value.expression);
   const exists_typeArguments = hop(value, "typeArguments");
   if (exists_typeArguments) {
@@ -4483,8 +5082,15 @@ function marshallJSDocAugmentsTag_Class(value) {
 }
 function marshallExpressionWithTypeArguments_Parent(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
@@ -4507,7 +5113,6 @@ function marshallOmittedExpression(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -4518,7 +5123,6 @@ function marshallOmittedExpression(value) {
 function marshallExportSpecifier(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_ExportSpecifier(value.kind);
-  marshallNamedExports(value.parent);
   const exists_propertyName = hop(value, "propertyName");
   if (exists_propertyName) {
     marshallIdentifier(value.propertyName);
@@ -4548,8 +5152,15 @@ function marshallExportSpecifier(value) {
 }
 function marshallStringLiteralLike(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
@@ -4573,7 +5184,6 @@ function marshallPartiallyEmittedExpression(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -4599,7 +5209,6 @@ function marshallUnaryExpression(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -4625,7 +5234,6 @@ function marshallUpdateExpression(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -4653,7 +5261,6 @@ function marshallPrefixUnaryExpression(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -4681,7 +5288,6 @@ function marshallPostfixUnaryExpression(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -4707,7 +5313,6 @@ function marshallMemberExpression(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -4733,7 +5338,6 @@ function marshallPrimaryExpression(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -4759,7 +5363,6 @@ function marshallNullLiteral(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -4785,7 +5388,6 @@ function marshallBooleanLiteral(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -4811,7 +5413,6 @@ function marshallThisExpression(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -4837,7 +5438,6 @@ function marshallSuperExpression(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -4863,7 +5463,6 @@ function marshallImportExpression(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -4890,7 +5489,6 @@ function marshallDeleteExpression(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -4917,7 +5515,6 @@ function marshallTypeOfExpression(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -4944,7 +5541,6 @@ function marshallVoidExpression(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -4971,7 +5567,6 @@ function marshallAwaitExpression(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -5005,7 +5600,6 @@ function marshallYieldExpression(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -5033,7 +5627,6 @@ function marshallSyntheticExpression(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -5062,7 +5655,6 @@ function marshallOperatorToken(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -5091,7 +5683,6 @@ function marshallBinaryExpression(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -5117,7 +5708,6 @@ function marshallAssignmentOperatorToken(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -5148,7 +5738,6 @@ function marshallArrayLiteralExpression(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -5158,8 +5747,15 @@ function marshallArrayLiteralExpression(value) {
 }
 function marshallDestructuringAssignment(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
@@ -5188,7 +5784,6 @@ function marshallPropertyAccessExpression(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -5198,8 +5793,15 @@ function marshallPropertyAccessExpression(value) {
 }
 function marshallIdentifierOrPrivateIdentifier(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
@@ -5207,7 +5809,6 @@ function marshallIdentifierOrPrivateIdentifier(value) {
 function marshallSpreadElement(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_SpreadElement(value.kind);
-  marshallType402(value.parent);
   marshallExpression(value.expression);
   marshallNumberType(value.flags);
   marshallNumberType(value.modifierFlagsCache);
@@ -5259,7 +5860,6 @@ function marshallCallExpression(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -5294,7 +5894,6 @@ function marshallNewExpression(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -5304,64 +5903,120 @@ function marshallNewExpression(value) {
 }
 function marshallType402(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
 }
 function marshallBindingOrAssignmentElement(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
 }
 function marshallBindingOrAssignmentElementRestIndicator(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
 }
 function marshallBindingOrAssignmentElementTarget(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
 }
 function marshallObjectBindingOrAssignmentPattern(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
 }
 function marshallArrayBindingOrAssignmentPattern(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
 }
 function marshallAssignmentPattern(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
 }
 function marshallBindingOrAssignmentPattern(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
@@ -5389,7 +6044,6 @@ function marshallConditionalExpression(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -5427,7 +6081,6 @@ function marshallLiteralLikeNode(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -5469,7 +6122,6 @@ function marshallTemplateLiteralLikeNode(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -5507,7 +6159,6 @@ function marshallLiteralExpression(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -5545,7 +6196,6 @@ function marshallRegularExpressionLiteral(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -5583,7 +6233,6 @@ function marshallBigIntLiteral(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -5594,7 +6243,6 @@ function marshallBigIntLiteral(value) {
 function marshallTemplateHead(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_TemplateHead(value.kind);
-  marshallTemplateExpression(value.parent);
   const exists_templateFlags = hop(value, "templateFlags");
   if (exists_templateFlags) {
     marshallNumberType(value.templateFlags);
@@ -5657,7 +6305,6 @@ function marshallTemplateExpression(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -5668,7 +6315,6 @@ function marshallTemplateExpression(value) {
 function marshallTemplateSpan(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_TemplateSpan(value.kind);
-  marshallTemplateExpression(value.parent);
   marshallExpression(value.expression);
   marshallType432(value.literal);
   marshallNumberType(value.flags);
@@ -5696,7 +6342,6 @@ function marshallTemplateSpan(value) {
 function marshallTemplateMiddle(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_TemplateMiddle(value.kind);
-  marshallTemplateSpan(value.parent);
   const exists_templateFlags = hop(value, "templateFlags");
   if (exists_templateFlags) {
     marshallNumberType(value.templateFlags);
@@ -5742,7 +6387,6 @@ function marshallTemplateMiddle(value) {
 function marshallTemplateTail(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_TemplateTail(value.kind);
-  marshallTemplateSpan(value.parent);
   const exists_templateFlags = hop(value, "templateFlags");
   if (exists_templateFlags) {
     marshallNumberType(value.templateFlags);
@@ -5787,32 +6431,60 @@ function marshallTemplateTail(value) {
 }
 function marshallType432(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
 }
 function marshallTemplateLiteral(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
 }
 function marshallEntityNameOrEntityNameExpression(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
 }
 function marshallAccessExpression(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
@@ -5841,7 +6513,6 @@ function marshallPrivateIdentifierPropertyAccessExpression(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -5873,7 +6544,6 @@ function marshallPropertyAccessChain(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -5902,7 +6572,6 @@ function marshallPropertyAccessChainRoot(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -5934,7 +6603,6 @@ function marshallSuperPropertyAccessExpression(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -5966,7 +6634,6 @@ function marshallElementAccessChain(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -5995,7 +6662,6 @@ function marshallElementAccessChainRoot(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -6027,7 +6693,6 @@ function marshallSuperElementAccessExpression(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -6037,8 +6702,15 @@ function marshallSuperElementAccessExpression(value) {
 }
 function marshallSuperProperty(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
@@ -6071,7 +6743,6 @@ function marshallCallChain(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -6104,7 +6775,6 @@ function marshallCallChainRoot(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -6114,16 +6784,30 @@ function marshallCallChainRoot(value) {
 }
 function marshallOptionalChain(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
 }
 function marshallOptionalChainRoot(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
@@ -6152,7 +6836,6 @@ function marshallWellKnownSymbolExpression(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -6160,7 +6843,9 @@ function marshallWellKnownSymbolExpression(value) {
   marshallNumberType(value.pos);
   marshallNumberType(value.end);
 }
-function marshallLiteralTypeSymbol(value) {}
+function marshallLiteralTypeSymbol(value) {
+  assert(value === "Symbol");
+}
 function marshallIdentifierWithEscapedTextIsLiteralTypeSymbol(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_Identifier(value.kind);
@@ -6204,7 +6889,6 @@ function marshallIdentifierWithEscapedTextIsLiteralTypeSymbol(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -6214,8 +6898,15 @@ function marshallIdentifierWithEscapedTextIsLiteralTypeSymbol(value) {
 }
 function marshallLiteralLikeElementAccessExpression_ArgumentExpression(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
@@ -6246,7 +6937,6 @@ function marshallBindableStaticElementAccessExpression(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -6256,16 +6946,30 @@ function marshallBindableStaticElementAccessExpression(value) {
 }
 function marshallBindableStaticNameExpression(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
 }
 function marshallType460(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
@@ -6304,7 +7008,6 @@ function marshallBindableObjectDefinePropertyCall(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -6338,7 +7041,6 @@ function marshallLiteralLikeElementAccessExpression(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -6370,7 +7072,6 @@ function marshallBindableElementAccessExpression(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -6390,16 +7091,30 @@ function marshallType473(value) {
 }
 function marshallBindableStaticAccessExpression(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
 }
 function marshallBindableAccessExpression(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
@@ -6432,7 +7147,6 @@ function marshallSuperCall(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -6468,7 +7182,6 @@ function marshallImportCall(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -6504,7 +7217,6 @@ function marshallTaggedTemplateExpression(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -6515,7 +7227,6 @@ function marshallTaggedTemplateExpression(value) {
 function marshallJsxOpeningElement(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_JsxOpeningElement(value.kind);
-  marshallJsxElement(value.parent);
   marshallJsxTagNameExpression(value.tagName);
   const exists_typeArguments = hop(value, "typeArguments");
   if (exists_typeArguments) {
@@ -6565,7 +7276,6 @@ function marshallJsxElement(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -6576,7 +7286,6 @@ function marshallJsxElement(value) {
 function marshallJsxClosingElement(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_JsxClosingElement(value.kind);
-  marshallJsxElement(value.parent);
   marshallJsxTagNameExpression(value.tagName);
   marshallNumberType(value.flags);
   marshallNumberType(value.modifierFlagsCache);
@@ -6624,7 +7333,6 @@ function marshallJsxTagNamePropertyAccess(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -6634,8 +7342,15 @@ function marshallJsxTagNamePropertyAccess(value) {
 }
 function marshallJsxTagNameExpression(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
@@ -6643,7 +7358,6 @@ function marshallJsxTagNameExpression(value) {
 function marshallJsxAttributes(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_JsxAttributes(value.kind);
-  marshallJsxOpeningLikeElement(value.parent);
   marshallNodeArray(value.properties);
   marshallNumberType(value.flags);
   marshallNumberType(value.modifierFlagsCache);
@@ -6691,7 +7405,6 @@ function marshallJsxSelfClosingElement(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -6701,16 +7414,30 @@ function marshallJsxSelfClosingElement(value) {
 }
 function marshallJsxOpeningLikeElement(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
 }
 function marshallCallLikeExpression(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
@@ -6718,7 +7445,6 @@ function marshallCallLikeExpression(value) {
 function marshallJsxAttribute(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_JsxAttribute(value.kind);
-  marshallJsxAttributes(value.parent);
   marshallIdentifier(value.name);
   const exists_initializer = hop(value, "initializer");
   if (exists_initializer) {
@@ -6749,7 +7475,6 @@ function marshallJsxAttribute(value) {
 function marshallJsxExpression(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_JsxExpression(value.kind);
-  marshallType506(value.parent);
   const exists_dotDotDotToken = hop(value, "dotDotDotToken");
   if (exists_dotDotDotToken) {
     marshallToken_DotDotDotToken(value.dotDotDotToken);
@@ -6783,7 +7508,6 @@ function marshallJsxExpression(value) {
 function marshallJsxSpreadAttribute(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_JsxSpreadAttribute(value.kind);
-  marshallJsxAttributes(value.parent);
   marshallExpression(value.expression);
   const exists_name = hop(value, "name");
   if (exists_name) {
@@ -6813,16 +7537,30 @@ function marshallJsxSpreadAttribute(value) {
 }
 function marshallType506(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
 }
 function marshallType508(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
@@ -6848,7 +7586,6 @@ function marshallJsxFragment(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -6859,7 +7596,6 @@ function marshallJsxFragment(value) {
 function marshallJsxOpeningFragment(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_JsxOpeningFragment(value.kind);
-  marshallJsxFragment(value.parent);
   marshallNumberType(value.flags);
   marshallNumberType(value.modifierFlagsCache);
   marshallNumberType(value.transformFlags);
@@ -6885,7 +7621,6 @@ function marshallJsxOpeningFragment(value) {
 function marshallJsxClosingFragment(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_JsxClosingFragment(value.kind);
-  marshallJsxFragment(value.parent);
   marshallNumberType(value.flags);
   marshallNumberType(value.modifierFlagsCache);
   marshallNumberType(value.transformFlags);
@@ -6912,7 +7647,6 @@ function marshallJsxText(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_JsxText(value.kind);
   marshallBooleanType(value.containsOnlyTriviaWhiteSpaces);
-  marshallJsxElement(value.parent);
   marshallPath(value.text);
   const exists_isUnterminated = hop(value, "isUnterminated");
   if (exists_isUnterminated) {
@@ -6967,7 +7701,6 @@ function marshallAsExpression(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -6995,7 +7728,6 @@ function marshallTypeAssertion(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -7005,8 +7737,15 @@ function marshallTypeAssertion(value) {
 }
 function marshallAssertionExpression(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
@@ -7030,7 +7769,6 @@ function marshallNonNullExpression(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -7058,7 +7796,6 @@ function marshallMetaProperty(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -7086,7 +7823,6 @@ function marshallImportMetaProperty(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -7094,7 +7830,9 @@ function marshallImportMetaProperty(value) {
   marshallNumberType(value.pos);
   marshallNumberType(value.end);
 }
-function marshallLiteralTypemeta(value) {}
+function marshallLiteralTypemeta(value) {
+  assert(value === "meta");
+}
 function marshallIdentifierWithEscapedTextIsLiteralTypemeta(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_Identifier(value.kind);
@@ -7138,7 +7876,6 @@ function marshallIdentifierWithEscapedTextIsLiteralTypemeta(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -7148,16 +7885,30 @@ function marshallIdentifierWithEscapedTextIsLiteralTypemeta(value) {
 }
 function marshallJsxAttributeLike(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
 }
 function marshallJsxChild(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
@@ -7180,7 +7931,6 @@ function marshallNotEmittedStatement(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -7206,7 +7956,6 @@ function marshallEndOfDeclarationMarker(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -7233,7 +7982,6 @@ function marshallCommaListExpression(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -7259,7 +8007,6 @@ function marshallMergeDeclarationMarker(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -7287,7 +8034,6 @@ function marshallSyntheticReferenceExpression(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -7313,7 +8059,6 @@ function marshallEmptyStatement(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -7339,7 +8084,6 @@ function marshallDebuggerStatement(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -7369,7 +8113,6 @@ function marshallMissingDeclaration(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -7380,7 +8123,6 @@ function marshallMissingDeclaration(value) {
 function marshallCaseClause(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_CaseClause(value.kind);
-  marshallCaseBlock(value.parent);
   marshallExpression(value.expression);
   marshallNodeArray(value.statements);
   const exists_fallthroughFlowNode = hop(value, "fallthroughFlowNode");
@@ -7412,7 +8154,6 @@ function marshallCaseClause(value) {
 function marshallCaseBlock(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_CaseBlock(value.kind);
-  marshallSwitchStatement(value.parent);
   marshallNodeArray(value.clauses);
   marshallNumberType(value.flags);
   marshallNumberType(value.modifierFlagsCache);
@@ -7460,7 +8201,6 @@ function marshallSwitchStatement(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -7471,7 +8211,6 @@ function marshallSwitchStatement(value) {
 function marshallDefaultClause(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_DefaultClause(value.kind);
-  marshallCaseBlock(value.parent);
   marshallNodeArray(value.statements);
   const exists_fallthroughFlowNode = hop(value, "fallthroughFlowNode");
   if (exists_fallthroughFlowNode) {
@@ -7501,8 +8240,15 @@ function marshallDefaultClause(value) {
 }
 function marshallBlockLike(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
@@ -7526,7 +8272,6 @@ function marshallPrologueDirective(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -7566,7 +8311,6 @@ function marshallIfStatement(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -7593,7 +8337,6 @@ function marshallIterationStatement(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -7621,7 +8364,6 @@ function marshallDoStatement(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -7649,7 +8391,6 @@ function marshallWhileStatement(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -7659,8 +8400,15 @@ function marshallWhileStatement(value) {
 }
 function marshallForInOrOfStatement(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
@@ -7687,7 +8435,6 @@ function marshallBreakStatement(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -7717,7 +8464,6 @@ function marshallContinueStatement(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -7727,8 +8473,15 @@ function marshallContinueStatement(value) {
 }
 function marshallBreakOrContinueStatement(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
@@ -7755,7 +8508,6 @@ function marshallReturnStatement(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -7783,7 +8535,6 @@ function marshallWithStatement(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -7793,8 +8544,15 @@ function marshallWithStatement(value) {
 }
 function marshallCaseOrDefaultClause(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
@@ -7821,7 +8579,6 @@ function marshallThrowStatement(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -7831,7 +8588,6 @@ function marshallThrowStatement(value) {
 }
 function marshallJSDocTypedefTag(value) {
   assert(value instanceof NodeObject);
-  marshallJSDoc(value.parent);
   marshallSyntaxKind_JSDocTypedefTag(value.kind);
   const exists_fullName = hop(value, "fullName");
   if (exists_fullName) {
@@ -7874,23 +8630,36 @@ function marshallJSDocTypedefTag(value) {
 }
 function marshallType582(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
 }
 function marshallType583(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
 }
 function marshallJSDocCallbackTag(value) {
   assert(value instanceof NodeObject);
-  marshallJSDoc(value.parent);
   marshallSyntaxKind_JSDocCallbackTag(value.kind);
   const exists_fullName = hop(value, "fullName");
   if (exists_fullName) {
@@ -7930,8 +8699,15 @@ function marshallJSDocCallbackTag(value) {
 }
 function marshallType586(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
@@ -7963,7 +8739,6 @@ function marshallJSDocSignature(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -7971,12 +8746,21 @@ function marshallJSDocSignature(value) {
   marshallNumberType(value.pos);
   marshallNumberType(value.end);
 }
-function marshallType589(value) {}
-function marshallType590(value) {}
+function marshallType589(value) {
+  marshallNumberType(value.length);
+  for (const item of value) {
+    marshallJSDocTemplateTag(item);
+  }
+}
+function marshallType590(value) {
+  marshallNumberType(value.length);
+  for (const item of value) {
+    marshallJSDocParameterTag(item);
+  }
+}
 function marshallJSDocParameterTag(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_JSDocParameterTag(value.kind);
-  marshallJSDoc(value.parent);
   marshallEntityName(value.name);
   const exists_typeExpression = hop(value, "typeExpression");
   if (exists_typeExpression) {
@@ -8018,7 +8802,6 @@ function marshallJSDocReturnTag(value) {
   if (exists_typeExpression) {
     marshallJSDocTypeExpression(value.typeExpression);
   }
-  marshallJSDocOrJSDocTypeLiteral(value.parent);
   marshallIdentifier(value.tagName);
   const exists_comment = hop(value, "comment");
   if (exists_comment) {
@@ -8048,16 +8831,30 @@ function marshallJSDocReturnTag(value) {
 }
 function marshallDeclarationWithTypeParameters(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
 }
 function marshallDeclarationWithTypeParameterChildren(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
@@ -8093,7 +8890,6 @@ function marshallClassLikeDeclarationBase(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -8111,8 +8907,15 @@ function marshallClassLikeDeclarationBase(value) {
 }
 function marshallModuleBody(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
@@ -8124,7 +8927,6 @@ function marshallAmbientModuleDeclaration(value) {
     marshallModuleBlock(value.body);
   }
   marshallSyntaxKind_ModuleDeclaration(value.kind);
-  marshallType603(value.parent);
   marshallModuleName(value.name);
   marshallNumberType(value.flags);
   marshallNumberType(value.modifierFlagsCache);
@@ -8158,8 +8960,15 @@ function marshallAmbientModuleDeclaration(value) {
 }
 function marshallType603(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
@@ -8167,7 +8976,6 @@ function marshallType603(value) {
 function marshallImportDeclaration(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_ImportDeclaration(value.kind);
-  marshallType608(value.parent);
   const exists_importClause = hop(value, "importClause");
   if (exists_importClause) {
     marshallImportClause(value.importClause);
@@ -8197,8 +9005,15 @@ function marshallImportDeclaration(value) {
 }
 function marshallType608(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
@@ -8206,7 +9021,6 @@ function marshallType608(value) {
 function marshallImportClause(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_ImportClause(value.kind);
-  marshallImportDeclaration(value.parent);
   marshallBooleanType(value.isTypeOnly);
   const exists_name = hop(value, "name");
   if (exists_name) {
@@ -8241,7 +9055,6 @@ function marshallImportClause(value) {
 function marshallNamespaceImport(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_NamespaceImport(value.kind);
-  marshallImportClause(value.parent);
   marshallIdentifier(value.name);
   marshallNumberType(value.flags);
   marshallNumberType(value.modifierFlagsCache);
@@ -8268,7 +9081,6 @@ function marshallNamespaceImport(value) {
 function marshallNamedImports(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_NamedImports(value.kind);
-  marshallImportClause(value.parent);
   marshallNodeArray(value.elements);
   marshallNumberType(value.flags);
   marshallNumberType(value.modifierFlagsCache);
@@ -8294,8 +9106,15 @@ function marshallNamedImports(value) {
 }
 function marshallNamedImportBindings(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
@@ -8303,7 +9122,6 @@ function marshallNamedImportBindings(value) {
 function marshallImportSpecifier(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_ImportSpecifier(value.kind);
-  marshallNamedImports(value.parent);
   const exists_propertyName = hop(value, "propertyName");
   if (exists_propertyName) {
     marshallIdentifier(value.propertyName);
@@ -8350,7 +9168,6 @@ function marshallNamespaceExportDeclaration(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -8360,24 +9177,45 @@ function marshallNamespaceExportDeclaration(value) {
 }
 function marshallNamedImportsOrExports(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
 }
 function marshallImportOrExportSpecifier(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
 }
 function marshallTypeOnlyCompatibleAliasDeclaration(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
@@ -8385,7 +9223,6 @@ function marshallTypeOnlyCompatibleAliasDeclaration(value) {
 function marshallExportAssignment(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_ExportAssignment(value.kind);
-  marshallSourceFile(value.parent);
   const exists_isExportEquals = hop(value, "isExportEquals");
   if (exists_isExportEquals) {
     marshallBooleanType(value.isExportEquals);
@@ -8419,8 +9256,15 @@ function marshallExportAssignment(value) {
 }
 function marshallType625(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
@@ -8446,7 +9290,9 @@ function marshallSynthesizedComment(value) {
   }
   marshallNumberType(value.kind);
 }
-function marshallLiteralNegative1(value) {}
+function marshallLiteralNegative1(value) {
+  assert(value === -1);
+}
 function marshallJSDocType(value) {
   assert(value instanceof NodeObject);
   marshallNumberType(value.kind);
@@ -8465,7 +9311,6 @@ function marshallJSDocType(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -8491,7 +9336,6 @@ function marshallJSDocAllType(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -8517,7 +9361,6 @@ function marshallJSDocUnknownType(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -8544,7 +9387,6 @@ function marshallJSDocNonNullableType(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -8571,7 +9413,6 @@ function marshallJSDocNullableType(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -8598,7 +9439,6 @@ function marshallJSDocOptionalType(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -8625,7 +9465,6 @@ function marshallJSDocVariadicType(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -8652,7 +9491,6 @@ function marshallJSDocNamepathType(value) {
   if (exists_id) {
     marshallNumberType(value.id);
   }
-  marshallNode(value.parent);
   const exists_original = hop(value, "original");
   if (exists_original) {
     marshallNode(value.original);
@@ -8662,8 +9500,15 @@ function marshallJSDocNamepathType(value) {
 }
 function marshallJSDocTypeReferencingNode(value) {
   switch (Object.getPrototypeOf(value)) {
+    case Array:
+      // TODO only if there's instructions.arrayType
+      break;
+
     case NodeObject:
-    // TODO    break;
+      // TODO
+
+      break;
+
     default:
       throw new Error("unrecognized node in AST");
   }
@@ -8671,7 +9516,6 @@ function marshallJSDocTypeReferencingNode(value) {
 function marshallJSDocUnknownTag(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_JSDocTag(value.kind);
-  marshallJSDocOrJSDocTypeLiteral(value.parent);
   marshallIdentifier(value.tagName);
   const exists_comment = hop(value, "comment");
   if (exists_comment) {
@@ -8702,7 +9546,6 @@ function marshallJSDocUnknownTag(value) {
 function marshallJSDocAuthorTag(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_JSDocAuthorTag(value.kind);
-  marshallJSDocOrJSDocTypeLiteral(value.parent);
   marshallIdentifier(value.tagName);
   const exists_comment = hop(value, "comment");
   if (exists_comment) {
@@ -8733,7 +9576,6 @@ function marshallJSDocAuthorTag(value) {
 function marshallJSDocClassTag(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_JSDocClassTag(value.kind);
-  marshallJSDocOrJSDocTypeLiteral(value.parent);
   marshallIdentifier(value.tagName);
   const exists_comment = hop(value, "comment");
   if (exists_comment) {
@@ -8764,7 +9606,6 @@ function marshallJSDocClassTag(value) {
 function marshallJSDocPublicTag(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_JSDocPublicTag(value.kind);
-  marshallJSDocOrJSDocTypeLiteral(value.parent);
   marshallIdentifier(value.tagName);
   const exists_comment = hop(value, "comment");
   if (exists_comment) {
@@ -8795,7 +9636,6 @@ function marshallJSDocPublicTag(value) {
 function marshallJSDocPrivateTag(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_JSDocPrivateTag(value.kind);
-  marshallJSDocOrJSDocTypeLiteral(value.parent);
   marshallIdentifier(value.tagName);
   const exists_comment = hop(value, "comment");
   if (exists_comment) {
@@ -8826,7 +9666,6 @@ function marshallJSDocPrivateTag(value) {
 function marshallJSDocProtectedTag(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_JSDocProtectedTag(value.kind);
-  marshallJSDocOrJSDocTypeLiteral(value.parent);
   marshallIdentifier(value.tagName);
   const exists_comment = hop(value, "comment");
   if (exists_comment) {
@@ -8857,7 +9696,6 @@ function marshallJSDocProtectedTag(value) {
 function marshallJSDocReadonlyTag(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_JSDocReadonlyTag(value.kind);
-  marshallJSDocOrJSDocTypeLiteral(value.parent);
   marshallIdentifier(value.tagName);
   const exists_comment = hop(value, "comment");
   if (exists_comment) {
@@ -8887,7 +9725,6 @@ function marshallJSDocReadonlyTag(value) {
 }
 function marshallJSDocEnumTag(value) {
   assert(value instanceof NodeObject);
-  marshallJSDoc(value.parent);
   marshallSyntaxKind_JSDocEnumTag(value.kind);
   const exists_typeExpression = hop(value, "typeExpression");
   if (exists_typeExpression) {
@@ -8927,7 +9764,6 @@ function marshallJSDocThisTag(value) {
   if (exists_typeExpression) {
     marshallJSDocTypeExpression(value.typeExpression);
   }
-  marshallJSDocOrJSDocTypeLiteral(value.parent);
   marshallIdentifier(value.tagName);
   const exists_comment = hop(value, "comment");
   if (exists_comment) {
@@ -8959,7 +9795,6 @@ function marshallJSDocTypeTag(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_JSDocTypeTag(value.kind);
   marshallJSDocTypeExpression(value.typeExpression);
-  marshallJSDocOrJSDocTypeLiteral(value.parent);
   marshallIdentifier(value.tagName);
   const exists_comment = hop(value, "comment");
   if (exists_comment) {
@@ -8990,7 +9825,6 @@ function marshallJSDocTypeTag(value) {
 function marshallJSDocPropertyTag(value) {
   assert(value instanceof NodeObject);
   marshallSyntaxKind_JSDocPropertyTag(value.kind);
-  marshallJSDoc(value.parent);
   marshallEntityName(value.name);
   const exists_typeExpression = hop(value, "typeExpression");
   if (exists_typeExpression) {

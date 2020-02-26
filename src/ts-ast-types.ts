@@ -1,6 +1,8 @@
 import { Prototype, proxy, ArrayType, LiteralType, ObjectProperty, ObjectType, UnionType, overrideProperties } from './type-system';
 import { booleanType, numberType, stringType } from './type-system';
 
+const LiteralZero = new LiteralType(0);
+
 /*
  * Description of every type of value (object, array, primitive, map) that can occur in a TypeScript AST.
  */
@@ -201,8 +203,8 @@ export const NodeArray = new ArrayType(proxy(() => Node), [
 ]);
 export const commonNodeProperties1 = [
     new ObjectProperty("flags", true, proxy(() => numberType)),
-    new ObjectProperty("modifierFlagsCache", true, proxy(() => numberType)),
-    new ObjectProperty("transformFlags", true, proxy(() => numberType)),
+    new ObjectProperty("modifierFlagsCache", true, LiteralZero),
+    new ObjectProperty("transformFlags", true, LiteralZero),
     new ObjectProperty("decorators", false, proxy(() => NodeArray)),
     new ObjectProperty("modifiers", false, proxy(() => ModifiersArray)),
     new ObjectProperty("id", false, proxy(() => numberType)),
@@ -214,7 +216,7 @@ export const commonNodeProperties2 = [
 ];
 export const commonNodeProperties = [
     ...commonNodeProperties1,
-    new ObjectProperty("parent", true, proxy(() => Node)),
+    // new ObjectProperty("parent", true, proxy(() => Node)),
     ...commonNodeProperties2
 ];
 export const commonNodePropertiesSansParent = [
@@ -228,6 +230,7 @@ export const jsDocContainerProperties = [
     new ObjectProperty("jsDocCache", false, proxy(() => Array_JSDocTag))
 ];
 
+// TODO replace with a union of all Node `kind`s
 export const Node = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => numberType)),
     ...commonNodeProperties,
@@ -342,7 +345,7 @@ export const ModifierToken = new UnionType([
 ]);
 export const Decorator = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_Decorator)),
-    new ObjectProperty("parent", true, proxy(() => NamedDeclaration)),
+    // new ObjectProperty("parent", true, proxy(() => NamedDeclaration)),
     new ObjectProperty("expression", true, proxy(() => LeftHandSideExpression)),
     ...commonNodePropertiesSansParent,
 ]);
@@ -396,7 +399,7 @@ export const StringLiteral_TextSourceNode = new UnionType([
     proxy(() => NoSubstitutionTemplateLiteral)
 ]);
 export const ComputedPropertyName = new ObjectType(Prototype.NodeObject, [
-    new ObjectProperty("parent", true, proxy(() => Declaration)),
+    // new ObjectProperty("parent", true, proxy(() => Declaration)),
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_ComputedPropertyName)),
     new ObjectProperty("expression", true, proxy(() => Expression)),
     ...commonNodePropertiesSansParent,
@@ -406,7 +409,7 @@ const declarationProperties = [
     ...commonNodeProperties,
 ];
 export const Declaration = new ObjectType(Prototype.NodeObject, declarationProperties);
-// TODO turn into a Union of all possible `expression` kinds
+// TODO replace with a union of all possible `expression` kinds
 export const Expression = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => numberType)),
     ...commonNodeProperties,
@@ -430,13 +433,13 @@ export const LeftHandSideExpression = new ObjectType(Prototype.NodeObject, [
 ]);
 export const ObjectBindingPattern = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_ObjectBindingPattern)),
-    new ObjectProperty("parent", true, proxy(() => ObjectBindingPattern_Parent)),
+    // // new ObjectProperty("parent", true, proxy(() => ObjectBindingPattern_Parent)),
     new ObjectProperty("elements", true, proxy(() => NodeArray)),
     ...commonNodePropertiesSansParent,
 ]);
 export const ParameterDeclaration = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_Parameter)),
-    new ObjectProperty("parent", true, proxy(() => SignatureDeclaration)),
+    // new ObjectProperty("parent", true, proxy(() => SignatureDeclaration)),
     new ObjectProperty("dotDotDotToken", false, proxy(() => Token_DotDotDotToken)),
     new ObjectProperty("name", true, proxy(() => BindingName)),
     new ObjectProperty("questionToken", false, proxy(() => Token_QuestionToken)),
@@ -471,7 +474,7 @@ export const TypeNode = new ObjectType(Prototype.NodeObject, [
 ]);
 export const JSDoc = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_JSDocComment)),
-    new ObjectProperty("parent", true, proxy(() => HasJSDoc)),
+    // new ObjectProperty("parent", true, proxy(() => HasJSDoc)),
     new ObjectProperty("tags", false, proxy(() => NodeArray)),
     new ObjectProperty("comment", false, proxy(() => stringType)),
     ...commonNodePropertiesSansParent,
@@ -490,7 +493,7 @@ export const ConstructSignatureDeclaration = new ObjectType(Prototype.NodeObject
 export const Array_JSDoc = new ArrayType(proxy(() => JSDoc), []);
 export const Array_JSDocTag = new ArrayType(proxy(() => JSDocTag), []);
 export const JSDocTag = new ObjectType(Prototype.NodeObject, [
-    new ObjectProperty("parent", true, proxy(() => JSDocOrJSDocTypeLiteral)),
+    // new ObjectProperty("parent", true, proxy(() => JSDocOrJSDocTypeLiteral)),
     new ObjectProperty("tagName", true, proxy(() => Identifier)),
     new ObjectProperty("comment", false, proxy(() => stringType)),
     new ObjectProperty("kind", true, proxy(() => numberType)),
@@ -504,7 +507,7 @@ export const JSDocTypeLiteral = new ObjectType(Prototype.NodeObject, [
 ]);
 export const Array_JSDocPropertyLikeTag = new ArrayType(proxy(() => JSDocPropertyLikeTag), []);
 export const JSDocPropertyLikeTag = new ObjectType(Prototype.NodeObject, [
-    new ObjectProperty("parent", true, proxy(() => JSDoc)),
+    // new ObjectProperty("parent", true, proxy(() => JSDoc)),
     new ObjectProperty("name", true, proxy(() => EntityName)),
     new ObjectProperty("typeExpression", false, proxy(() => JSDocTypeExpression)),
     new ObjectProperty("isNameFirst", true, proxy(() => booleanType)),
@@ -534,7 +537,7 @@ export const JSDocTypeExpression = new ObjectType(Prototype.NodeObject, [
 ]);
 export const MethodSignature = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_MethodSignature)),
-    new ObjectProperty("parent", true, proxy(() => ObjectTypeDeclaration)),
+    // new ObjectProperty("parent", true, proxy(() => ObjectTypeDeclaration)),
     new ObjectProperty("name", true, proxy(() => PropertyName)),
     new ObjectProperty("typeParameters", false, proxy(() => NodeArray)),
     new ObjectProperty("parameters", true, proxy(() => NodeArray)),
@@ -629,7 +632,7 @@ export const ParenthesizedExpression = new ObjectType(Prototype.NodeObject, [
     ...jsDocContainerProperties,
 ]);
 export const SpreadAssignment = new ObjectType(Prototype.NodeObject, [
-    new ObjectProperty("parent", true, proxy(() => ObjectLiteralExpression)),
+    // new ObjectProperty("parent", true, proxy(() => ObjectLiteralExpression)),
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_SpreadAssignment)),
     new ObjectProperty("expression", true, proxy(() => Expression)),
     new ObjectProperty("name", false, proxy(() => PropertyName)),
@@ -643,7 +646,7 @@ export const ObjectLiteralExpression = new ObjectType(Prototype.NodeObject, [
     ...commonNodeProperties,
 ]);
 export const ShorthandPropertyAssignment = new ObjectType(Prototype.NodeObject, [
-    new ObjectProperty("parent", true, proxy(() => ObjectLiteralExpression)),
+    // new ObjectProperty("parent", true, proxy(() => ObjectLiteralExpression)),
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_ShorthandPropertyAssignment)),
     new ObjectProperty("name", true, proxy(() => Identifier)),
     new ObjectProperty("questionToken", false, proxy(() => Token_QuestionToken)),
@@ -654,7 +657,7 @@ export const ShorthandPropertyAssignment = new ObjectType(Prototype.NodeObject, 
     ...jsDocContainerProperties,
 ]);
 export const PropertyAssignment = new ObjectType(Prototype.NodeObject, [
-    new ObjectProperty("parent", true, proxy(() => ObjectLiteralExpression)),
+    // new ObjectProperty("parent", true, proxy(() => ObjectLiteralExpression)),
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_PropertyAssignment)),
     new ObjectProperty("name", true, proxy(() => PropertyName)),
     new ObjectProperty("questionToken", false, proxy(() => Token_QuestionToken)),
@@ -702,7 +705,7 @@ export const VariableStatement = new ObjectType(Prototype.NodeObject, [
 ]);
 export const VariableDeclarationList = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_VariableDeclarationList)),
-    new ObjectProperty("parent", true, proxy(() => type164)),
+    // new ObjectProperty("parent", true, proxy(() => type164)),
     new ObjectProperty("declarations", true, proxy(() => NodeArray)),
     ...commonNodePropertiesSansParent,
 ]);
@@ -756,7 +759,7 @@ export const FunctionDeclaration = new ObjectType(Prototype.NodeObject, [
 ]);
 export const ConstructorDeclaration = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_Constructor)),
-    new ObjectProperty("parent", true, proxy(() => ClassLikeDeclaration)),
+    // new ObjectProperty("parent", true, proxy(() => ClassLikeDeclaration)),
     new ObjectProperty("body", false, proxy(() => Block)),
     new ObjectProperty("returnFlowNode", false, proxy(() => FlowNode)),
     new ObjectProperty("asteriskToken", false, proxy(() => Token_AsteriskToken)),
@@ -779,7 +782,7 @@ export const ClassLikeDeclaration = new UnionType([
 ]);
 export const MethodDeclaration = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_MethodDeclaration)),
-    new ObjectProperty("parent", true, proxy(() => type178)),
+    // new ObjectProperty("parent", true, proxy(() => type178)),
     new ObjectProperty("name", true, proxy(() => PropertyName)),
     new ObjectProperty("body", false, proxy(() => Block)),
     new ObjectProperty("asteriskToken", false, proxy(() => Token_AsteriskToken)),
@@ -802,7 +805,7 @@ export const type178 = new UnionType([
 ]);
 export const PropertyDeclaration = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_PropertyDeclaration)),
-    new ObjectProperty("parent", true, proxy(() => ClassLikeDeclaration)),
+    // new ObjectProperty("parent", true, proxy(() => ClassLikeDeclaration)),
     new ObjectProperty("name", true, proxy(() => PropertyName)),
     new ObjectProperty("questionToken", false, proxy(() => Token_QuestionToken)),
     new ObjectProperty("exclamationToken", false, proxy(() => Token_ExclamationToken)),
@@ -813,7 +816,7 @@ export const PropertyDeclaration = new ObjectType(Prototype.NodeObject, [
 ]);
 export const GetAccessorDeclaration = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_GetAccessor)),
-    new ObjectProperty("parent", true, proxy(() => type187)),
+    // new ObjectProperty("parent", true, proxy(() => type187)),
     new ObjectProperty("name", true, proxy(() => PropertyName)),
     new ObjectProperty("body", false, proxy(() => Block)),
     new ObjectProperty("asteriskToken", false, proxy(() => Token_AsteriskToken)),
@@ -834,7 +837,7 @@ export const type187 = new UnionType([
 ]);
 export const SetAccessorDeclaration = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_SetAccessor)),
-    new ObjectProperty("parent", true, proxy(() => type192)),
+    // new ObjectProperty("parent", true, proxy(() => type192)),
     new ObjectProperty("name", true, proxy(() => PropertyName)),
     new ObjectProperty("body", false, proxy(() => Block)),
     new ObjectProperty("asteriskToken", false, proxy(() => Token_AsteriskToken)),
@@ -863,7 +866,7 @@ export const TypeAliasDeclaration = new ObjectType(Prototype.NodeObject, [
 ]);
 export const EnumMember = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_EnumMember)),
-    new ObjectProperty("parent", true, proxy(() => EnumDeclaration)),
+    // new ObjectProperty("parent", true, proxy(() => EnumDeclaration)),
     new ObjectProperty("name", true, proxy(() => PropertyName)),
     new ObjectProperty("initializer", false, proxy(() => Expression)),
     ...commonNodePropertiesSansParent,
@@ -878,7 +881,7 @@ export const EnumDeclaration = new ObjectType(Prototype.NodeObject, [
 ]);
 export const ModuleDeclaration = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_ModuleDeclaration)),
-    new ObjectProperty("parent", true, proxy(() => ModuleOrNamespaceDeclarationParent)),
+    // new ObjectProperty("parent", true, proxy(() => ModuleOrNamespaceDeclarationParent)),
     new ObjectProperty("name", true, proxy(() => ModuleName)),
     new ObjectProperty("body", false, proxy(() => ModuleDeclaration_Body)),
     ...commonNodePropertiesSansParent,
@@ -998,7 +1001,7 @@ export const ReadonlyPragmaMap = new ObjectType(Prototype.NodeObject, [
 ]);
 export const ModuleBlock = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_ModuleBlock)),
-    new ObjectProperty("parent", true, proxy(() => ModuleDeclaration)),
+    // new ObjectProperty("parent", true, proxy(() => ModuleDeclaration)),
     new ObjectProperty("statements", true, proxy(() => NodeArray)),
     ...commonNodePropertiesSansParent,
 ]);
@@ -1021,7 +1024,7 @@ export const NamespaceDeclaration = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("name", true, proxy(() => Identifier)),
     new ObjectProperty("body", true, proxy(() => NamespaceBody)),
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_ModuleDeclaration)),
-    new ObjectProperty("parent", true, proxy(() => ModuleOrNamespaceDeclarationParent)),
+    // new ObjectProperty("parent", true, proxy(() => ModuleOrNamespaceDeclarationParent)),
     ...commonNodePropertiesSansParent,
     ...jsDocContainerProperties,
 ]);
@@ -1030,7 +1033,7 @@ const JSDocNamespaceDeclaration = NamespaceDeclaration;
 //     new ObjectProperty("name", true, proxy(() => Identifier)),
 //     new ObjectProperty("body", true, proxy(() => NamespaceBody)),
 //     new ObjectProperty("kind", true, proxy(() => SyntaxKind_ModuleDeclaration)),
-//     new ObjectProperty("parent", true, proxy(() => ModuleOrNamespaceDeclarationParent)),
+// //     new ObjectProperty("parent", true, proxy(() => ModuleOrNamespaceDeclarationParent)),
 //     ...commonNodePropertiesSansParent,
 //     ...jsDocContainerProperties,
 // ]);
@@ -1038,7 +1041,7 @@ const JSDocNamespaceDeclaration = NamespaceDeclaration;
 //     new ObjectProperty("name", true, proxy(() => Identifier)),
 //     new ObjectProperty("body", false, proxy(() => JSDocNamespaceBody)),
 //     new ObjectProperty("kind", true, proxy(() => SyntaxKind_ModuleDeclaration)),
-//     new ObjectProperty("parent", true, proxy(() => ModuleOrNamespaceDeclarationParent)),
+// //     new ObjectProperty("parent", true, proxy(() => ModuleOrNamespaceDeclarationParent)),
 //     ...commonNodePropertiesSansParent,
 //     ...jsDocContainerProperties,
 // ]);
@@ -1063,7 +1066,7 @@ export const ModuleDeclaration_Body = new UnionType([
 ]);
 export const ImportEqualsDeclaration = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_ImportEqualsDeclaration)),
-    new ObjectProperty("parent", true, proxy(() => type260)),
+    // new ObjectProperty("parent", true, proxy(() => type260)),
     new ObjectProperty("name", true, proxy(() => Identifier)),
     new ObjectProperty("moduleReference", true, proxy(() => ModuleReference)),
     ...commonNodePropertiesSansParent,
@@ -1075,7 +1078,7 @@ export const type260 = new UnionType([
 ]);
 export const ExternalModuleReference = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_ExternalModuleReference)),
-    new ObjectProperty("parent", true, proxy(() => ImportEqualsDeclaration)),
+    // new ObjectProperty("parent", true, proxy(() => ImportEqualsDeclaration)),
     new ObjectProperty("expression", true, proxy(() => Expression)),
     ...commonNodePropertiesSansParent,
 ]);
@@ -1086,7 +1089,7 @@ export const ModuleReference = new UnionType([
 ]);
 export const IndexSignatureDeclaration = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_IndexSignature)),
-    new ObjectProperty("parent", true, proxy(() => ObjectTypeDeclaration)),
+    // new ObjectProperty("parent", true, proxy(() => ObjectTypeDeclaration)),
     new ObjectProperty("name", false, proxy(() => PropertyName)),
     new ObjectProperty("typeParameters", false, proxy(() => NodeArray)),
     new ObjectProperty("parameters", true, proxy(() => NodeArray)),
@@ -1128,7 +1131,7 @@ export const JSDocFunctionType = new ObjectType(Prototype.NodeObject, [
 ]);
 export const ExportDeclaration = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_ExportDeclaration)),
-    new ObjectProperty("parent", true, proxy(() => type284)),
+    // new ObjectProperty("parent", true, proxy(() => type284)),
     new ObjectProperty("isTypeOnly", true, proxy(() => booleanType)),
     new ObjectProperty("exportClause", false, proxy(() => NamedExportBindings)),
     new ObjectProperty("moduleSpecifier", false, proxy(() => Expression)),
@@ -1142,13 +1145,13 @@ export const type284 = new UnionType([
 ]);
 export const NamespaceExport = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_NamespaceExport)),
-    new ObjectProperty("parent", true, proxy(() => ExportDeclaration)),
+    // new ObjectProperty("parent", true, proxy(() => ExportDeclaration)),
     new ObjectProperty("name", true, proxy(() => Identifier)),
     ...commonNodePropertiesSansParent,
 ]);
 export const NamedExports = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_NamedExports)),
-    new ObjectProperty("parent", true, proxy(() => ExportDeclaration)),
+    // new ObjectProperty("parent", true, proxy(() => ExportDeclaration)),
     new ObjectProperty("elements", true, proxy(() => NodeArray)),
     ...commonNodePropertiesSansParent,
 ]);
@@ -1218,13 +1221,13 @@ export const SignatureDeclaration = new UnionType([
 ]);
 export const ArrayBindingPattern = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_ArrayBindingPattern)),
-    new ObjectProperty("parent", true, proxy(() => type315)),
+    // new ObjectProperty("parent", true, proxy(() => type315)),
     new ObjectProperty("elements", true, proxy(() => NodeArray)),
     ...commonNodePropertiesSansParent,
 ]);
 export const VariableDeclaration = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_VariableDeclaration)),
-    new ObjectProperty("parent", true, proxy(() => type311)),
+    // new ObjectProperty("parent", true, proxy(() => type311)),
     new ObjectProperty("name", true, proxy(() => BindingName)),
     new ObjectProperty("exclamationToken", false, proxy(() => Token_ExclamationToken)),
     new ObjectProperty("type", false, proxy(() => TypeNode)),
@@ -1233,7 +1236,7 @@ export const VariableDeclaration = new ObjectType(Prototype.NodeObject, [
 ]);
 export const CatchClause = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_CatchClause)),
-    new ObjectProperty("parent", true, proxy(() => TryStatement)),
+    // new ObjectProperty("parent", true, proxy(() => TryStatement)),
     new ObjectProperty("variableDeclaration", false, proxy(() => VariableDeclaration)),
     new ObjectProperty("block", true, proxy(() => Block)),
     ...commonNodePropertiesSansParent,
@@ -1251,7 +1254,7 @@ export const type311 = new UnionType([
 ]);
 export const BindingElement = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_BindingElement)),
-    new ObjectProperty("parent", true, proxy(() => BindingPattern)),
+    // new ObjectProperty("parent", true, proxy(() => BindingPattern)),
     new ObjectProperty("propertyName", false, proxy(() => PropertyName)),
     new ObjectProperty("dotDotDotToken", false, proxy(() => Token_DotDotDotToken)),
     new ObjectProperty("name", true, proxy(() => BindingName)),
@@ -1302,7 +1305,7 @@ export const DeclarationName = new UnionType([
 ]);
 export const TypeParameterDeclaration = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_TypeParameter)),
-    new ObjectProperty("parent", true, proxy(() => TypeParameterDeclaration_Parent)),
+    // new ObjectProperty("parent", true, proxy(() => TypeParameterDeclaration_Parent)),
     new ObjectProperty("name", true, proxy(() => Identifier)),
     new ObjectProperty("constraint", false, proxy(() => TypeNode)),
     new ObjectProperty("default", false, proxy(() => TypeNode)),
@@ -1318,7 +1321,7 @@ export const JSDocTemplateTag = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_JSDocTemplateTag)),
     new ObjectProperty("constraint", false, proxy(() => JSDocTypeExpression)),
     new ObjectProperty("typeParameters", true, proxy(() => NodeArray)),
-    new ObjectProperty("parent", true, proxy(() => JSDocOrJSDocTypeLiteral)),
+    // new ObjectProperty("parent", true, proxy(() => JSDocOrJSDocTypeLiteral)),
     new ObjectProperty("tagName", true, proxy(() => Identifier)),
     new ObjectProperty("comment", false, proxy(() => stringType)),
     ...commonNodePropertiesSansParent,
@@ -1351,7 +1354,7 @@ export const TypeParameterDeclaration_Parent = new UnionType([
 ]);
 export const HeritageClause = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_HeritageClause)),
-    new ObjectProperty("parent", true, proxy(() => HeritageClause_Parent)),
+    // new ObjectProperty("parent", true, proxy(() => HeritageClause_Parent)),
     new ObjectProperty("token", true, proxy(() => numberType)),
     new ObjectProperty("types", true, proxy(() => NodeArray)),
     ...commonNodePropertiesSansParent,
@@ -1374,7 +1377,7 @@ export const TypeElement = new ObjectType(Prototype.NodeObject, [
 ]);
 export const ExpressionWithTypeArguments = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_ExpressionWithTypeArguments)),
-    new ObjectProperty("parent", true, proxy(() => ExpressionWithTypeArguments_Parent)),
+    // new ObjectProperty("parent", true, proxy(() => ExpressionWithTypeArguments_Parent)),
     new ObjectProperty("expression", true, proxy(() => LeftHandSideExpression)),
     new ObjectProperty("typeArguments", false, proxy(() => NodeArray)),
     ...commonNodePropertiesSansParent,
@@ -1382,7 +1385,7 @@ export const ExpressionWithTypeArguments = new ObjectType(Prototype.NodeObject, 
 export const JSDocAugmentsTag = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_JSDocAugmentsTag)),
     new ObjectProperty("class", true, proxy(() => JSDocAugmentsTag_Class)),
-    new ObjectProperty("parent", true, proxy(() => JSDocOrJSDocTypeLiteral)),
+    // new ObjectProperty("parent", true, proxy(() => JSDocOrJSDocTypeLiteral)),
     new ObjectProperty("tagName", true, proxy(() => Identifier)),
     new ObjectProperty("comment", false, proxy(() => stringType)),
     ...commonNodePropertiesSansParent,
@@ -1393,7 +1396,7 @@ export const JSDocAugmentsTag_Class_Expression = new UnionType([
 ]);
 export const JSDocAugmentsTag_Class = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_ExpressionWithTypeArguments)),
-    new ObjectProperty("parent", true, proxy(() => ExpressionWithTypeArguments_Parent)),
+    // new ObjectProperty("parent", true, proxy(() => ExpressionWithTypeArguments_Parent)),
     new ObjectProperty("expression", true, proxy(() => JSDocAugmentsTag_Class_Expression)),
     new ObjectProperty("typeArguments", false, proxy(() => NodeArray)),
     ...commonNodePropertiesSansParent
@@ -1408,7 +1411,7 @@ export const OmittedExpression = new ObjectType(Prototype.NodeObject, [
 ]);
 export const ExportSpecifier = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_ExportSpecifier)),
-    new ObjectProperty("parent", true, proxy(() => NamedExports)),
+    // new ObjectProperty("parent", true, proxy(() => NamedExports)),
     new ObjectProperty("propertyName", false, proxy(() => Identifier)),
     new ObjectProperty("name", true, proxy(() => Identifier)),
     ...commonNodePropertiesSansParent,
@@ -1558,7 +1561,7 @@ export const IdentifierOrPrivateIdentifier = new UnionType([
 ]);
 export const SpreadElement = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_SpreadElement)),
-    new ObjectProperty("parent", true, proxy(() => type402)),
+    // new ObjectProperty("parent", true, proxy(() => type402)),
     new ObjectProperty("expression", true, proxy(() => Expression)),
     ...commonNodePropertiesSansParent,
 ]);
@@ -1686,7 +1689,7 @@ export const BigIntLiteral = new ObjectType(Prototype.NodeObject, [
 ]);
 export const TemplateHead = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_TemplateHead)),
-    new ObjectProperty("parent", true, proxy(() => TemplateExpression)),
+    // new ObjectProperty("parent", true, proxy(() => TemplateExpression)),
     new ObjectProperty("templateFlags", false, proxy(() => numberType)),
     new ObjectProperty("rawText", false, proxy(() => stringType)),
     new ObjectProperty("text", true, proxy(() => stringType)),
@@ -1702,14 +1705,14 @@ export const TemplateExpression = new ObjectType(Prototype.NodeObject, [
 ]);
 export const TemplateSpan = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_TemplateSpan)),
-    new ObjectProperty("parent", true, proxy(() => TemplateExpression)),
+    // new ObjectProperty("parent", true, proxy(() => TemplateExpression)),
     new ObjectProperty("expression", true, proxy(() => Expression)),
     new ObjectProperty("literal", true, proxy(() => type432)),
     ...commonNodePropertiesSansParent,
 ]);
 export const TemplateMiddle = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_TemplateMiddle)),
-    new ObjectProperty("parent", true, proxy(() => TemplateSpan)),
+    // new ObjectProperty("parent", true, proxy(() => TemplateSpan)),
     new ObjectProperty("templateFlags", false, proxy(() => numberType)),
     new ObjectProperty("rawText", false, proxy(() => stringType)),
     new ObjectProperty("text", true, proxy(() => stringType)),
@@ -1719,7 +1722,7 @@ export const TemplateMiddle = new ObjectType(Prototype.NodeObject, [
 ]);
 export const TemplateTail = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_TemplateTail)),
-    new ObjectProperty("parent", true, proxy(() => TemplateSpan)),
+    // new ObjectProperty("parent", true, proxy(() => TemplateSpan)),
     new ObjectProperty("templateFlags", false, proxy(() => numberType)),
     new ObjectProperty("rawText", false, proxy(() => stringType)),
     new ObjectProperty("text", true, proxy(() => stringType)),
@@ -1931,7 +1934,7 @@ export const TaggedTemplateExpression = new ObjectType(Prototype.NodeObject, [
 ]);
 export const JsxOpeningElement = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_JsxOpeningElement)),
-    new ObjectProperty("parent", true, proxy(() => JsxElement)),
+    // new ObjectProperty("parent", true, proxy(() => JsxElement)),
     new ObjectProperty("tagName", true, proxy(() => JsxTagNameExpression)),
     new ObjectProperty("typeArguments", false, proxy(() => NodeArray)),
     new ObjectProperty("attributes", true, proxy(() => JsxAttributes)),
@@ -1946,7 +1949,7 @@ export const JsxElement = new ObjectType(Prototype.NodeObject, [
 ]);
 export const JsxClosingElement = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_JsxClosingElement)),
-    new ObjectProperty("parent", true, proxy(() => JsxElement)),
+    // new ObjectProperty("parent", true, proxy(() => JsxElement)),
     new ObjectProperty("tagName", true, proxy(() => JsxTagNameExpression)),
     ...commonNodePropertiesSansParent,
 ]);
@@ -1964,7 +1967,7 @@ export const JsxTagNameExpression = new UnionType([
 ]);
 export const JsxAttributes = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_JsxAttributes)),
-    new ObjectProperty("parent", true, proxy(() => JsxOpeningLikeElement)),
+    // new ObjectProperty("parent", true, proxy(() => JsxOpeningLikeElement)),
     new ObjectProperty("properties", true, proxy(() => NodeArray)),
     ...commonNodePropertiesSansParent,
 ]);
@@ -1989,21 +1992,21 @@ export const CallLikeExpression = new UnionType([
 ]);
 export const JsxAttribute = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_JsxAttribute)),
-    new ObjectProperty("parent", true, proxy(() => JsxAttributes)),
+    // new ObjectProperty("parent", true, proxy(() => JsxAttributes)),
     new ObjectProperty("name", true, proxy(() => Identifier)),
     new ObjectProperty("initializer", false, proxy(() => type508)),
     ...commonNodePropertiesSansParent,
 ]);
 export const JsxExpression = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_JsxExpression)),
-    new ObjectProperty("parent", true, proxy(() => type506)),
+    // new ObjectProperty("parent", true, proxy(() => type506)),
     new ObjectProperty("dotDotDotToken", false, proxy(() => Token_DotDotDotToken)),
     new ObjectProperty("expression", false, proxy(() => Expression)),
     ...commonNodePropertiesSansParent,
 ]);
 export const JsxSpreadAttribute = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_JsxSpreadAttribute)),
-    new ObjectProperty("parent", true, proxy(() => JsxAttributes)),
+    // new ObjectProperty("parent", true, proxy(() => JsxAttributes)),
     new ObjectProperty("expression", true, proxy(() => Expression)),
     new ObjectProperty("name", false, proxy(() => PropertyName)),
     ...commonNodePropertiesSansParent,
@@ -2026,18 +2029,18 @@ export const JsxFragment = new ObjectType(Prototype.NodeObject, [
 ]);
 export const JsxOpeningFragment = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_JsxOpeningFragment)),
-    new ObjectProperty("parent", true, proxy(() => JsxFragment)),
+    // new ObjectProperty("parent", true, proxy(() => JsxFragment)),
     ...commonNodePropertiesSansParent,
 ]);
 export const JsxClosingFragment = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_JsxClosingFragment)),
-    new ObjectProperty("parent", true, proxy(() => JsxFragment)),
+    // new ObjectProperty("parent", true, proxy(() => JsxFragment)),
     ...commonNodePropertiesSansParent,
 ]);
 export const JsxText = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_JsxText)),
     new ObjectProperty("containsOnlyTriviaWhiteSpaces", true, proxy(() => booleanType)),
-    new ObjectProperty("parent", true, proxy(() => JsxElement)),
+    // new ObjectProperty("parent", true, proxy(() => JsxElement)),
     new ObjectProperty("text", true, proxy(() => stringType)),
     new ObjectProperty("isUnterminated", false, proxy(() => booleanType)),
     new ObjectProperty("hasExtendedUnicodeEscape", false, proxy(() => booleanType)),
@@ -2130,7 +2133,7 @@ export const MissingDeclaration = new ObjectType(Prototype.NodeObject, [
 ]);
 export const CaseClause = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_CaseClause)),
-    new ObjectProperty("parent", true, proxy(() => CaseBlock)),
+    // new ObjectProperty("parent", true, proxy(() => CaseBlock)),
     new ObjectProperty("expression", true, proxy(() => Expression)),
     new ObjectProperty("statements", true, proxy(() => NodeArray)),
     new ObjectProperty("fallthroughFlowNode", false, proxy(() => FlowNode)),
@@ -2138,7 +2141,7 @@ export const CaseClause = new ObjectType(Prototype.NodeObject, [
 ]);
 export const CaseBlock = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_CaseBlock)),
-    new ObjectProperty("parent", true, proxy(() => SwitchStatement)),
+    // new ObjectProperty("parent", true, proxy(() => SwitchStatement)),
     new ObjectProperty("clauses", true, proxy(() => NodeArray)),
     ...commonNodePropertiesSansParent,
 ]);
@@ -2151,7 +2154,7 @@ export const SwitchStatement = new ObjectType(Prototype.NodeObject, [
 ]);
 export const DefaultClause = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_DefaultClause)),
-    new ObjectProperty("parent", true, proxy(() => CaseBlock)),
+    // new ObjectProperty("parent", true, proxy(() => CaseBlock)),
     new ObjectProperty("statements", true, proxy(() => NodeArray)),
     new ObjectProperty("fallthroughFlowNode", false, proxy(() => FlowNode)),
     ...commonNodePropertiesSansParent,
@@ -2232,7 +2235,7 @@ export const ThrowStatement = new ObjectType(Prototype.NodeObject, [
     ...commonNodeProperties,
 ]);
 export const JSDocTypedefTag = new ObjectType(Prototype.NodeObject, [
-    new ObjectProperty("parent", true, proxy(() => JSDoc)),
+    // new ObjectProperty("parent", true, proxy(() => JSDoc)),
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_JSDocTypedefTag)),
     new ObjectProperty("fullName", false, proxy(() => type582)),
     new ObjectProperty("name", false, proxy(() => Identifier)),
@@ -2250,7 +2253,7 @@ export const type583 = new UnionType([
     proxy(() => JSDocTypeLiteral)
 ]);
 export const JSDocCallbackTag = new ObjectType(Prototype.NodeObject, [
-    new ObjectProperty("parent", true, proxy(() => JSDoc)),
+    // new ObjectProperty("parent", true, proxy(() => JSDoc)),
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_JSDocCallbackTag)),
     new ObjectProperty("fullName", false, proxy(() => type586)),
     new ObjectProperty("name", false, proxy(() => Identifier)),
@@ -2274,7 +2277,7 @@ export const type589 = new ArrayType(proxy(() => JSDocTemplateTag), []);
 export const type590 = new ArrayType(proxy(() => JSDocParameterTag), []);
 export const JSDocParameterTag = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_JSDocParameterTag)),
-    new ObjectProperty("parent", true, proxy(() => JSDoc)),
+    // new ObjectProperty("parent", true, proxy(() => JSDoc)),
     new ObjectProperty("name", true, proxy(() => EntityName)),
     new ObjectProperty("typeExpression", false, proxy(() => JSDocTypeExpression)),
     new ObjectProperty("isNameFirst", true, proxy(() => booleanType)),
@@ -2286,7 +2289,7 @@ export const JSDocParameterTag = new ObjectType(Prototype.NodeObject, [
 export const JSDocReturnTag = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_JSDocReturnTag)),
     new ObjectProperty("typeExpression", false, proxy(() => JSDocTypeExpression)),
-    new ObjectProperty("parent", true, proxy(() => JSDocOrJSDocTypeLiteral)),
+    // new ObjectProperty("parent", true, proxy(() => JSDocOrJSDocTypeLiteral)),
     new ObjectProperty("tagName", true, proxy(() => Identifier)),
     new ObjectProperty("comment", false, proxy(() => stringType)),
     ...commonNodePropertiesSansParent,
@@ -2354,7 +2357,7 @@ export const ModuleBody = new UnionType([
 export const AmbientModuleDeclaration = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("body", false, proxy(() => ModuleBlock)),
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_ModuleDeclaration)),
-    new ObjectProperty("parent", true, proxy(() => type603)),
+    // new ObjectProperty("parent", true, proxy(() => type603)),
     new ObjectProperty("name", true, proxy(() => ModuleName)),
     ...commonNodePropertiesSansParent,
     ...jsDocContainerProperties,
@@ -2368,7 +2371,7 @@ export const type603 = new UnionType([
 ]);
 export const ImportDeclaration = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_ImportDeclaration)),
-    new ObjectProperty("parent", true, proxy(() => type608)),
+    // new ObjectProperty("parent", true, proxy(() => type608)),
     new ObjectProperty("importClause", false, proxy(() => ImportClause)),
     new ObjectProperty("moduleSpecifier", true, proxy(() => Expression)),
     ...commonNodePropertiesSansParent,
@@ -2379,7 +2382,7 @@ export const type608 = new UnionType([
 ]);
 export const ImportClause = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_ImportClause)),
-    new ObjectProperty("parent", true, proxy(() => ImportDeclaration)),
+    // new ObjectProperty("parent", true, proxy(() => ImportDeclaration)),
     new ObjectProperty("isTypeOnly", true, proxy(() => booleanType)),
     new ObjectProperty("name", false, proxy(() => Identifier)),
     new ObjectProperty("namedBindings", false, proxy(() => NamedImportBindings)),
@@ -2387,13 +2390,13 @@ export const ImportClause = new ObjectType(Prototype.NodeObject, [
 ]);
 export const NamespaceImport = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_NamespaceImport)),
-    new ObjectProperty("parent", true, proxy(() => ImportClause)),
+    // new ObjectProperty("parent", true, proxy(() => ImportClause)),
     new ObjectProperty("name", true, proxy(() => Identifier)),
     ...commonNodePropertiesSansParent,
 ]);
 export const NamedImports = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_NamedImports)),
-    new ObjectProperty("parent", true, proxy(() => ImportClause)),
+    // new ObjectProperty("parent", true, proxy(() => ImportClause)),
     new ObjectProperty("elements", true, proxy(() => NodeArray)),
     ...commonNodePropertiesSansParent,
 ]);
@@ -2403,7 +2406,7 @@ export const NamedImportBindings = new UnionType([
 ]);
 export const ImportSpecifier = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_ImportSpecifier)),
-    new ObjectProperty("parent", true, proxy(() => NamedImports)),
+    // new ObjectProperty("parent", true, proxy(() => NamedImports)),
     new ObjectProperty("propertyName", false, proxy(() => Identifier)),
     new ObjectProperty("name", true, proxy(() => Identifier)),
     ...commonNodePropertiesSansParent,
@@ -2429,7 +2432,7 @@ export const TypeOnlyCompatibleAliasDeclaration = new UnionType([
 ]);
 export const ExportAssignment = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_ExportAssignment)),
-    new ObjectProperty("parent", true, proxy(() => SourceFile)),
+    // new ObjectProperty("parent", true, proxy(() => SourceFile)),
     new ObjectProperty("isExportEquals", false, proxy(() => booleanType)),
     new ObjectProperty("expression", true, proxy(() => Expression)),
     new ObjectProperty("name", false, proxy(() => type625)),
@@ -2499,55 +2502,55 @@ export const JSDocTypeReferencingNode = new UnionType([
 ]);
 export const JSDocUnknownTag = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_JSDocTag)),
-    new ObjectProperty("parent", true, proxy(() => JSDocOrJSDocTypeLiteral)),
+    // new ObjectProperty("parent", true, proxy(() => JSDocOrJSDocTypeLiteral)),
     new ObjectProperty("tagName", true, proxy(() => Identifier)),
     new ObjectProperty("comment", false, proxy(() => stringType)),
     ...commonNodePropertiesSansParent,
 ]);
 export const JSDocAuthorTag = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_JSDocAuthorTag)),
-    new ObjectProperty("parent", true, proxy(() => JSDocOrJSDocTypeLiteral)),
+    // new ObjectProperty("parent", true, proxy(() => JSDocOrJSDocTypeLiteral)),
     new ObjectProperty("tagName", true, proxy(() => Identifier)),
     new ObjectProperty("comment", false, proxy(() => stringType)),
     ...commonNodePropertiesSansParent,
 ]);
 export const JSDocClassTag = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_JSDocClassTag)),
-    new ObjectProperty("parent", true, proxy(() => JSDocOrJSDocTypeLiteral)),
+    // new ObjectProperty("parent", true, proxy(() => JSDocOrJSDocTypeLiteral)),
     new ObjectProperty("tagName", true, proxy(() => Identifier)),
     new ObjectProperty("comment", false, proxy(() => stringType)),
     ...commonNodePropertiesSansParent,
 ]);
 export const JSDocPublicTag = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_JSDocPublicTag)),
-    new ObjectProperty("parent", true, proxy(() => JSDocOrJSDocTypeLiteral)),
+    // new ObjectProperty("parent", true, proxy(() => JSDocOrJSDocTypeLiteral)),
     new ObjectProperty("tagName", true, proxy(() => Identifier)),
     new ObjectProperty("comment", false, proxy(() => stringType)),
     ...commonNodePropertiesSansParent,
 ]);
 export const JSDocPrivateTag = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_JSDocPrivateTag)),
-    new ObjectProperty("parent", true, proxy(() => JSDocOrJSDocTypeLiteral)),
+    // new ObjectProperty("parent", true, proxy(() => JSDocOrJSDocTypeLiteral)),
     new ObjectProperty("tagName", true, proxy(() => Identifier)),
     new ObjectProperty("comment", false, proxy(() => stringType)),
     ...commonNodePropertiesSansParent,
 ]);
 export const JSDocProtectedTag = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_JSDocProtectedTag)),
-    new ObjectProperty("parent", true, proxy(() => JSDocOrJSDocTypeLiteral)),
+    // new ObjectProperty("parent", true, proxy(() => JSDocOrJSDocTypeLiteral)),
     new ObjectProperty("tagName", true, proxy(() => Identifier)),
     new ObjectProperty("comment", false, proxy(() => stringType)),
     ...commonNodePropertiesSansParent,
 ]);
 export const JSDocReadonlyTag = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_JSDocReadonlyTag)),
-    new ObjectProperty("parent", true, proxy(() => JSDocOrJSDocTypeLiteral)),
+    // new ObjectProperty("parent", true, proxy(() => JSDocOrJSDocTypeLiteral)),
     new ObjectProperty("tagName", true, proxy(() => Identifier)),
     new ObjectProperty("comment", false, proxy(() => stringType)),
     ...commonNodePropertiesSansParent,
 ]);
 export const JSDocEnumTag = new ObjectType(Prototype.NodeObject, [
-    new ObjectProperty("parent", true, proxy(() => JSDoc)),
+    // new ObjectProperty("parent", true, proxy(() => JSDoc)),
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_JSDocEnumTag)),
     new ObjectProperty("typeExpression", false, proxy(() => JSDocTypeExpression)),
     new ObjectProperty("tagName", true, proxy(() => Identifier)),
@@ -2557,7 +2560,7 @@ export const JSDocEnumTag = new ObjectType(Prototype.NodeObject, [
 export const JSDocThisTag = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_JSDocThisTag)),
     new ObjectProperty("typeExpression", false, proxy(() => JSDocTypeExpression)),
-    new ObjectProperty("parent", true, proxy(() => JSDocOrJSDocTypeLiteral)),
+    // new ObjectProperty("parent", true, proxy(() => JSDocOrJSDocTypeLiteral)),
     new ObjectProperty("tagName", true, proxy(() => Identifier)),
     new ObjectProperty("comment", false, proxy(() => stringType)),
     ...commonNodePropertiesSansParent,
@@ -2565,14 +2568,14 @@ export const JSDocThisTag = new ObjectType(Prototype.NodeObject, [
 export const JSDocTypeTag = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_JSDocTypeTag)),
     new ObjectProperty("typeExpression", true, proxy(() => JSDocTypeExpression)),
-    new ObjectProperty("parent", true, proxy(() => JSDocOrJSDocTypeLiteral)),
+    // new ObjectProperty("parent", true, proxy(() => JSDocOrJSDocTypeLiteral)),
     new ObjectProperty("tagName", true, proxy(() => Identifier)),
     new ObjectProperty("comment", false, proxy(() => stringType)),
     ...commonNodePropertiesSansParent,
 ]);
 export const JSDocPropertyTag = new ObjectType(Prototype.NodeObject, [
     new ObjectProperty("kind", true, proxy(() => SyntaxKind_JSDocPropertyTag)),
-    new ObjectProperty("parent", true, proxy(() => JSDoc)),
+    // new ObjectProperty("parent", true, proxy(() => JSDoc)),
     new ObjectProperty("name", true, proxy(() => EntityName)),
     new ObjectProperty("typeExpression", false, proxy(() => JSDocTypeExpression)),
     new ObjectProperty("isNameFirst", true, proxy(() => booleanType)),

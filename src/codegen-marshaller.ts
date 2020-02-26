@@ -15,9 +15,15 @@ async function main() {
     }).filter(v => v);
 
     let acc = `
-        function marshallBooleanType(v) {}
-        function marshallNumberType(v) {}
-        function marshallStringType(v) {}
+        function marshallBooleanType(v) {
+            assert(typeof v === 'boolean');
+        }
+        function marshallNumberType(v) {
+            assert(typeof v === 'number');
+        }
+        function marshallStringType(v) {
+            assert(typeof v === 'string');
+        }
         const NodeObject = function() {};
         //import assert from 'assert';
         function assert (mustBeTruthy) {}
@@ -42,11 +48,7 @@ async function main() {
 
     function getMarshallerFunctionBody(type: Type) {
         let acc = '';
-        if(type instanceof ArrayType) {
-            // TODO delegate to ObjectType marshaller
-            // Then marshall the length, then marshall each item
-        } else if(type instanceof ObjectType) {
-            acc += `assert(value instanceof ${ prototypeIdentifier(type.prototype) });\n`;
+        function emitMarshallObjectPropertiesCode(type: ObjectType) {
             for(const prop of type.properties) {
                 const getExpression = `value${ Number.isNaN(+prop.name) ? `.${ prop.name }` : `[${ prop.name }]` }`;
                 if(prop.required) {
@@ -64,37 +66,81 @@ async function main() {
                     `;
                 }
             }
+        }
+        if(type instanceof ArrayType) {
+            // TODO delegate to ObjectType marshaller
+            // Then marshall the length, then marshall each item
+            acc += `
+                marshallNumberType(value.length);
+                for(const item of value) {
+                    ${ marshallerFnName(type.items) }(item);
+                }
+            `;
+            emitMarshallObjectPropertiesCode(type);
+        } else if(type instanceof ObjectType) {
+            acc += `assert(value instanceof ${ prototypeIdentifier(type.prototype) });\n`;
+            emitMarshallObjectPropertiesCode(type);
         } else if(type instanceof UnionType) {
             // TODO emit runtime classification logic
             // emit number indicating which type within the Union is being serialized
             // emit value
-            acc += outdent `
-                switch(Object.getPrototypeOf(value)) {
-            `;
             const instructions = type.getClassificationInstructions();
+            if(instructions.primitives.boolean || instructions.primitives.number || instructions.primitives.string) {
+                acc += `const typeOf = typeof value;`;
+            }
+            for(const prim of ['boolean', 'string', 'number']) {
+                if(instructions.primitives[prim]) {
+                    acc += `
+                        if(typeOf === '${ prim }') {
+                            marshall${ capitalize(prim) }Type(value);
+                            return;
+                        }
+                    `;
+                }
+            }
+            acc += `
+                switch(Object.getPrototypeOf(value)) {
+                    case Array:
+                    // TODO only if there's instructions.arrayType
+                    break;
+            `;
             for(const [proto, protoInstructions] of instructions.prototypeMap.entries()) {
-                acc += outdent `
-                    ${outdent}
-                        case ${ prototypeIdentifier(proto) }:
-                            // TODO
+                acc += `
+                    case ${ prototypeIdentifier(proto) }:
+                        // TODO
+
                 `;
-                acc += outdent `
-                    ${outdent}
-                        break;
+                acc += `
+                    break;
 
                 `;
             }
             acc += outdent `
-                ${ outdent }
-                    default:
-                        throw new Error('unrecognized node in AST');
+                default:
+                    throw new Error('unrecognized node in AST');
                 }
             `;
         } else if(type instanceof LiteralType) {
             // skip; literals do not need to be marshalled since their value is locked and can be hardcoded in the unmarshaller
+            acc += `
+                assert(value === ${ stringify(type.value) });
+            `;
         } else if(type instanceof PrimitiveType) {
             // TODO marshall the value.
             // Do *NOT* marshall `typeof` because that is already known at this point, so unmarshaller will know what data type to expect.
+            switch(type.name) {
+                case 'number':
+                    acc += `marshallNumberType(value);`;
+                    break;
+                case 'string':
+                    acc += `marshallStringType(value);`;
+                    break;
+                case 'boolean':
+                    acc += `marshallBooleanType(value);`;
+                    break;
+                default:
+                    throw new Error(`Unexpected primitive type ${ type.name }`);
+            }
         }
         return acc;
     }

@@ -89,7 +89,7 @@ export class UnionType extends AbstractType {
                 number: boolean,
             },
             literals: LiteralType[],
-            arrayTypes: ArrayType[],
+            arrayType: ArrayType | undefined,
             prototypeMap: Map<Prototype, ClassificationInstructionsForPrototype>;
         }
         interface ClassificationInstructionsForPrototype {
@@ -100,14 +100,16 @@ export class UnionType extends AbstractType {
             prototypeMap: new Map(),
             primitives: { boolean: false, number: false, string: false },
             literals: [],
-            arrayTypes: []
+            arrayType: undefined
         };
         // iterate all types in union, grouping into buckets by prototype, further classifying by kind
         this.forEachType(t => {
             if (t instanceof PrimitiveType) instructions.primitives[t.name] = true;
             else if (t instanceof LiteralType) instructions.literals.push(t);
-            else if (t instanceof ArrayType) instructions.arrayTypes.push(t);
-            else {
+            else if (t instanceof ArrayType) {
+                assert(!instructions.arrayType);
+                instructions.arrayType = t;
+            } else {
                 if (!(t instanceof ObjectType)) {
                     throw new Error('unexpected type');
                 }
